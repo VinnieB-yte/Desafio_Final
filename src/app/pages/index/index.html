@@ -1,0 +1,722 @@
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface-dim/85 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
+  <div class="h-20 w-full px-space-lg lg:px-margin flex items-center justify-between gap-space-md">
+    <div class="flex items-center gap-space-lg shrink-0">
+      <a class="flex items-center gap-space-sm group" href="#">
+        <img alt="Grimório RPG Logo" class="h-8 w-auto object-contain" src="img/grim_rio_nexus_logo.png" />
+        <span class="font-headline-sm text-headline-sm text-primary tracking-tight transition-colors group-hover:text-primary-fixed">Grimório Nexus</span>
+      </a>
+      <nav class="hidden xl:flex items-center gap-space-xs">
+        <a aria-current="page" class="px-space-md py-space-sm transition-all bg-surface-container text-primary font-bold rounded-lg shadow-inner" href="#">Início &amp; Sistemas</a>
+        <a class="font-label-md text-label-md px-space-md py-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-all" href="#">Criar Personagem</a>
+        <a class="font-label-md text-label-md px-space-md py-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-all" href="#">Meus Personagens</a>
+        <a class="font-label-md text-label-md px-space-md py-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-all" href="#">Comunidade &amp; Fóruns</a>
+      </nav>
+    </div>
+    <div class="flex items-center gap-space-md shrink-0">
+      <div class="hidden md:flex items-center bg-surface-container-lowest/80 rounded-lg px-space-md py-space-xs gap-space-sm w-48 lg:w-64">
+        <span class="material-symbols-outlined text-outline text-lg">search</span>
+        <input class="bg-transparent border-none outline-none font-body-md text-body-md text-on-surface placeholder:text-outline-variant w-full" placeholder="Buscar sistemas, magias ou wikis..." type="text" />
+      </div>
+      <div class="hidden sm:flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs rounded-lg">
+        <div class="flex flex-col text-right">
+          <span class="font-label-sm text-label-sm uppercase text-outline">Plano Gratuito</span>
+          <span class="font-label-sm text-label-sm text-on-surface-variant font-bold">2/3 Personas</span>
+        </div>
+        <a class="font-label-sm text-label-sm uppercase px-space-md py-space-xs rounded bg-primary-container text-on-primary-container font-bold hover:bg-primary transition-all shadow-[0_0_12px_rgba(245,158,11,0.25)]" href="#">Virar Premium</a>
+      </div>
+      <div class="flex items-center gap-space-sm pl-space-sm bg-surface-container-low/60 rounded-full py-space-xs pr-space-md">
+        <img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_-efLgb9c_y6dfVA7DJt4sL-wV1by5xLfL5ovXStL7ZwTfFkLM5e_A3rR2_m49NwL7BP9Dspxq9HtCa_LEj3EOXOtxXOB9xxMHlW6lCWWmGTDFCyTnyYrb6K7aoC-FncUShvu19GdJwaFWx0LsA0sRVasraFBcgco1q_ccjK4djkjpiMuHp7bCIMngwQzbucT0l0ebdaK7TcXLGGl8-UqHd6wrgRyMCSdSfgbVpY5jTuO239T3v1A8A" />
+        <div class="hidden lg:flex flex-col">
+          <span class="font-label-md text-label-md text-on-surface leading-tight">Morgana Vale</span>
+          <span class="font-label-sm text-label-sm text-outline-variant leading-none">ela/dela</span>
+        </div>
+        <button class="material-symbols-outlined text-outline hover:text-on-surface transition-colors text-base">expand_more</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="w-full pt-20 bg-background min-h-screen">
+  <div class="flex flex-col w-full">
+    <!-- Hero Section -->
+    <div class="relative w-full overflow-hidden">
+      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[450px] bg-gradient-to-b from-primary-container/15 via-secondary-container/10 to-transparent blur-3xl pointer-events-none rounded-full"></div>
+      <div class="w-full max-w-7xl mx-auto px-space-lg lg:px-margin pt-space-xl pb-space-lg">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
+          <div class="max-w-3xl space-y-space-sm">
+            <div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-high text-primary">
+              <span class="material-symbols-outlined text-sm">auto_stories</span>
+              <span class="font-label-sm text-label-sm uppercase tracking-wider">Compêndio &amp; Fichas Multi-Sistema</span>
+            </div>
+            <h1 class="font-display-lg text-display-lg text-on-surface leading-none tracking-tight">
+              O santuário dos seus <span class="text-primary italic">personagens</span> de RPG de mesa.
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl pt-space-xs">
+              Armazene fichas de qualquer sistema, consulte wikis em tempo real e conecte-se a milhares de mestres e jogadores pelo mundo.
+            </p>
+          </div>
+          <div class="flex items-center gap-space-lg shrink-0 bg-surface-container-low/70 backdrop-blur-md p-space-md rounded-xl">
+            <div class="flex flex-col">
+              <span class="font-headline-sm text-headline-sm text-primary font-bold">20+</span>
+              <span class="font-label-sm text-label-sm uppercase text-outline">Sistemas Oficiais</span>
+            </div>
+            <div class="w-px h-8 bg-surface-variant"></div>
+            <div class="flex flex-col">
+              <span class="font-headline-sm text-headline-sm text-secondary font-bold">142k</span>
+              <span class="font-label-sm text-label-sm uppercase text-outline">Fichas Ativas</span>
+            </div>
+            <div class="w-px h-8 bg-surface-variant"></div>
+            <div class="flex flex-col">
+              <span class="font-headline-sm text-headline-sm text-on-surface font-bold">99.8%</span>
+              <span class="font-label-sm text-label-sm uppercase text-outline">Disponibilidade</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel Section -->
+    <section class="w-full max-w-7xl mx-auto px-space-lg lg:px-margin my-space-lg">
+      <div class="flex items-center justify-between mb-space-md">
+        <div class="flex items-center gap-space-sm">
+          <span class="material-symbols-outlined text-primary">swords</span>
+          <h2 class="font-headline-sm text-headline-sm text-on-surface">Principais Sistemas em Destaque</h2>
+        </div>
+        <div class="flex items-center gap-space-sm">
+          <button (click)="prevSlide()" aria-label="Sistema anterior" class="w-10 h-10 rounded-full bg-surface-container-high hover:bg-surface-bright flex items-center justify-center text-on-surface transition-all active:scale-95 shadow-md">
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <button (click)="nextSlide()" aria-label="Próximo sistema" class="w-10 h-10 rounded-full bg-surface-container-high hover:bg-surface-bright flex items-center justify-center text-on-surface transition-all active:scale-95 shadow-md">
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="relative overflow-hidden rounded-xl bg-surface-container-lowest">
+        <div class="flex transition-transform duration-500 ease-out" [style.transform]="'translateX(-' + (currentSlide * 100) + '%)'">
+          @for (slide of slides; track slide.title) {
+            <div class="min-w-full flex flex-col lg:flex-row relative">
+              <div class="w-full lg:w-3/5 h-80 lg:h-[420px] relative overflow-hidden">
+                <img class="w-full h-full object-cover" [src]="slide.image" [alt]="slide.title" />
+                <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-l from-surface-container-lowest via-surface-container-lowest/60 to-transparent"></div>
+              </div>
+              <div class="w-full lg:w-2/5 p-space-lg lg:p-space-xl flex flex-col justify-center relative bg-surface-container-lowest">
+                <span class="w-fit font-label-sm text-label-sm uppercase px-space-sm py-space-xs rounded bg-surface-container font-bold" [ngClass]="slide.tagColorClass">
+                  {{ slide.tag }}
+                </span>
+                <h3 class="font-headline-lg text-headline-lg text-on-surface mt-space-sm">{{ slide.title }}</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-space-sm leading-relaxed">
+                  {{ slide.description }}
+                </p>
+                <div class="flex flex-wrap gap-space-sm mt-space-lg">
+                  <a class="px-space-lg py-space-sm rounded-lg bg-primary text-on-primary font-title-lg text-title-lg hover:bg-primary-fixed-dim transition-all shadow-md flex items-center gap-space-xs" href="#">
+                    <span class="material-symbols-outlined text-base">{{ slide.btnIcon }}</span> {{ slide.btnText }}
+                  </a>
+                  <a class="px-space-md py-space-sm rounded-lg bg-surface-container text-on-surface hover:bg-surface-bright transition-all flex items-center gap-space-xs font-label-md text-label-md" [href]="slide.wikiUrl" target="_blank" rel="noopener">
+                    <span class="material-symbols-outlined text-base">menu_book</span> {{ slide.wikiName }}
+                  </a>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Indicators -->
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10 bg-surface-container-lowest/70 px-3 py-1.5 rounded-full backdrop-blur-md">
+          @for (slide of slides; track $index) {
+            <button (click)="goToSlide($index)" class="h-1.5 rounded-full transition-all" [ngClass]="$index === currentSlide ? 'w-6 bg-primary' : 'w-2 bg-surface-variant hover:bg-on-surface-variant'"></button>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Attributes Preview Module -->
+    <section class="w-full max-w-7xl mx-auto px-space-lg lg:px-margin my-space-xl">
+      <div class="bg-surface-container-low rounded-xl p-space-lg lg:p-space-xl shadow-xl">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-space-lg">
+          <div>
+            <span class="font-label-sm text-label-sm uppercase text-primary tracking-wider">Mecânicas da Ficha</span>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface">Estrutura de Atributos por Sistema</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+              Cada sistema possui regras automáticas calculadas instantaneamente no Grimório durante o preenchimento.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-space-xs bg-surface-container-lowest p-space-xs rounded-lg self-start">
+            <button (click)="selectTab('dnd5e')" class="px-space-md py-space-xs rounded font-label-md text-label-md font-bold transition-all" [ngClass]="activeTab === 'dnd5e' ? 'bg-primary-container text-on-primary-container shadow' : 'text-on-surface-variant hover:text-on-surface'">D&amp;D 5e</button>
+            <button (click)="selectTab('t20')" class="px-space-md py-space-xs rounded font-label-md text-label-md font-bold transition-all" [ngClass]="activeTab === 't20' ? 'bg-primary-container text-on-primary-container shadow' : 'text-on-surface-variant hover:text-on-surface'">Tormenta20</button>
+            <button (click)="selectTab('coc')" class="px-space-md py-space-xs rounded font-label-md text-label-md font-bold transition-all" [ngClass]="activeTab === 'coc' ? 'bg-primary-container text-on-primary-container shadow' : 'text-on-surface-variant hover:text-on-surface'">Call of Cthulhu</button>
+            <button (click)="selectTab('v5')" class="px-space-md py-space-xs rounded font-label-md text-label-md font-bold transition-all" [ngClass]="activeTab === 'v5' ? 'bg-primary-container text-on-primary-container shadow' : 'text-on-surface-variant hover:text-on-surface'">Vampiro V5</button>
+          </div>
+        </div>
+
+        <div class="relative min-h-[220px]">
+          <!-- Panel 1: D&D 5e -->
+          @if (activeTab === 'dnd5e') {
+            <div class="flex flex-col gap-space-lg">
+              <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-space-md">
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center">
+                  <span class="font-label-sm text-label-sm uppercase text-primary">FOR</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Força</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Ataques corpo a corpo &amp; carga física</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-primary bg-surface-container-highest px-2 py-0.5 rounded">+3 (16)</span>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center">
+                  <span class="font-label-sm text-label-sm uppercase text-primary">DES</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Destreza</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Iniciativa, esquiva &amp; armas de precisão</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-primary bg-surface-container-highest px-2 py-0.5 rounded">+2 (14)</span>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center">
+                  <span class="font-label-sm text-label-sm uppercase text-primary">CON</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Constituição</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Pontos de vida &amp; testes de vigor</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-primary bg-surface-container-highest px-2 py-0.5 rounded">+2 (15)</span>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center">
+                  <span class="font-label-sm text-label-sm uppercase text-primary">INT</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Inteligência</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Arcanismo, lógica, história &amp; invenções</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-primary bg-surface-container-highest px-2 py-0.5 rounded">+0 (10)</span>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center">
+                  <span class="font-label-sm text-label-sm uppercase text-primary">SAB</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Sabedoria</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Percepção passiva, intuição &amp; medicina</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-primary bg-surface-container-highest px-2 py-0.5 rounded">+1 (12)</span>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center">
+                  <span class="font-label-sm text-label-sm uppercase text-primary">CAR</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Carisma</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Persuasão, intimidação &amp; liderança</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-primary bg-surface-container-highest px-2 py-0.5 rounded">-1 (8)</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-end">
+                <a class="px-space-lg py-space-sm rounded-lg bg-primary text-on-primary font-title-lg text-title-lg hover:bg-primary-fixed-dim transition-all shadow-md flex items-center gap-space-xs" href="#">
+                  <span class="material-symbols-outlined">edit_square</span> Iniciar Criação em D&amp;D 5e
+                </a>
+              </div>
+            </div>
+          }
+
+          <!-- Panel 2: Tormenta20 -->
+          @if (activeTab === 't20') {
+            <div class="flex flex-col gap-space-lg">
+              <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-space-md">
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center">
+                  <span class="font-label-sm text-label-sm uppercase text-primary">FOR</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Força</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Poder físico &amp; dano corpo a corpo</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-primary bg-surface-container-highest px-2 py-0.5 rounded">+4 mod</span>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center">
+                  <span class="font-label-sm text-label-sm uppercase text-primary">DES</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Destreza</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Agilidade, reflexos e pontaria</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-primary bg-surface-container-highest px-2 py-0.5 rounded">+2 mod</span>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center">
+                  <span class="font-label-sm text-label-sm uppercase text-primary">CON</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Constituição</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Vigor, fôlego e pontos de vida</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-primary bg-surface-container-highest px-2 py-0.5 rounded">+3 mod</span>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center">
+                  <span class="font-label-sm text-label-sm uppercase text-primary">INT</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Inteligência</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Conhecimento e perícias treinadas</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-primary bg-surface-container-highest px-2 py-0.5 rounded">+1 mod</span>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center">
+                  <span class="font-label-sm text-label-sm uppercase text-primary">SAB</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Sabedoria</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Sensibilidade divina e percepção</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-primary bg-surface-container-highest px-2 py-0.5 rounded">+0 mod</span>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center">
+                  <span class="font-label-sm text-label-sm uppercase text-primary">CAR</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Carisma</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Presença e canalização mágica</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-primary bg-surface-container-highest px-2 py-0.5 rounded">-1 mod</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-end">
+                <a class="px-space-lg py-space-sm rounded-lg bg-primary text-on-primary font-title-lg text-title-lg hover:bg-primary-fixed-dim transition-all shadow-md flex items-center gap-space-xs" href="#">
+                  <span class="material-symbols-outlined">edit_square</span> Iniciar Criação em Tormenta20
+                </a>
+              </div>
+            </div>
+          }
+
+          <!-- Panel 3: Call of Cthulhu -->
+          @if (activeTab === 'coc') {
+            <div class="flex flex-col gap-space-lg">
+              <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-space-md">
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center">
+                  <span class="font-label-sm text-label-sm uppercase text-secondary">FOR</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Força</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Percentual d100</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-secondary bg-surface-container-highest px-2 py-0.5 rounded">60%</span>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center">
+                  <span class="font-label-sm text-label-sm uppercase text-secondary">CON</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Constituição</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Resistência física</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-secondary bg-surface-container-highest px-2 py-0.5 rounded">50%</span>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center">
+                  <span class="font-label-sm text-label-sm uppercase text-secondary">TAM</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Tamanho</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Massa corpórea</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-secondary bg-surface-container-highest px-2 py-0.5 rounded">65%</span>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center">
+                  <span class="font-label-sm text-label-sm uppercase text-secondary">DES</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Destreza</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Coordenação motora</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-secondary bg-surface-container-highest px-2 py-0.5 rounded">70%</span>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center">
+                  <span class="font-label-sm text-label-sm uppercase text-secondary">APA</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Aparência</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Charme social</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-secondary bg-surface-container-highest px-2 py-0.5 rounded">45%</span>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center">
+                  <span class="font-label-sm text-label-sm uppercase text-secondary">EDU</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Educação</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Conhecimento formal</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-secondary bg-surface-container-highest px-2 py-0.5 rounded">80%</span>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center">
+                  <span class="font-label-sm text-label-sm uppercase text-secondary">INT</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Inteligência</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Ideia e raciocínio rápido</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-secondary bg-surface-container-highest px-2 py-0.5 rounded">75%</span>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center">
+                  <span class="font-label-sm text-label-sm uppercase text-secondary">POD</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Poder</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Força anímica e mística</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-secondary bg-surface-container-highest px-2 py-0.5 rounded">55%</span>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center col-span-2 sm:col-span-1 lg:col-span-2 border-l-2 border-secondary/40">
+                  <span class="font-label-sm text-label-sm uppercase text-secondary font-bold">SAN</span>
+                  <span class="font-headline-md text-headline-md text-secondary font-bold mt-1">Sanidade Inicial</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Equivalente ao Poder (POD)</span>
+                  <span class="mt-2 text-xs font-mono font-bold text-surface-dim bg-secondary px-3 py-0.5 rounded">55 / 99 Max</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-end">
+                <a class="px-space-lg py-space-sm rounded-lg bg-primary text-on-primary font-title-lg text-title-lg hover:bg-primary-fixed-dim transition-all shadow-md flex items-center gap-space-xs" href="#">
+                  <span class="material-symbols-outlined">psychology</span> Iniciar Criação em Call of Cthulhu
+                </a>
+              </div>
+            </div>
+          }
+
+          <!-- Panel 4: Vampiro V5 -->
+          @if (activeTab === 'v5') {
+            <div class="flex flex-col gap-space-lg">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+                <!-- Físicos -->
+                <div class="bg-surface-container p-space-md rounded-lg space-y-space-sm">
+                  <div class="flex items-center justify-between pb-1 border-b border-surface-variant">
+                    <span class="font-label-sm text-label-sm uppercase text-primary font-bold">Atributos Físicos</span>
+                    <span class="material-symbols-outlined text-sm text-outline">fitness_center</span>
+                  </div>
+                  <div class="flex justify-between items-center text-body-md">
+                    <span>Força</span>
+                    <div class="flex gap-1">
+                      <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-surface-variant"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-surface-variant"></span>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-center text-body-md">
+                    <span>Destreza</span>
+                    <div class="flex gap-1">
+                      <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-surface-variant"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-surface-variant"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-surface-variant"></span>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-center text-body-md">
+                    <span>Vigor</span>
+                    <div class="flex gap-1">
+                      <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-surface-variant"></span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Sociais -->
+                <div class="bg-surface-container p-space-md rounded-lg space-y-space-sm">
+                  <div class="flex items-center justify-between pb-1 border-b border-surface-variant">
+                    <span class="font-label-sm text-label-sm uppercase text-secondary font-bold">Atributos Sociais</span>
+                    <span class="material-symbols-outlined text-sm text-outline">record_voice_over</span>
+                  </div>
+                  <div class="flex justify-between items-center text-body-md">
+                    <span>Carisma</span>
+                    <div class="flex gap-1">
+                      <span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-surface-variant"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-surface-variant"></span>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-center text-body-md">
+                    <span>Manipulação</span>
+                    <div class="flex gap-1">
+                      <span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-surface-variant"></span>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-center text-body-md">
+                    <span>Autocontrole</span>
+                    <div class="flex gap-1">
+                      <span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-surface-variant"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-surface-variant"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-surface-variant"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-surface-variant"></span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Mentais -->
+                <div class="bg-surface-container p-space-md rounded-lg space-y-space-sm">
+                  <div class="flex items-center justify-between pb-1 border-b border-surface-variant">
+                    <span class="font-label-sm text-label-sm uppercase text-primary font-bold">Atributos Mentais</span>
+                    <span class="material-symbols-outlined text-sm text-outline">lightbulb</span>
+                  </div>
+                  <div class="flex justify-between items-center text-body-md">
+                    <span>Inteligência</span>
+                    <div class="flex gap-1">
+                      <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-surface-variant"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-surface-variant"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-surface-variant"></span>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-center text-body-md">
+                    <span>Raciocínio</span>
+                    <div class="flex gap-1">
+                      <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-surface-variant"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-surface-variant"></span>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-center text-body-md">
+                    <span>Determinação</span>
+                    <div class="flex gap-1">
+                      <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-surface-variant"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-surface-variant"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center justify-end">
+                <a class="px-space-lg py-space-sm rounded-lg bg-primary text-on-primary font-title-lg text-title-lg hover:bg-primary-fixed-dim transition-all shadow-md flex items-center gap-space-xs" href="#">
+                  <span class="material-symbols-outlined">bloodtype</span> Iniciar Criação em Vampiro V5
+                </a>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="w-full max-w-7xl mx-auto px-space-lg lg:px-margin my-space-lg">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-sm">
+        <div>
+          <span class="font-label-sm text-label-sm uppercase text-primary">Biblioteca de Gêneros</span>
+          <h2 class="font-headline-lg text-headline-lg text-on-surface">Explore por Estilo de Campanha</h2>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Mais de 20 sistemas pré-configurados com fichas editáveis prontas para rolar dados.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
+        <!-- Card 1 -->
+        <div class="relative overflow-hidden bg-surface-container p-space-lg rounded-xl hover:bg-surface-container-high transition-all group flex flex-col justify-between shadow-md">
+          <div class="absolute inset-0 bg-[url('https://preview.redd.it/could-you-recommend-medieval-fantasy-wallpapers-v0-fa5r1v90ksbc1.png?width=640&crop=smart&auto=webp&s=a594ab1abf90b8efaae5de905414a1b28f1d07e0')] bg-cover bg-center transition-transform duration-500 group-hover:scale-105"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/85 to-surface-container/40"></div>
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-space-sm">
+              <div class="w-10 h-10 rounded-lg bg-primary-container/20 text-primary flex items-center justify-center backdrop-blur-sm">
+                <span class="material-symbols-outlined">shield</span>
+              </div>
+              <span class="font-label-sm text-label-sm uppercase text-primary font-bold">Medieval &amp; Épica</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface">Fantasia Medieval</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">Castelos, magias elementais, masmorras e sagas heroicas clássicas.</p>
+            <div class="flex flex-wrap gap-1.5 mt-space-md">
+              <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface text-xs font-medium">D&amp;D 5e</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface text-xs font-medium">Pathfinder 2e</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface text-xs font-medium">Tormenta20</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface text-xs font-medium">Old Dragon 2</span>
+            </div>
+          </div>
+          <a class="relative z-10 mt-space-lg font-label-md text-label-md text-primary group-hover:text-primary-fixed flex items-center gap-1 transition-colors" href="#">
+            Ver todos os 6 sistemas <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="relative overflow-hidden bg-surface-container p-space-lg rounded-xl hover:bg-surface-container-high transition-all group flex flex-col justify-between shadow-md">
+          <div class="absolute inset-0 bg-[url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7OY-gthY3NLOacRvDm4Ac0ox_R7Z7xU67gDXBErYWOw&s=10')] bg-cover bg-center transition-transform duration-500 group-hover:scale-105"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/85 to-surface-container/40"></div>
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-space-sm">
+              <div class="w-10 h-10 rounded-lg bg-secondary-container/20 text-secondary flex items-center justify-center backdrop-blur-sm">
+                <span class="material-symbols-outlined">visibility</span>
+              </div>
+              <span class="font-label-sm text-label-sm uppercase text-secondary font-bold">Investigação</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface">Horror &amp; Investigação</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">Desvende mistérios ocultos sob risco constante de loucura e morte.</p>
+            <div class="flex flex-wrap gap-1.5 mt-space-md">
+              <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface text-xs font-medium">Call of Cthulhu</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface text-xs font-medium">Ordem Paranormal</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface text-xs font-medium">Kult: Divinity Lost</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface text-xs font-medium">Vaesen</span>
+            </div>
+          </div>
+          <a class="relative z-10 mt-space-lg font-label-md text-label-md text-secondary group-hover:text-secondary-fixed flex items-center gap-1 transition-colors" href="#">
+            Ver todos os 6 sistemas <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="relative overflow-hidden bg-surface-container p-space-lg rounded-xl hover:bg-surface-container-high transition-all group flex flex-col justify-between shadow-md">
+          <div class="absolute inset-0 bg-[url('https://i.redd.it/rn47l3d8wkbz.jpg')] bg-cover bg-center transition-transform duration-500 group-hover:scale-105"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/85 to-surface-container/40"></div>
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-space-sm">
+              <div class="w-10 h-10 rounded-lg bg-surface-bright text-primary flex items-center justify-center backdrop-blur-sm">
+                <span class="material-symbols-outlined">terminal</span>
+              </div>
+              <span class="font-label-sm text-label-sm uppercase text-primary font-bold">Futurista</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface">Ficção &amp; Cyberpunk</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">Distopias urbanas, implantes cibernéticos e naves explorando o desconhecido.</p>
+            <div class="flex flex-wrap gap-1.5 mt-space-md">
+              <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface text-xs font-medium">Cyberpunk RED</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface text-xs font-medium">Shadowrun</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface text-xs font-medium">Alien RPG</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface text-xs font-medium">Starfinder</span>
+            </div>
+          </div>
+          <a class="relative z-10 mt-space-lg font-label-md text-label-md text-primary group-hover:text-primary-fixed flex items-center gap-1 transition-colors" href="#">
+            Ver todos os 5 sistemas <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="relative overflow-hidden bg-surface-container p-space-lg rounded-xl hover:bg-surface-container-high transition-all group flex flex-col justify-between shadow-md">
+          <div class="absolute inset-0 bg-[url('https://escritaselvagem.com.br/wp-content/uploads/2021/07/o-que-e-fantasia-urbana-definicao-exemplos.jpg')] bg-cover bg-center transition-transform duration-500 group-hover:scale-105"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/85 to-surface-container/40"></div>
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-space-sm">
+              <div class="w-10 h-10 rounded-lg bg-secondary-container/20 text-secondary flex items-center justify-center backdrop-blur-sm">
+                <span class="material-symbols-outlined">dark_mode</span>
+              </div>
+              <span class="font-label-sm text-label-sm uppercase text-secondary font-bold">Urbano Noturno</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface">Sobrenatural Urbano</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">Criaturas da noite operando em conspirações secretas entre arranha-céus.</p>
+            <div class="flex flex-wrap gap-1.5 mt-space-md">
+              <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface text-xs font-medium">Vampiro: A Máscara</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface text-xs font-medium">Lobisomem: O Apocalipse</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface text-xs font-medium">Mago: A Ascensão</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface text-xs font-medium">City of Mist</span>
+            </div>
+          </div>
+          <a class="relative z-10 mt-space-lg font-label-md text-label-md text-secondary group-hover:text-secondary-fixed flex items-center gap-1 transition-colors" href="#">
+            Ver todos os 5 sistemas <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+
+        <!-- Card 5 (Span 2) -->
+        <div class="relative overflow-hidden bg-surface-container p-space-lg rounded-xl hover:bg-surface-container-high transition-all group flex flex-col justify-between shadow-md md:col-span-2 lg:col-span-2">
+          <div class="absolute inset-0 bg-[url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJODVkOEIbbhDS7Oc1AacecDiYHoIgzyfY4vgi1Z_iaclVixqar0B5YRK2&s=10')] bg-cover bg-center transition-transform duration-500 group-hover:scale-105"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/90 to-surface-container/50"></div>
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-space-sm">
+              <div class="w-10 h-10 rounded-lg bg-surface-bright text-primary flex items-center justify-center backdrop-blur-sm">
+                <span class="material-symbols-outlined">tune</span>
+              </div>
+              <span class="font-label-sm text-label-sm uppercase text-primary font-bold">Agnóstico a Cenário</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface">Sistemas Genéricos &amp; Modulares</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">Mecânicas universais projetadas para você criar qualquer mundo do zero, de faroeste espacial a fantasia de bolso.</p>
+            <div class="flex flex-wrap gap-2 mt-space-md">
+              <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface text-xs font-medium">GURPS 4e</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface text-xs font-medium">Fate Core &amp; Acelerado</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface text-xs font-medium">Savage Worlds Adventure Ed.</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface text-xs font-medium">Powered by the Apocalypse</span>
+            </div>
+          </div>
+          <a class="relative z-10 mt-space-lg font-label-md text-label-md text-primary group-hover:text-primary-fixed flex items-center gap-1 transition-colors" href="#">
+            Ver compêndio de sistemas universais <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="w-full max-w-7xl mx-auto px-space-lg lg:px-margin my-space-xl">
+      <div class="relative rounded-2xl bg-gradient-to-r from-surface-container-low via-surface-container to-surface-container-low p-space-lg lg:p-space-xl overflow-hidden shadow-2xl">
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary-container/10 blur-3xl pointer-events-none rounded-full"></div>
+        <div class="text-center max-w-2xl mx-auto mb-space-xl">
+          <span class="font-label-sm text-label-sm uppercase text-primary font-bold">Transparência para a Comunidade</span>
+          <h2 class="font-headline-lg text-headline-lg text-on-surface mt-1">Evolua sua Mesa de Jogo</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+            O Grimório foi concebido para ser eternamente gratuito para jogadores casuais, com ferramentas avançadas para mestres obstinados.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg max-w-4xl mx-auto">
+          <!-- Free Plan -->
+          <div class="bg-surface-container-lowest/80 p-space-lg rounded-xl flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-start">
+                <div>
+                  <span class="font-label-sm text-label-sm uppercase text-outline">Entrada</span>
+                  <h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">Plano Aventureiro</h3>
+                </div>
+                <span class="font-headline-sm text-headline-sm font-bold text-on-surface">R$ 0</span>
+              </div>
+              <p class="font-body-md text-body-md text-on-surface-variant mt-space-sm">
+                Perfeito para quem joga em mesas periódicas e quer fichas organizadas sem custo.
+              </p>
+              <ul class="space-y-space-sm mt-space-lg font-body-md text-body-md text-on-surface">
+                <li class="flex items-center gap-space-xs">
+                  <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                  <span>Até <strong>3 Personas</strong> em qualquer sistema oficial</span>
+                </li>
+                <li class="flex items-center gap-space-xs">
+                  <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                  <span>Consulta completa às Fandom Wikis indexadas</span>
+                </li>
+                <li class="flex items-center gap-space-xs">
+                  <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                  <span>Acesso irrestrito a fóruns e busca de mesas</span>
+                </li>
+                <li class="flex items-center gap-space-xs text-outline">
+                  <span class="material-symbols-outlined text-base">cancel</span>
+                  <span>Sistemas próprios (Homebrews)</span>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-space-lg">
+              <span class="w-full block py-space-sm text-center rounded-lg bg-surface-container font-label-md text-label-md text-on-surface-variant font-bold">
+                Seu Plano Atual (Ativo)
+              </span>
+            </div>
+          </div>
+          <!-- Premium Plan -->
+          <div class="bg-surface-container-high/90 p-space-lg rounded-xl flex flex-col justify-between relative shadow-xl">
+            <div class="absolute -top-3 right-6 bg-primary text-on-primary font-label-sm text-label-sm font-bold px-space-md py-0.5 rounded-full uppercase tracking-wider">
+              Recomendado para Mestres
+            </div>
+            <div>
+              <div class="flex justify-between items-start">
+                <div>
+                  <span class="font-label-sm text-label-sm uppercase text-primary font-bold">Completo</span>
+                  <h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">Mestre do Grimório</h3>
+                </div>
+                <div class="text-right">
+                  <div class="flex items-baseline gap-1">
+                    <span class="font-headline-sm text-headline-sm font-bold text-primary">R$ 9,90</span>
+                    <span class="font-label-sm text-label-sm text-outline">/mês</span>
+                  </div>
+                </div>
+              </div>
+              <p class="font-body-md text-body-md text-on-surface-variant mt-space-sm">
+                Liberdade total para criar universos autorais, sistemas sob medida e fichas ilimitadas.
+              </p>
+              <ul class="space-y-space-sm mt-space-lg font-body-md text-body-md text-on-surface">
+                <li class="flex items-center gap-space-xs">
+                  <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                  <span><strong>Armazenamento ilimitado</strong> de personagens</span>
+                </li>
+                <li class="flex items-center gap-space-xs">
+                  <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                  <span><strong>Criador de Sistemas Próprios</strong> (Homebrews com atributos customizados)</span>
+                </li>
+                <li class="flex items-center gap-space-xs">
+                  <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                  <span>Backup em nuvem com histórico de versões da ficha</span>
+                </li>
+                <li class="flex items-center gap-space-xs">
+                  <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                  <span>Selo exclusivo de apoiador nos fóruns comunitários</span>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-space-lg">
+              <a class="w-full block py-space-sm text-center rounded-lg bg-primary text-on-primary font-title-lg text-title-lg font-bold hover:bg-primary-fixed-dim transition-all shadow-md" href="#">
+                Tornar-se Mestre do Grimório
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community CTA -->
+    <section class="w-full max-w-7xl mx-auto px-space-lg lg:px-margin mb-space-xl">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-space-md p-space-lg rounded-xl bg-surface-container-lowest">
+        <div class="flex items-center gap-space-md">
+          <div class="w-12 h-12 rounded-full bg-secondary-container/20 text-secondary flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined">forum</span>
+          </div>
+          <div>
+            <h4 class="font-title-lg text-title-lg text-on-surface">Procurando grupo ou quer compartilhar seu Homebrew?</h4>
+            <p class="font-body-md text-body-md text-on-surface-variant">Conheça os fóruns comunitários com mais de 800 campanhas ativas recrutando.</p>
+          </div>
+        </div>
+        <a class="whitespace-nowrap px-space-lg py-space-sm rounded-lg bg-surface-container hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-all" href="#">
+          Explorar Fóruns
+        </a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="w-full bg-surface-container-lowest py-space-xl mt-auto">
+  <div class="w-full px-space-lg lg:px-margin max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-space-lg text-on-surface-variant">
+    <div class="flex items-center gap-space-sm">
+      <span class="font-headline-sm text-headline-sm text-primary">Grimório Nexus</span>
+      <span class="font-body-md text-body-md text-outline">•</span>
+      <p class="font-body-md text-body-md text-outline">Crônicas, campanhas e sabedoria arcana compartilhada.</p>
+    </div>
+    <div class="flex flex-wrap items-center gap-space-lg font-label-md text-label-md">
+      <a class="hover:text-primary transition-colors" href="#">Fandom Wikis</a>
+      <a class="hover:text-primary transition-colors" href="#">Termos de Uso</a>
+      <a class="hover:text-primary transition-colors" href="#">Diretrizes da Comunidade</a>
+      <a class="hover:text-primary transition-colors" href="#">Contato</a>
+    </div>
+  </div>
+  <div class="w-full px-space-lg lg:px-margin max-w-7xl mx-auto mt-space-md pt-space-md text-center md:text-left">
+    <p class="font-label-sm text-label-sm text-outline-variant">© 2026 Grimório Nexus. Todos os direitos reservados aos mestres e cronistas do reino.</p>
+  </div>
+</footer>
