@@ -1,1 +1,77 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
+@import "tailwindcss";
+
+/* Fontes do projeto */
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1");
+
+/* Tema do Grimório Nexus */
+@theme {
+  /* Cores */
+  --color-background: #0b1326;
+  --color-surface-dim: #0b1326;
+  --color-surface-container-lowest: #060e20;
+  --color-surface-container-low: #131b2e;
+  --color-surface-container: #171f33;
+  --color-surface-container-high: #222a3d;
+  --color-surface-container-highest: #2d3449;
+
+  --color-primary: #ffc174;
+  --color-primary-container: #f59e0b;
+
+  --color-secondary: #d0bcff;
+  --color-secondary-container: #571bc1;
+
+  --color-on-surface: #dae2fd;
+  --color-on-surface-variant: #d8c3ad;
+
+  --color-outline: #a08e7a;
+  --color-outline-variant: #534434;
+
+  /* Espaçamentos */
+  --spacing-space-xs: 4px;
+  --spacing-space-sm: 8px;
+  --spacing-space-md: 16px;
+  --spacing-space-lg: 24px;
+  --spacing-space-xl: 40px;
+
+  --spacing-margin: 32px;
+  --spacing-margin-sm: 16px;
+
+  /* Fontes */
+  --font-display-lg: "Merriweather", serif;
+  --font-headline-lg: "Merriweather", serif;
+  --font-headline-sm: "Merriweather", serif;
+  --font-body-md: "Plus Jakarta Sans", sans-serif;
+  --font-body-lg: "Plus Jakarta Sans", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-background);
+  color: var(--color-on-surface);
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.font-logo {
+  font-family: "Cinzel Decorative","Cinzel", serif;
+}
+
+.font-grimoire {
+  font-family: "Cormorant Garamond", serif;
+}
+
+.font-ui {
+  font-family: "Inter", sans-serif;
+}

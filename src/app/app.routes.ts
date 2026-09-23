@@ -1,9 +1,14 @@
 import { Routes } from '@angular/router';
-import { Index } from './pages/index';
+import { Home } from './pages/home/home';
+
+
 
 export const routes: Routes = [
 
-    { path: "index", component:Index },
-    { path: "", redirectTo: "index", pathMatch: "full" }
+    { path: "", component:Home },
+    //{ path: 'personagem', component: Personagem },
+    //{ path: 'perfil', component: Perfil },
+    //{ path: 'forum', component: Forum },
+    { path: "", redirectTo: "home", pathMatch: "full" }
 
 ];

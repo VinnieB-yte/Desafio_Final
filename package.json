@@ -8,10 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-    
-    "plugins": {
-      "@tailwindcss/postcss": {}
-    
+  "plugins": {
+    "@tailwindcss/postcss": {}
   },
   "prettier": {
     "printWidth": 100,

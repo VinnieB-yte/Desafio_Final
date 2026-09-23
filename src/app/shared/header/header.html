@@ -1,0 +1,119 @@
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface-dim/90 backdrop-blur-xl border-b border-surface-container-high">
+  <div class="max-w-7xl mx-auto h-20 px-6 flex items-center justify-between">
+
+    <!-- Logo -->
+    <div class="flex items-center gap-3">
+      <img src="assets/images/grimorio-logo.png" alt="Grimório Nexus" class="h-10 w-10 object-contain">
+      <span  class="font-logo text-primary text-2xl font-bold tracking-wider">
+        Grimório Nexus
+      </span>
+    </div>
+
+    <!-- Menu Desktop -->
+   <nav class="hidden lg:flex gap-2">
+
+  @for(item of menuItems; track item.route){
+
+   <a
+  [routerLink]="item.route"
+  routerLinkActive
+  #rla="routerLinkActive"
+  [routerLinkActiveOptions]="{ exact: item.route === '/' }"
+  class="menu-link px-4 py-2 rounded-xl transition-all duration-300"
+  [class.menu-active]="rla.isActive">
+
+  {{ item.label }}
+
+</a>
+
+  }
+
+</nav>
+
+    <!-- Direita -->
+    <div class="flex items-center gap-3">
+
+      <!-- Busca só desktop -->
+      <div class="hidden md:flex items-center bg-surface-container-low rounded-lg px-3 py-2 gap-2">
+        <span class="material-symbols-outlined text-outline">search</span>
+        <input placeholder="Buscar sistemas..." class="bg-transparent outline-none text-sm w-48">
+      </div>
+
+      <!-- Avatar -->
+      <img src="assets/images/avatar-default.png" alt="Perfil" class="w-10 h-10 rounded-full border border-primary">
+
+      <!-- Botão Mobile -->
+      <button
+  class="lg:hidden p-2 rounded-lg text-primary hover:bg-surface-container-low"
+  (click)="toggleMenu()">
+
+  <span class="material-symbols-outlined text-3xl">
+    {{ menuOpen() ? 'close' : 'menu' }}
+  </span>
+
+</button>
+
+    </div>
+  </div>
+</header>
+
+@if(menuOpen()){
+
+<div class="fixed inset-0 z-40 lg:hidden">
+
+  <!-- Fundo escuro -->
+  <div
+    class="absolute inset-0 bg-black/60 backdrop-blur-sm"
+    (click)="closeMenu()">
+  </div>
+
+  <!-- Painel -->
+  <aside
+    class="absolute right-0 top-0 h-full w-72 bg-zinc-950 border-l border-amber-700/40 shadow-2xl p-6 flex flex-col">
+
+    <!-- Título -->
+    <div class="flex items-center justify-between mb-8">
+
+      <h2 class="text-xl font-bold text-amber-300">
+        Grimório Nexus
+      </h2>
+
+      <button
+        class="text-zinc-300 hover:text-amber-300"
+        (click)="closeMenu()">
+
+        <span class="material-symbols-outlined text-2xl">
+          close
+        </span>
+
+      </button>
+
+    </div>
+
+    <!-- Links -->
+    <nav class="flex flex-col gap-2">
+
+      @for(item of menuItems; track item.route){
+
+       <a
+  [routerLink]="item.route"
+  routerLinkActive
+  #rla="routerLinkActive"
+  [routerLinkActiveOptions]="{ exact: item.route === '/' }"
+  [class.menu-active-mobile]="rla.isActive"
+  (click)="closeMenu()"
+  class="rounded-xl px-4 py-3 text-zinc-200 transition">
+
+  {{ item.label }}
+
+</a>
+
+      }
+
+    </nav>
+
+  </aside>
+
+</div>
+
+}

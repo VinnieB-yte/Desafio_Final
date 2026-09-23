@@ -1,0 +1,43 @@
+:host {
+  display: block;
+}
+
+.grimorio-footer {
+  background: linear-gradient(
+    180deg,
+    #040b1a 0%,
+    #020611 100%
+  );
+
+  border-top: 1px solid rgba(251, 191, 36, 0.12);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: #e5e7eb;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.footer-links a:hover {
+  color: #fbbf24;
+}
+
+@media (max-width: 768px) {
+
+  .footer-links {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .grimorio-footer p {
+    text-align: center;
+  }
+
+}

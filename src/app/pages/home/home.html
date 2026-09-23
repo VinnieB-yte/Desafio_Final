@@ -1,0 +1,557 @@
+<app-header mode="home"></app-header>
+
+<main class="pt-20 bg-background min-h-screen">
+
+ <section class="hero">
+
+    <!-- Imagem de fundo -->
+    <div class="hero-background">
+       <img
+      [src]="systems[currentSystem()].image"
+      [alt]="systems[currentSystem()].title">
+    </div>
+
+    <!-- Camada escura -->
+    <div class="hero-overlay"></div>
+
+    <!-- Conteúdo -->
+    <div class="hero-content">
+
+      <span class="hero-tag">
+        Bem-vindo ao Grimório Nexus
+      </span>
+
+      <h1>
+        O santuário dos seus personagens de RPG de mesa.
+      </h1>
+
+      <p>
+        Crie fichas, consulte magias, explore bestiários, acompanhe campanhas
+        e reúna tudo em um único lugar.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a
+        class="btn-primary"
+        routerLink="/personagem">
+
+        Criar Persoagem
+
+        </a>
+
+        <a
+        class="btn-primary"
+        [href]="systems[currentSystem()].fandom"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Wiki Fandom
+
+        </a>
+
+      </div>
+
+      <!-- Estatísticas -->
+
+      <div class="hero-stats">
+
+        @for(stat of stats; track stat.label){
+
+          <div class="stat-card">
+
+            <h2>{{ stat.value }}</h2>
+
+            <span>{{ stat.label }}</span>
+
+          </div>
+
+        }
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="systems-section">
+
+  <div class="section-header">
+    <h2>Sistemas em Destaque</h2>
+    <p>Escolha um universo para explorar.</p>
+  </div>
+
+  <!-- Banner principal -->
+
+  <div class="featured-system">
+
+    <img
+      [src]="systems[currentSystem()].image"
+      [alt]="systems[currentSystem()].title">
+
+    <div class="featured-overlay"></div>
+
+    <div class="featured-content">
+
+      <span>{{ systems[currentSystem()].subtitle }}</span>
+
+      <h3>{{ systems[currentSystem()].title }}</h3>
+
+      <p>{{ systems[currentSystem()].description }}</p>
+
+      <button>
+        Explorar Sistema
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Miniaturas -->
+
+  <div class="system-list">
+
+    @for(system of systems; track system.title; let i = $index){
+
+      <button
+        class="system-card"
+        [class.selected]="currentSystem() === i"
+        (click)="selectSystem(i)">
+
+        <img
+          [src]="system.image"
+          [alt]="system.title">
+
+        <div class="card-info">
+
+          <span>{{ system.subtitle }}</span>
+
+          <strong>{{ system.title }}</strong>
+
+        </div>
+
+      </button>
+
+    }
+
+  </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- BIBLIOTECA ARCANA -->
+<!-- ===================================================== -->
+
+<section class="biblioteca-arcana mt-20">
+  <div class="mx-auto w-full max-w-7xl px-6 lg:px-8">
+
+  <!-- Cabeçalho da seção -->
+  <div class="mb-10 flex items-end justify-between">
+
+    <div>
+      <p class="mb-2 text-sm uppercase tracking-[0.35rem] text-amber-400">
+        Biblioteca Arcana
+      </p>
+
+      <h2 class="text-4xl font-bold text-amber-100">
+        O Grimório Digital dos Sistemas de RPG
+      </h2>
+
+      <p class="mt-4 max-w-3xl text-zinc-400 leading-relaxed">
+        Um acervo organizado por universos, estilos narrativos e sistemas.
+        Explore livros, suplementos, bestiários, aventuras, cenários e materiais
+        oficiais em uma única biblioteca.
+      </p>
+    </div>
+
+    <div class="hidden md:block text-right">
+      <p class="text-sm uppercase tracking-widest text-zinc-500">Categorias</p>
+
+      <p class="text-3xl font-bold text-amber-300">
+        {{ categorias().length }}
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Cards -->
+  <div class="grid gap-8 md:grid-cols-2">
+
+    @for (categoria of categorias(); track categoria.titulo) {
+
+      <article
+        class="group relative overflow-hidden rounded-[28px] border border-amber-700/30 bg-zinc-950 min-h-[320px]">
+
+        <!-- Imagem -->
+        <img
+          [src]="categoria.imagem"
+          [alt]="categoria.titulo"
+          class="absolute inset-0 h-full w-full object-cover opacity-60 transition duration-700 group-hover:scale-110 group-hover:opacity-80"/>
+
+        <!-- Gradiente -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
+
+        <!-- Moldura -->
+        <div class="absolute inset-0 rounded-[28px] ring-1 ring-amber-500/10 group-hover:ring-amber-400/40 transition"></div>
+
+        <!-- Conteúdo -->
+        <div class="relative flex h-full flex-col justify-end p-8">
+
+          <span class="mb-4 w-fit rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25rem] text-amber-300">
+            {{ categoria.livros }} RPG's
+          </span>
+
+          <h3 class="text-3xl font-bold text-amber-50 mb-3">
+            {{ categoria.titulo }}
+          </h3>
+
+          <p class="text-zinc-300 leading-relaxed">
+            {{ categoria.descricao }}
+          </p>
+
+          <a
+          routerLink="/biblioteca/fantasia-medieval"
+          class="mt-6 flex items-center gap-2 text-amber-300 transition group-hover:text-amber-100 hover:text-amber-50"
+          >
+          Explorar coleção
+
+          <span class="material-symbols-outlined text-base">
+          arrow_forward
+          </span>
+        </a>
+
+        </div>
+
+      </article>
+
+    }
+
+  </div>
+
+  </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- MESTRE DO GRIMÓRIO (VERSÃO PREMIUM) -->
+<!-- ===================================================== -->
+
+<section class="planos mt-24 relative overflow-hidden rounded-[40px]">
+
+  <!-- Fundo -->
+  <div class="absolute inset-0 bg-[#040B1B]"></div>
+
+  <!-- Luz dourada -->
+  <div class="absolute -top-24 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-amber-400/10 blur-[120px]"></div>
+
+  <div class="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-orange-500/5 blur-[100px]"></div>
+
+  <!-- Runas -->
+  <div class="runa-overlay absolute inset-0"></div>
+
+  <div class="relative px-8 py-16 lg:px-16">
+
+    <!-- Cabeçalho -->
+    <div class="text-center max-w-3xl mx-auto mb-14">
+
+      <p class="uppercase tracking-[0.4rem] text-amber-400 text-sm font-bold mb-4">
+        Transparência para a Comunidade
+      </p>
+
+      <h2 class="text-5xl lg:text-6xl font-bold text-amber-50 mb-5 font-logo">
+        Evolua sua Mesa de Jogo
+      </h2>
+
+      <p class="text-zinc-300 text-lg leading-relaxed">
+        O Grimório Nexus sempre será gratuito para aventureiros.
+        O plano Mestre existe para manter o projeto vivo e oferecer ferramentas
+        avançadas para narradores criarem mundos inteiros.
+      </p>
+
+    </div>
+
+    <!-- Cards -->
+    <div class="grid gap-10 lg:grid-cols-2">
+
+      <!-- CARD GRATUITO -->
+
+      <article class="grimorio-card bg-[#050F24]/90 border border-blue-900/60">
+
+        <p class="uppercase text-xs tracking-[0.3rem] text-blue-300 mb-4">
+          Entrada
+        </p>
+
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-start mb-8">
+
+  <h3 class="text-3xl lg:text-4xl font-bold text-amber-50 leading-tight max-w-[12rem]">
+    Plano Aventureiro
+  </h3>
+
+  <div class="sm:text-right">
+
+    <div class="flex items-end gap-2 sm:justify-end">
+
+      <span class="text-4xl lg:text-5xl font-bold text-amber-300 whitespace-nowrap">
+        R$ 0
+      </span>
+
+    </div>
+
+  </div>
+
+</div>
+
+        <p class="text-zinc-400 mb-8">
+          Perfeito para jogadores que desejam organizar personagens e participar
+          da comunidade gratuitamente.
+        </p>
+
+        <ul class="space-y-5 text-zinc-200">
+
+          <li class="flex gap-3 items-start">
+
+            <span class="material-symbols-outlined text-blue-300">
+              group
+            </span>
+
+            Até 3 personagens em sistemas oficiais.
+
+          </li>
+
+          <li class="flex gap-3 items-start">
+
+            <span class="material-symbols-outlined text-blue-300">
+              menu_book
+            </span>
+
+            Biblioteca Arcana completa e Wikis indexadas.
+
+          </li>
+
+          <li class="flex gap-3 items-start">
+
+            <span class="material-symbols-outlined text-blue-300">
+              forum
+            </span>
+
+            Participação em fóruns e busca de mesas.
+
+          </li>
+
+          <li class="flex gap-3 items-start opacity-40">
+
+            <span class="material-symbols-outlined text-zinc-500">
+              lock
+            </span>
+
+            Homebrews e sistemas personalizados.
+
+          </li>
+
+        </ul>
+
+        <button class="btn-free mt-10">
+          Seu Plano Atual (Ativo)
+        </button>
+
+      </article>
+
+      <!-- CARD PREMIUM -->
+
+      <article class="grimorio-card-premium relative">
+
+        <!-- Badge -->
+
+        <div class="absolute top-4 left-1/2 -translate-x-1/2 z-10">
+  <span class="hidden lg:inline rounded-full bg-gradient-to-r from-amber-300 to-orange-400 px-6 py-2 text-xs font-bold uppercase tracking-wider text-black whitespace-nowrap">
+    Recomendado para Mestres
+  </span>
+
+  <span class="lg:hidden rounded-full bg-gradient-to-r from-amber-300 to-orange-400 px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-black whitespace-nowrap">
+    Premium
+  </span>
+</div>
+
+        <!-- Cabeçalho -->
+
+        <p class="uppercase text-xs tracking-[0.3rem] text-amber-300 mb-4 mt-5">
+          Completo
+        </p>
+
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-start mb-8">
+
+  <h3 class="text-3xl lg:text-4xl font-bold text-amber-50 leading-tight max-w-[12rem]">
+    Mestre do Grimório
+  </h3>
+
+  <div class="sm:text-right">
+
+    <div class="flex items-end gap-2 sm:justify-end">
+
+      <span class="text-4xl lg:text-5xl font-bold text-amber-300 whitespace-nowrap">
+        R$ 9,90
+      </span>
+
+    </div>
+
+    <span class="text-zinc-400 text-sm">
+      por mês
+    </span>
+
+  </div>
+
+</div>
+
+        <p class="text-zinc-300 mb-8">
+          Ferramentas completas para mestres criarem universos, sistemas,
+          campanhas e personagens ilimitados.
+        </p>
+
+        <ul class="space-y-5 text-zinc-100">
+
+          <li class="flex gap-3 items-start">
+
+            <span class="material-symbols-outlined text-amber-300">
+              inventory_2
+            </span>
+
+            Armazenamento ilimitado de personagens.
+
+          </li>
+
+          <li class="flex gap-3 items-start">
+
+            <span class="material-symbols-outlined text-amber-300">
+              auto_fix_high
+            </span>
+
+            Criador de Sistemas Próprios (Homebrews).
+
+          </li>
+
+          <li class="flex gap-3 items-start">
+
+            <span class="material-symbols-outlined text-amber-300">
+              cloud_upload
+            </span>
+
+            Backup em nuvem com histórico de versões.
+
+          </li>
+
+          <li class="flex gap-3 items-start">
+
+            <span class="material-symbols-outlined text-amber-300">
+              workspace_premium
+            </span>
+
+            Selo exclusivo de apoiador da comunidade.
+
+          </li>
+
+        </ul>
+
+        <button class="btn-premium mt-10">
+          Tornar-se Mestre do Grimório
+        </button>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- PORTAL DA COMUNIDADE ARCANA -->
+<!-- ===================================================== -->
+
+<section class="portal-comunidade mt-28">
+
+  <div class="portal-card relative overflow-hidden rounded-[36px]">
+
+    <!-- Fundo -->
+    <div class="portal-background absolute inset-0"></div>
+
+    <!-- Partículas -->
+    <div class="magic-particles absolute inset-0"></div>
+
+    <div class="relative z-10 grid gap-10 lg:grid-cols-[180px_1fr_auto] items-center px-8 py-10 lg:px-12">
+
+      <!-- Portal -->
+      <div class="portal-container">
+
+        <div class="portal-ring">
+
+          <div class="portal-core">
+
+            <span class="material-symbols-outlined portal-icon">
+              auto_fix_high
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Texto -->
+      <div>
+
+        <p class="uppercase tracking-[0.35rem] text-amber-400 text-xs font-semibold mb-3">
+          Comunidade Arcana
+        </p>
+
+        <h2 class="font-logo text-4xl text-amber-50 mb-4 leading-tight">
+          Encontre sua próxima aventura.
+        </h2>
+
+        <p class="text-zinc-300 text-lg leading-relaxed max-w-2xl">
+          Procure mesas abertas, recrute aventureiros, compartilhe seus Homebrews
+          e participe da maior biblioteca colaborativa de RPG do Grimório Nexus.
+        </p>
+
+        <!-- Estatísticas -->
+        <div class="mt-6 flex flex-wrap gap-4">
+
+          <div class="stat-chip">
+            🎲 800+ Campanhas
+          </div>
+
+          <div class="stat-chip">
+            🧙 Homebrews da Comunidade
+          </div>
+
+          <div class="stat-chip">
+            🌎 Jogadores & Mestres
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Botão -->
+      <div class="flex justify-center lg:justify-end">
+
+        <a routerLink="/forum" class="portal-button">
+
+          <span class="material-symbols-outlined">
+            travel_explore
+          </span>
+
+          Entrar na Comunidade
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<app-footer class="mt-16 block"></app-footer>
