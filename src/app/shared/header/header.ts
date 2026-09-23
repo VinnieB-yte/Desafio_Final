@@ -15,7 +15,7 @@ export class Header {
    menuOpen = signal(false);
 
   menuItems = [
-    { label: 'Início', route: '/' },
+    { label: 'Início', route: '/home' },
     { label: 'Criar Personagem', route: '/personagem' },
     { label: 'Meus Personagens', route: '/perfil' },
     { label: 'Comunidade', route: '/forum' }

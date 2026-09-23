@@ -1,0 +1,485 @@
+<app-header mode="personagem"></app-header>
+
+<main class="min-h-screen bg-[#040B1B] pb-16 pt-20 text-zinc-100">
+
+  <!-- ===================================================== -->
+  <!-- HERO / CABEÇALHO -->
+  <!-- ===================================================== -->
+
+  <section class="relative overflow-hidden border-b border-amber-500/10">
+
+    <!-- Brilhos -->
+    <div class="absolute -top-40 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-amber-400/10 blur-[120px]"></div>
+
+    <div class="absolute right-0 top-20 h-72 w-72 rounded-full bg-purple-600/10 blur-[120px]"></div>
+
+    <div class="relative mx-auto w-full max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
+
+      <div class="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+
+        <!-- Texto -->
+        <div class="max-w-3xl">
+
+          <p class="mb-3 text-xs font-bold uppercase tracking-[0.4rem] text-amber-400">
+            Biblioteca de Personagens
+          </p>
+
+          <h1 class="grimorio-title text-4xl text-amber-50 md:text-5xl lg:text-6xl">
+            Escolha seu Sistema
+          </h1>
+
+          <p class="mt-5 max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg">
+            Explore sistemas de RPG organizados por estilo, universo e proposta
+            de jogo. Encontre o sistema ideal para criar seu próximo personagem
+            e começar uma nova aventura.
+          </p>
+
+        </div>
+
+        <!-- Métricas -->
+        <div class="grid grid-cols-3 gap-2 sm:gap-3">
+
+          <div class="rounded-xl border border-amber-500/10 bg-[#08142B]/90 px-4 py-3">
+            <span class="block text-2xl font-bold text-amber-300">
+              {{ categorias.length - 1 }}
+            </span>
+
+            <span class="text-[10px] uppercase tracking-wider text-zinc-500">
+              Estilos
+            </span>
+          </div>
+
+          <div class="rounded-xl border border-amber-500/10 bg-[#08142B]/90 px-4 py-3">
+            <span class="block text-2xl font-bold text-purple-300">
+              {{ sistemas.length }}+
+            </span>
+
+            <span class="text-[10px] uppercase tracking-wider text-zinc-500">
+              Sistemas
+            </span>
+          </div>
+
+          <div class="rounded-xl border border-amber-500/10 bg-[#08142B]/90 px-4 py-3">
+            <span class="block text-2xl font-bold text-amber-200">
+              100%
+            </span>
+
+            <span class="text-[10px] uppercase tracking-wider text-zinc-500">
+              Fichas
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================== -->
+  <!-- CATÁLOGO -->
+  <!-- ===================================================== -->
+
+  <section class="mx-auto w-full max-w-7xl px-6 py-12 lg:px-8">
+
+    <!-- Barra de busca e filtros -->
+
+    <div class="mb-12 rounded-2xl border border-amber-500/10 bg-[#07142B]/90 p-4 shadow-xl">
+
+      <!-- Busca -->
+
+      <div
+        class="flex items-center gap-3 rounded-xl border border-zinc-800 bg-[#040B1B] px-4 py-3 focus-within:border-amber-500/40">
+
+        <span class="material-symbols-outlined text-xl text-zinc-500">
+          search
+        </span>
+
+        <input
+          type="text"
+          [value]="busca()"
+          (input)="buscar($event)"
+          placeholder="Buscar por nome, sistema ou descrição..."
+          class="w-full bg-transparent text-sm text-zinc-200 outline-none placeholder:text-zinc-600"
+        />
+
+      </div>
+
+
+      <!-- Filtros -->
+
+      <div class="mt-4 flex items-center gap-2 overflow-x-auto pb-1">
+
+        <span class="mr-2 hidden shrink-0 text-xs uppercase tracking-wider text-zinc-600 md:block">
+          Filtrar:
+        </span>
+
+        @for (categoria of categorias; track categoria.id) {
+        <button
+            type="button"
+            (click)="selecionarCategoria(categoria.id)"
+            class="flex shrink-0 items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-semibold transition-all"
+
+            [class.bg-amber-500]="categoriaSelecionada() === categoria.id"
+            [class.text-[#07101F]]="categoriaSelecionada() === categoria.id"
+            [class.shadow-[0_0_14px_rgba(245,158,11,0.20)]]="categoriaSelecionada() === categoria.id"
+
+            [class.bg-[#0D1B34]]="categoriaSelecionada() !== categoria.id"
+            [class.text-zinc-400]="categoriaSelecionada() !== categoria.id"
+            [class.hover:text-amber-300]="categoriaSelecionada() !== categoria.id"
+            >
+
+                <span class="material-symbols-outlined text-sm">
+                {{ categoria.icone }}
+                </span>
+
+                <span>{{ categoria.nome }}</span>
+
+                <span class="rounded bg-black/10 px-1.5 py-0.5">
+                {{
+                categoria.id === 'todos'
+                ? sistemas.length
+                : quantidadePorCategoria(categoria.id)
+                }}
+                </span>
+                </button>
+                }
+
+      </div>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- RESULTADOS -->
+    <!-- ================================================= -->
+
+    @if (sistemasFiltrados().length > 0) {
+
+      @for (categoria of categorias; track categoria.id) {
+
+        @if (
+          categoria.id !== 'todos' &&
+          (
+            categoriaSelecionada() === 'todos' ||
+            categoriaSelecionada() === categoria.id
+          )
+        ) {
+
+          @if (temSistemasNaCategoria(categoria.id)) {
+
+            <!-- ================================ -->
+            <!-- CABEÇALHO DA CATEGORIA -->
+            <!-- ================================ -->
+
+            <section class="mb-12">
+
+              <div class="mb-5 flex flex-col gap-3 border-b border-zinc-800 pb-4 sm:flex-row sm:items-center sm:justify-between">
+
+                <div class="flex items-center gap-3">
+
+                  <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-[#101D36] text-amber-400">
+
+                    <span class="material-symbols-outlined">
+                      {{ categoria.icone }}
+                    </span>
+
+                  </div>
+
+                  <div>
+
+                    <div class="flex flex-wrap items-center gap-2">
+
+                      <h2 class="font-grimorio-heading text-xl text-amber-50 md:text-2xl">
+                        {{ categoria.nome }}
+                      </h2>
+
+                      <span class="rounded bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-400">
+                        {{ quantidadePorCategoria(categoria.id) }} sistemas
+                      </span>
+
+                    </div>
+
+                    @if (categoria.id === 'Fantasia Medieval') {
+
+                      <p class="mt-1 text-sm text-zinc-500">
+                        Castelos, magia, masmorras e grandes sagas heroicas.
+                      </p>
+
+                    } @else if (categoria.id === 'Horror & Investigação') {
+
+                      <p class="mt-1 text-sm text-zinc-500">
+                        Mistérios, criaturas, investigação e horrores além da compreensão.
+                      </p>
+
+                    } @else if (categoria.id === 'Ficção Científica & Cyberpunk') {
+
+                      <p class="mt-1 text-sm text-zinc-500">
+                        Tecnologia, distopias, espaço, implantes e futuros desconhecidos.
+                      </p>
+
+                    } @else if (categoria.id === 'Sobrenatural Urbano') {
+
+                      <p class="mt-1 text-sm text-zinc-500">
+                        Criaturas sobrenaturais, magia e conflitos ocultos no mundo moderno.
+                      </p>
+
+                    } @else {
+
+                      <p class="mt-1 text-sm text-zinc-500">
+                        Sistemas flexíveis para diferentes mundos, estilos e campanhas.
+                      </p>
+
+                    }
+
+                  </div>
+
+                </div>
+
+                <span class="hidden rounded bg-[#0A172D] px-3 py-1.5 text-xs text-zinc-600 sm:block">
+                  Biblioteca Arcana
+                </span>
+
+              </div>
+
+
+              <!-- ================================ -->
+              <!-- GRID DE SISTEMAS -->
+              <!-- ================================ -->
+
+              <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+
+                @for (
+                  sistema of sistemasFiltrados();
+                  track sistema.nome
+                ) {
+
+                  @if (sistema.categorias.includes(categoria.id)) {
+
+                    <article
+                      class="group flex min-h-[250px] flex-col justify-between rounded-xl border border-zinc-800/80 bg-[#08142B] p-5 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/30 hover:bg-[#0B1933] hover:shadow-xl"
+                    >
+
+                      <div>
+
+                        <!-- Tags -->
+
+                        <div class="mb-3 flex items-start justify-between gap-2">
+
+                          <span class="rounded bg-amber-500/10 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-400">
+                            {{ sistema.tipo }}
+                          </span>
+
+                          <span class="flex items-center gap-1 rounded bg-[#101D36] px-2 py-1 text-[10px] text-zinc-400">
+
+                            <span class="material-symbols-outlined text-xs text-purple-300">
+                              auto_awesome
+                            </span>
+
+                            {{ sistema.destaque }}
+
+                          </span>
+
+                        </div>
+
+
+                        <!-- Nome -->
+
+                        <h3 class="font-grimorio-heading text-xl text-zinc-100 transition-colors group-hover:text-amber-300">
+                          {{ sistema.nome }}
+                        </h3>
+
+
+                        <!-- Descrição -->
+
+                        <p class="mt-2 line-clamp-3 text-sm leading-relaxed text-zinc-500">
+                          {{ sistema.descricao }}
+                        </p>
+
+                      </div>
+
+
+                      <!-- Rodapé -->
+
+                      <div class="mt-5 flex items-center justify-between gap-3 border-t border-zinc-800/70 pt-3">
+
+                        <span class="text-[10px] text-zinc-600">
+                          {{ sistema.rodape }}
+                        </span>
+
+                        <button
+                          type="button"
+                          (click)="iniciarFicha(sistema.nome)"
+                          class="flex shrink-0 items-center gap-1 rounded-lg bg-amber-500 px-3 py-2 text-xs font-bold text-[#07101F] shadow-[0_0_12px_rgba(245,158,11,0.15)] transition-all hover:bg-amber-300"
+                        >
+
+                          Criar Ficha
+
+                          <span class="material-symbols-outlined text-sm">
+                            arrow_forward
+                          </span>
+
+                        </button>
+
+                      </div>
+
+                    </article>
+
+                  }
+
+                }
+
+              </div>
+
+            </section>
+
+          }
+
+        }
+
+      }
+
+    } @else {
+
+      <!-- Nenhum resultado -->
+
+      <div class="rounded-2xl border border-zinc-800 bg-[#07142B] px-6 py-16 text-center">
+
+        <span class="material-symbols-outlined text-5xl text-zinc-700">
+          menu_book
+        </span>
+
+        <h2 class="mt-4 font-grimorio-heading text-2xl text-amber-50">
+          Nenhum sistema encontrado
+        </h2>
+
+        <p class="mt-2 text-sm text-zinc-500">
+          Tente outro termo de busca ou selecione uma categoria diferente.
+        </p>
+
+      </div>
+
+    }
+
+  </section>
+
+
+  <!-- ===================================================== -->
+  <!-- ORÁCULO DO MESTRE -->
+  <!-- ===================================================== -->
+
+  <section class="mx-auto mb-16 w-full max-w-7xl px-6 lg:px-8">
+
+    <div class="relative overflow-hidden rounded-2xl border border-amber-500/20 bg-[#07142B] p-6 shadow-xl lg:p-8">
+
+      <!-- Glow -->
+
+      <div class="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-amber-500/10 blur-3xl"></div>
+
+      <div class="relative z-10 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+
+        <div class="max-w-2xl">
+
+          <div class="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2rem] text-amber-400">
+
+            <span class="material-symbols-outlined text-base">
+              psychology_alt
+            </span>
+
+            Oráculo de Mesa
+
+          </div>
+
+          <h2 class="font-grimorio-heading text-2xl text-amber-50 md:text-3xl">
+            Indeciso entre tantos sistemas?
+          </h2>
+
+          <p class="mt-2 text-sm leading-relaxed text-zinc-400">
+            Responda algumas perguntas sobre sua próxima sessão e descubra
+            quais sistemas combinam com a proposta da sua mesa.
+          </p>
+
+        </div>
+
+
+        <!-- Controles -->
+
+        <div class="grid w-full gap-3 sm:grid-cols-3 lg:w-auto">
+
+          <select
+            class="rounded-lg border border-zinc-700 bg-[#040B1B] px-3 py-2.5 text-sm text-zinc-300 outline-none focus:border-amber-500/50"
+            [value]="oracleGenero()"
+            (change)="oracleGenero.set($any($event.target).value)"
+            >
+
+            <option value="medieval">Fantasia Medieval</option>
+            <option value="horror">Horror</option>
+            <option value="cyberpunk">Ficção Científica & Cyberpunk</option>
+            <option value="supernatural">Sobrenatural Urbano</option>
+            <option value="generic">Genérico / Modular</option>
+
+          </select>
+
+          <select
+            class="rounded-lg border border-zinc-700 bg-[#040B1B] px-3 py-2.5 text-sm text-zinc-300 outline-none focus:border-amber-500/50"
+            [value]="oracleFoco()"
+            (change)="oracleFoco.set($any($event.target).value)"
+            >
+            <option value="balanced">Equilibrado / Completo</option>
+            <option value="tactical">Tático & Combate Rico</option>
+            <option value="narrative">Narrativo & Rápido</option>
+            </select>
+
+          <select
+            class="rounded-lg border border-zinc-700 bg-[#040B1B] px-3 py-2.5 text-sm text-zinc-300 outline-none focus:border-amber-500/50"
+            [value]="oracleLetalidade()"
+            (change)="oracleLetalidade.set($any($event.target).value)"
+            >
+            <option value="moderate">Heróico / Controlado</option>
+            <option value="high">Mortal / Punição Alta</option>
+            </select>
+        </div>
+
+      </div>
+
+      <div class="mt-4 flex flex-col gap-3 border-t border-zinc-800 pt-4 sm:flex-row sm:items-center sm:justify-between">
+
+  <div class="flex items-center gap-2 text-sm font-semibold text-amber-400">
+
+    <span class="material-symbols-outlined text-base">
+      magic_button
+    </span>
+
+    <span>
+      Sistema Recomendado:
+      <strong class="text-zinc-100 underline decoration-amber-500">
+        {{ oracleRecomendacao() }}
+      </strong>
+    </span>
+
+    </div>
+
+    <button
+        type="button"
+        class="flex items-center justify-center gap-1.5 rounded-lg bg-amber-500 px-5 py-2.5 text-sm font-bold text-[#07101F] shadow-[0_0_12px_rgba(245,158,11,0.25)] transition-all hover:bg-amber-400"
+  >
+        <span>Consultar Oráculo</span>
+
+        <span class="material-symbols-outlined text-sm">
+        auto_fix_high
+        </span>
+        </button>
+
+        </div>
+
+    </div>
+
+
+  </section>
+
+
+</main>
+
+<app-footer class=" block"></app-footer>

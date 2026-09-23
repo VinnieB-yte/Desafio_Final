@@ -1,0 +1,274 @@
+/* =========================================================
+   GRIMÓRIO NEXUS — DESIGN SYSTEM
+   ========================================================= */
+
+:root {
+  /* ---------- PALETA ---------- */
+
+  --grimorio-gold: #fbbf24;
+  --grimorio-gold-light: #fde68a;
+  --grimorio-gold-dark: #b45309;
+
+  --grimorio-blue: #1e3a8a;
+  --grimorio-blue-light: #312e81;
+  --grimorio-blue-dark: #020617;
+
+  --grimorio-background: #020611;
+  --grimorio-surface: #050c1c;
+  --grimorio-surface-light: #0b1430;
+  --grimorio-surface-hover: #111c3d;
+
+  --grimorio-text: #f4f4f5;
+  --grimorio-text-muted: #a1a1aa;
+  --grimorio-text-subtle: #71717a;
+
+  /* ---------- TIPOGRAFIA ---------- */
+
+  --font-grimorio-logo: 'Cinzel', serif;
+  --font-grimorio-heading: 'Merriweather', serif;
+  --font-grimorio-body: 'Inter', sans-serif;
+}
+
+
+/* =========================================================
+   TIPOGRAFIA
+   ========================================================= */
+
+.font-grimorio-logo {
+  font-family: var(--font-grimorio-logo);
+}
+
+.font-grimorio-heading {
+  font-family: var(--font-grimorio-heading);
+}
+
+.font-grimorio-body {
+  font-family: var(--font-grimorio-body);
+}
+
+
+/* =========================================================
+   CARD ARCANO
+   ========================================================= */
+
+.grimorio-card {
+  position: relative;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(11, 20, 48, 0.96),
+      rgba(3, 8, 22, 0.98)
+    );
+
+  border: 1px solid rgba(251, 191, 36, 0.18);
+  border-radius: 1rem;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.grimorio-card:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(251, 191, 36, 0.4);
+
+  box-shadow:
+    0 14px 35px rgba(0, 0, 0, 0.45),
+    0 0 25px rgba(251, 191, 36, 0.08);
+}
+
+
+/* =========================================================
+   CANTONEIRAS DOURADAS
+   ========================================================= */
+
+.grimorio-ornament {
+  position: relative;
+}
+
+.grimorio-ornament::before,
+.grimorio-ornament::after {
+  content: "";
+
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+
+  border-color: rgba(251, 191, 36, 0.55);
+  border-style: solid;
+
+  pointer-events: none;
+}
+
+.grimorio-ornament::before {
+  top: 8px;
+  left: 8px;
+
+  border-width: 1px 0 0 1px;
+}
+
+.grimorio-ornament::after {
+  right: 8px;
+  bottom: 8px;
+
+  border-width: 0 1px 1px 0;
+}
+
+
+/* =========================================================
+   PAINEL
+   ========================================================= */
+
+.grimorio-panel {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(5, 12, 28, 0.98),
+      rgba(2, 6, 17, 0.98)
+    );
+
+  border: 1px solid rgba(251, 191, 36, 0.14);
+  border-radius: 1.25rem;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   BOTÃO GRIMÓRIO
+   ========================================================= */
+
+.grimorio-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.7rem 1.25rem;
+
+  border-radius: 0.75rem;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--grimorio-gold),
+      var(--grimorio-gold-dark)
+    );
+
+  color: #18120a;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 6px 20px rgba(251, 191, 36, 0.15);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.grimorio-button:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.08);
+
+  box-shadow:
+    0 8px 25px rgba(251, 191, 36, 0.25);
+}
+
+.grimorio-button:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   DIVISÓRIA RÚNICA
+   ========================================================= */
+
+.grimorio-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  width: 100%;
+
+  margin: 2rem 0;
+
+  color: var(--grimorio-gold);
+}
+
+.grimorio-divider::before,
+.grimorio-divider::after {
+  content: "";
+
+  height: 1px;
+  flex: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(251, 191, 36, 0.35),
+      transparent
+    );
+}
+
+.grimorio-divider span {
+  font-size: 0.9rem;
+
+  color: var(--grimorio-gold-light);
+
+  text-shadow:
+    0 0 10px rgba(251, 191, 36, 0.35);
+}
+
+
+/* =========================================================
+   TEXTURA DE PERGAMINHO
+   ========================================================= */
+
+.grimorio-parchment {
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(251, 191, 36, 0.035),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(30, 58, 138, 0.08),
+      transparent 40%
+    );
+}
+
+
+/* =========================================================
+   TÍTULO ARCANO
+   ========================================================= */
+
+.grimorio-title {
+  font-family: var(--font-grimorio-heading);
+
+  color: var(--grimorio-gold-light);
+
+  text-shadow:
+    0 0 20px rgba(251, 191, 36, 0.12);
+}
+
+
+/* =========================================================
+   TEXTO SECUNDÁRIO
+   ========================================================= */
+
+.grimorio-muted {
+  color: var(--grimorio-text-muted);
+}

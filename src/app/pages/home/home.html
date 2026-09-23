@@ -180,7 +180,7 @@
     @for (categoria of categorias(); track categoria.titulo) {
 
       <article
-        class="group relative overflow-hidden rounded-[28px] border border-amber-700/30 bg-zinc-950 min-h-[320px]">
+      class="grimorio-card grimorio-ornament group relative overflow-hidden min-h-[320px]">
 
         <!-- Imagem -->
         <img
@@ -201,11 +201,11 @@
             {{ categoria.livros }} RPG's
           </span>
 
-          <h3 class="text-3xl font-bold text-amber-50 mb-3">
+          <h3 class="grimorio-title font-grimorio-heading text-3xl font-bold mb-3">
             {{ categoria.titulo }}
           </h3>
 
-          <p class="text-zinc-300 leading-relaxed">
+          <p class="grimorio-muted leading-relaxed">
             {{ categoria.descricao }}
           </p>
 
@@ -275,7 +275,7 @@
 
       <!-- CARD GRATUITO -->
 
-      <article class="grimorio-card bg-[#050F24]/90 border border-blue-900/60">
+      <article class="grimorio-card p-8">
 
         <p class="uppercase text-xs tracking-[0.3rem] text-blue-300 mb-4">
           Entrada

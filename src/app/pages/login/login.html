@@ -1,0 +1,315 @@
+<main class="login-page">
+
+  <!-- Efeitos mágicos do fundo -->
+  <div class="magic-glow magic-glow-gold"></div>
+  <div class="magic-glow magic-glow-purple"></div>
+
+  <!-- Círculo arcano -->
+  <div class="arcane-circle">
+    <svg viewBox="0 0 100 100" fill="none">
+      <circle
+        cx="50"
+        cy="50"
+        r="48"
+        stroke="currentColor"
+        stroke-dasharray="1 3"
+        stroke-width="0.3">
+      </circle>
+
+      <circle
+        cx="50"
+        cy="50"
+        r="38"
+        stroke="currentColor"
+        stroke-dasharray="2 4"
+        stroke-width="0.2">
+      </circle>
+
+      <polygon
+        points="50,14 81,68 19,68"
+        stroke="currentColor"
+        stroke-width="0.25">
+      </polygon>
+
+      <polygon
+        points="50,86 81,32 19,32"
+        stroke="currentColor"
+        stroke-width="0.25">
+      </polygon>
+
+      <circle
+        cx="50"
+        cy="50"
+        r="18"
+        stroke="currentColor"
+        stroke-width="0.3">
+      </circle>
+    </svg>
+  </div>
+
+
+  <!-- Container -->
+  <div class="login-container">
+
+    <!-- Card -->
+    <section class="login-card">
+
+      <!-- Linha dourada superior -->
+      <div class="login-card-line"></div>
+
+
+      <!-- Cabeçalho -->
+      <div class="login-header">
+
+        <div class="login-icon">
+          <span
+            class="material-symbols-outlined"
+            style="font-variation-settings: 'FILL' 1;">
+            auto_stories
+          </span>
+        </div>
+
+        <span class="login-eyebrow">
+          Acesso ao Sanctum
+        </span>
+
+        <h1>
+          Abra o seu Grimório
+        </h1>
+
+        <p>
+          Entre na sua conta de aventureiro e acerte seus dados com o destino.
+        </p>
+
+      </div>
+
+
+      <!-- Login social -->
+<div class="social-login">
+
+  <button type="button" class="social-button">
+    <img
+      src="assets/images/social/google.svg"
+      alt=""
+      class="social-logo google-logo"
+    >
+    <span>Google</span>
+  </button>
+
+  <button type="button" class="social-button">
+    <img
+      src="assets/images/social/apple.svg"
+      alt=""
+      class="social-logo apple-logo"
+    >
+    <span>Apple</span>
+  </button>
+
+</div>
+
+
+      <!-- Divisor -->
+      <div class="login-divider">
+        <span>ou com suas credenciais</span>
+      </div>
+
+
+      <!-- Formulário -->
+      <form
+        class="login-form"
+        (ngSubmit)="login()"
+        #loginForm="ngForm">
+
+
+        <!-- Usuário -->
+        <div class="form-group">
+
+          <label for="username">
+            Nome de Usuário ou E-mail
+          </label>
+
+          <div class="input-wrapper">
+
+            <span class="material-symbols-outlined input-icon">
+              shield_person
+            </span>
+
+            <input
+              id="username"
+              name="username"
+              type="text"
+              [(ngModel)]="usuario"
+              placeholder="Ex: MorganaVale ou seu@email.com"
+              autocomplete="username"
+              required>
+
+          </div>
+
+        </div>
+
+
+        <!-- Senha -->
+        <div class="form-group">
+
+          <label for="password">
+            Senha
+          </label>
+
+          <div class="input-wrapper">
+
+            <span class="material-symbols-outlined input-icon">
+              vpn_key
+            </span>
+
+            <input
+              id="password"
+              name="password"
+              [type]="mostrarSenha() ? 'text' : 'password'"
+              [(ngModel)]="senha"
+              placeholder="Sua chave secreta"
+              autocomplete="current-password"
+              required>
+
+            <button
+              type="button"
+              class="password-toggle"
+              (click)="togglePassword()"
+              aria-label="Alternar visibilidade da senha">
+
+              <span class="material-symbols-outlined">
+                {{ mostrarSenha() ? 'visibility_off' : 'visibility' }}
+              </span>
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- Opções -->
+        <div class="login-options">
+
+          <label class="remember-login">
+
+            <input
+              type="checkbox"
+              name="remember">
+
+            <span>
+              Lembrar Login
+            </span>
+
+          </label>
+
+
+          <a
+            routerLink="/recuperar-senha"
+            class="forgot-password">
+
+            Esqueceu a senha?
+
+          </a>
+
+        </div>
+
+
+        <!-- Mensagem de erro -->
+        @if (mensagemErro()) {
+
+          <div class="login-error">
+
+            <span class="material-symbols-outlined">
+              error
+            </span>
+
+            <span>
+              {{ mensagemErro() }}
+            </span>
+
+          </div>
+
+        }
+
+
+        <!-- Botão -->
+        <button
+          type="submit"
+          class="login-button"
+          [disabled]="carregando() || loginForm.invalid">
+
+          @if (carregando()) {
+
+            <span class="material-symbols-outlined loading-icon">
+              progress_activity
+            </span>
+
+            <span>
+              Invocando sessão...
+            </span>
+
+          } @else {
+
+            <span
+              class="material-symbols-outlined"
+              style="font-variation-settings: 'FILL' 1;">
+              token
+            </span>
+
+            <span>
+              Entrar no Grimório
+            </span>
+
+          }
+
+        </button>
+
+      </form>
+
+
+      <!-- Cadastro -->
+      <div class="register-area">
+
+        <p>
+          Ainda não possui conta?
+
+          <a routerLink="/cadastro">
+            Cadastre-se aqui!
+
+            <span class="material-symbols-outlined">
+              arrow_forward
+            </span>
+          </a>
+
+        </p>
+
+      </div>
+
+
+      <!-- Segurança -->
+      <div class="security-box">
+
+        <span class="material-symbols-outlined security-icon">
+          verified_user
+        </span>
+
+        <div>
+
+          <span class="security-title">
+            Guarda Arcana Ativa
+          </span>
+
+          <p>
+            Seus personagens, fichas de D&amp;D, Tormenta20 e CoC
+            estão protegidos por criptografia mística de ponta a ponta.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</main>
