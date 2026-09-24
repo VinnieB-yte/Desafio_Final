@@ -45,7 +45,7 @@ export class Home {
   {
     title: 'Dungeons & Dragons 5e',
     subtitle: 'Fantasia Medieval',
-    image: 'assets/images/dnd-banner.webp',
+    image: 'assets/images/dnd-banner.jpg',
     rota: '/criar-personagem/dnd5',
     description: 'Explore o sistema de RPG mais conhecido do mundo.',
     fandom: 'https://dnd-5e.fandom.com/wiki/D%26D_5e_Wiki'
@@ -53,7 +53,7 @@ export class Home {
   {
     title: 'Pathfinder 2ª Edição',
     subtitle: 'Fantasia Tática',
-    image: 'assets/images/pathfinder-banner.webp',
+    image: 'assets/images/pathfinder-banner.jpg',
     rota: '/criar-personagem/pathfinder',
     description: 'Classes altamente personalizáveis.',
     fandom: 'https://2e.aonprd.com'
@@ -69,7 +69,7 @@ export class Home {
   {
     title: 'Vampiro: A Máscara',
     subtitle: 'Horror Urbano',
-    image: 'assets/images/vampiro-banner.jpg',
+    image: 'assets/images/vampiro-banner.avif',
     rota: '/sistemas/vampiro',
     description: 'Intrigas políticas e horror pessoal.',
     fandom: 'https://whitewolf.fandom.com/wiki/Vampire:_The_Masquerade'
@@ -77,7 +77,7 @@ export class Home {
   {
     title: 'Call of Cthulhu',
     subtitle: 'Horror Cósmico',
-    image: 'assets/images/cthulhu-banner.webp',
+    image: 'assets/images/cthulhu-banner.jpg',
     rota: '/criar-personagem/callof-cthulhu',
     description: 'Mistérios e entidades ancestrais.',
     fandom: 'https://callofcthulhu.fandom.com'
@@ -115,14 +115,14 @@ selectSystem(index: number) {
     titulo: 'Fantasia Medieval & Épica',
     descricao:
       'Reinos esquecidos, cavaleiros, magia ancestral, dragões, deuses e aventuras épicas.',
-    imagem: 'assets/images/categories/fantasia-medieval.webp',
+    imagem: 'assets/images/categories/fantasia-medieval.jpg',
     livros: 6,
   },
   {
     titulo: 'Horror & Investigação',
     descricao:
       'Cultos, horrores cósmicos, mistérios sobrenaturais, investigação paranormal e terror psicológico.',
-    imagem: 'assets/images/categories/horror-investigacao.jfif',
+    imagem: 'assets/images/categories/horror-investigacao.jpg',
     livros: 5
   },
   {
@@ -143,7 +143,7 @@ selectSystem(index: number) {
     titulo: 'Sistemas Genéricos & Narrativos',
     descricao:
       'Sistemas universais, RPGs narrativos, regras leves e ferramentas para criação de mundos.',
-    imagem: 'assets/images/categories/narrativos.jfif',
+    imagem: 'assets/images/categories/narrativos.jpg',
     livros: 4
   }
 ]);

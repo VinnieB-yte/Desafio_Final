@@ -33,7 +33,8 @@ export class Personagem implements AfterViewInit {
       descricao:
         'O RPG mais famoso do mundo. Bárbaros, magos, masmorras icônicas e dragões colossais no ápice da alta fantasia.',
       destaque: 'Ficha Automatizada',
-      rodape: 'Suporte Roll20/Foundry'
+      rodape: 'Suporte Roll20/Foundry',
+      rota: '/criar-personagem/dnd5'
     },
 
     {
@@ -43,7 +44,8 @@ export class Personagem implements AfterViewInit {
       descricao:
         'Alta customização tática, centenas de talentos, arquétipos profundos e um motor refinado para combates épicos.',
       destaque: 'Ficha Automatizada',
-      rodape: 'SRD Aberto Completo'
+      rodape: 'SRD Aberto Completo',
+      rota: '/criar-personagem/pathfinder'
     },
 
     {
@@ -53,7 +55,8 @@ export class Personagem implements AfterViewInit {
       descricao:
         'O maior RPG nacional. Enfrente a tempestade rubra em Arton com poderes de deuses e heróis audazes.',
       destaque: 'Oficial Jambô',
-      rodape: 'Edição Jogo do Ano'
+      rodape: 'Edição Jogo do Ano',
+      rota: '/criar-personagem/tormenta20'
     },
 
     {
@@ -101,7 +104,8 @@ export class Personagem implements AfterViewInit {
       descricao:
         'Investigadores comuns confrontam deuses cósmicos e cultos, arriscando tudo em busca da verdade.',
       destaque: 'Sanidade (SAN)',
-      rodape: '7ª Edição Oficial'
+      rodape: '7ª Edição Oficial',
+      rota: '/criar-personagem/callof-cthulhu'
     },
 
     {
@@ -232,7 +236,8 @@ export class Personagem implements AfterViewInit {
       descricao:
         'Assuma o papel de um imortal predador equilibrando sua fome e humanidade nas intrigas da noite.',
       destaque: 'Fome & Humanidade',
-      rodape: '5ª Edição (V5) Oficial'
+      rodape: '5ª Edição (V5) Oficial',
+      rota: '/criar-personagem/vampiro'
     },
 
     {

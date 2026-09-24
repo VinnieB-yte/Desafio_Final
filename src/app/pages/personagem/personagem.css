@@ -161,3 +161,35 @@
     transparent
   );
 }
+
+.btn-criar-ficha {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+
+  padding: .9rem 1rem;
+
+  border-radius: 14px;
+
+  background: linear-gradient(
+    90deg,
+    #FBBF24,
+    #F59E0B
+  );
+
+  color: #111827;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition: .25s ease;
+}
+
+.btn-criar-ficha:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 25px rgba(251, 191, 36, .25);
+}

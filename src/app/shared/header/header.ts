@@ -49,9 +49,7 @@ export class Header {
     this.closeProfileMenu();
     this.closeMenu
 
-    localStorage.removeItem('grimorio-token');
-    localStorage.removeItem('grimorio-user');
-    // futuramente remove token/autenticação.
+    localStorage.removeItem('usuarioLogado');
     this.router.navigate(['/login']);
   }
 

@@ -1,1082 +1,1683 @@
-/* ===================================== */
-/* PÁGINA DO FÓRUM */
-/* ===================================== */
+/* =========================================================
+   RESET / CONTROLE DE OVERFLOW
+   ========================================================= */
 
-.forum-page{
-
-    min-height:100vh;
-
-    background:#040B1B;
-
-    padding-top:88px;
-
-    padding-bottom:4rem;
-
-    color:#F3F4F6;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/* ===================================== */
-/* HERO DA TAVERNA */
-/* ===================================== */
-
-.forum-hero{
-
-    max-width:1280px;
-
-    margin:2rem auto 1.5rem;
-
-    position:relative;
-
-    overflow:hidden;
-
-    border-radius:28px;
-
-    border:1px solid rgba(255,255,255,.06);
-
-    background:#081325;
-
-    box-shadow:0 20px 50px rgba(0,0,0,.45);
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  overflow-x: hidden;
 }
 
-.hero-banner{
-
-    height:260px;
-
-    background:
-      linear-gradient(rgba(4,11,27,.45),rgba(4,11,27,.75)),
-      url("/assets/images/forum/banner-taverna.png");
-
-    background-size:cover;
-
-    background-position:center;
+body {
+  min-width: 320px;
 }
 
-.hero-content{
 
-    display:flex;
+/* =========================================================
+   PÁGINA DO FÓRUM
+   ========================================================= */
 
-    justify-content:space-between;
+.forum-page {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
 
-    align-items:flex-end;
+  background: #040B1B;
+  color: #F3F4F6;
 
-    gap:2rem;
+  padding-top: 88px;
+  padding-bottom: 4rem;
 
-    padding:2rem;
-
-    margin-top:-70px;
-
-    position:relative;
-
-    z-index:2;
+  overflow-x: clip;
 }
 
-.hero-text{
 
-    max-width:760px;
+/* =========================================================
+   CONTAINERS PRINCIPAIS
+   ========================================================= */
+
+.forum-hero,
+.forum-search,
+.enclaves-section,
+.chronicles-section {
+  width: min(1280px, calc(100% - 2rem));
+  max-width: 1280px;
+
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.hero-badges{
 
-    display:flex;
+/* =========================================================
+   HERO DA TAVERNA
+   ========================================================= */
 
-    align-items:center;
+.forum-hero {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
 
-    gap:1rem;
+  position: relative;
+  overflow: hidden;
 
-    flex-wrap:wrap;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, .06);
 
-    margin-bottom:1rem;
+  background: #081325;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .45);
 }
 
-.badge-enclave{
 
-    padding:.45rem .8rem;
+/* Banner */
 
-    border-radius:999px;
+.hero-banner {
+  width: 100%;
+  height: 260px;
 
-    background:#F59E0B;
+  background:
+    linear-gradient(
+      rgba(4, 11, 27, .45),
+      rgba(4, 11, 27, .75)
+    ),
+    url("/assets/images/forum/banner-taverna.png");
 
-    color:#111827;
-
-    font-size:.72rem;
-
-    font-weight:700;
-
-    letter-spacing:.08em;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.online-status{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:.45rem;
-
-    color:#C8B189;
-
-    font-weight:600;
-
-    font-size:.9rem;
-}
-
-.online-dot{
-
-    width:10px;
-    height:10px;
-
-    border-radius:999px;
-
-    background:#22C55E;
-
-    box-shadow:0 0 10px #22C55E;
-
-    animation:pulseOnline 1.8s infinite;
-}
-
-@keyframes pulseOnline{
-
-    0%,100%{
-        opacity:1;
-        transform:scale(1);
-    }
-
-    50%{
-        opacity:.5;
-        transform:scale(.75);
-    }
-}
-
-.hero-text h1{
-
-    font-family:"Cinzel", serif;
-
-    font-size:3rem;
-
-    line-height:1.15;
-
-    color:white;
-
-    margin-bottom:1rem;
-}
-
-.hero-text p{
-
-    color:#CBD5E1;
-
-    line-height:1.8;
-
-    font-size:1.05rem;
-}
-
-.btn-new-topic{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:.7rem;
-
-    padding:1rem 1.4rem;
-
-    border:none;
-
-    border-radius:18px;
-
-    background:linear-gradient(
-      90deg,
-      #FBBF24,
-      #F59E0B
-    );
-
-    color:#111827;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:.25s ease;
-
-    white-space:nowrap;
-
-    box-shadow:0 10px 25px rgba(251,191,36,.25);
-}
-
-.btn-new-topic:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:0 15px 35px rgba(251,191,36,.35);
-}
-
-/* ===================================== */
-/* BUSCA */
-/* ===================================== */
-
-.forum-search{
-
-    max-width:1280px;
-
-    margin:0 auto 2rem;
-
-    background:#081325;
-
-    border-radius:24px;
-
-    border:1px solid rgba(255,255,255,.05);
-
-    padding:1rem;
-}
-
-.search-box{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:1rem;
-
-    padding:1rem 1.2rem;
-
-    border-radius:16px;
-
-    background:#040D1F;
-
-    border:1px solid rgba(251,191,36,.08);
-}
-
-.search-box input{
-
-    flex:1;
-
-    background:none;
-
-    border:none;
-
-    outline:none;
-
-    color:white;
-
-    font-size:.95rem;
-}
-
-.search-box input::placeholder{
-
-    color:#64748B;
-}
-
-.search-box span{
-
-    color:#94A3B8;
-}
-
-.search-box small{
-
-    color:#64748B;
-
-    white-space:nowrap;
-}
-
-/* ===================================== */
-/* FILTROS */
-/* ===================================== */
-
-.category-scroll{
-
-    display:flex;
-
-    gap:.8rem;
-
-    overflow-x:auto;
-
-    scrollbar-width:none;
-
-    padding-top:1rem;
-
-    padding-bottom:.4rem;
-
-    scroll-behavior:smooth;
-}
-
-.category-scroll::-webkit-scrollbar{
-    display:none;
-}
-
-.category-chip{
-
-    flex:0 0 auto;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:.6rem;
-
-    padding:.75rem 1rem;
-
-    border-radius:14px;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    background:#101C34;
-
-    color:#CBD5E1;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-    font-weight:600;
-
-    white-space:nowrap;
-}
-
-.category-chip span{
-
-    padding:.2rem .45rem;
-
-    border-radius:999px;
-
-    background:#172441;
-
-    color:#FBBF24;
-
-    font-size:.72rem;
-}
-
-.category-chip:hover{
-
-    color:#FCD34D;
-
-    border-color:#FBBF24;
-
-    transform:translateY(-2px);
-}
-
-.category-chip-active{
-
-    background:linear-gradient(
-      90deg,
-      #FBBF24,
-      #F59E0B
-    );
-
-    color:#111827;
-
-    border-color:#FBBF24;
-}
-
-.category-chip-active span{
-
-    background:rgba(0,0,0,.15);
-
-    color:#111827;
-}
-
-.carousel-thumb{
-  width:35%;
-  height:100%;
-  border-radius:999px;
-  background:linear-gradient(90deg,#FBBF24,#F59E0B);
-  transition:transform .25s ease;
-}
-
-.forum-categories-mobile{
-  display:none;
-}
-
-.forum-categories-desktop{
-  display:flex;
-  gap:.8rem;
-  flex-wrap:wrap;
-  margin-top:1rem;
-}
-
-/* ===================================== */
-/* ENCLAVES ARCANOS */
-/* ===================================== */
-
-.enclaves-section{
-
-    max-width:1280px;
-    margin:3rem auto;
-}
-
-.section-header{
-
-    margin-bottom:2rem;
-}
-
-.section-subtitle{
-
-    color:#FBBF24;
-
-    font-size:.75rem;
-
-    letter-spacing:.15em;
-
-    margin-bottom:.6rem;
-}
-
-.section-header h2{
-
-    font-family:"Cinzel", serif;
-
-    font-size:2.2rem;
-
-    color:white;
-
-    margin-bottom:.7rem;
-}
-
-.section-header p{
-
-    color:#CBD5E1;
-
-    max-width:700px;
-
-    line-height:1.7;
-}
-
-/* GRID */
-
-.enclaves-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
-
-    gap:1.5rem;
-}
-
-/* CARD */
-
-.enclave-card{
-
-    position:relative;
-
-    background:linear-gradient(
-      180deg,
-      #0B1732,
-      #071426
-    );
-
-    border:1px solid rgba(255,255,255,.05);
-
-    border-top:4px solid var(--enclave-color);
-
-    border-radius:24px;
-
-    padding:1.5rem;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:1rem;
-
-    overflow:hidden;
-
-    transition:.35s ease;
-
-    box-shadow:0 12px 30px rgba(0,0,0,.35);
-}
-
-/* Halo */
-
-.enclave-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:-40%;
-
-    background:
-      radial-gradient(
-        circle,
-        color-mix(in srgb,var(--enclave-color) 35%,transparent),
-        transparent 70%
-      );
-
-    opacity:0;
-
-    transition:.35s ease;
-
-    pointer-events:none;
-}
-
-.enclave-card:hover{
-
-    transform:translateY(-6px);
-
-    border-color:var(--enclave-color);
-
-    box-shadow:
-      0 18px 40px rgba(0,0,0,.45),
-      0 0 25px color-mix(in srgb,var(--enclave-color) 20%,transparent);
-}
-
-.enclave-card:hover::before{
-    opacity:1;
-}
-
-/* Ícone */
-
-.enclave-icon{
-
-    width:64px;
-    height:64px;
-
-    border-radius:18px;
-
-    display:grid;
-    place-items:center;
-
-    background:color-mix(in srgb,var(--enclave-color) 20%,transparent);
-
-    color:var(--enclave-color);
-}
-
-.enclave-icon span{
-    font-size:2rem;
-}
 
 /* Conteúdo */
 
-.enclave-info h3{
+.hero-content {
+  width: 100%;
+  min-width: 0;
 
-    color:white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 
-    font-size:1.35rem;
+  gap: 2rem;
 
-    margin-bottom:.5rem;
+  padding: 2rem;
+  margin-top: -70px;
+
+  position: relative;
+  z-index: 2;
 }
 
-.enclave-info p{
 
-    color:#CBD5E1;
+/* Texto */
 
-    line-height:1.6;
-
-    font-size:.9rem;
+.hero-text {
+  width: 100%;
+  max-width: 760px;
+  min-width: 0;
 }
 
-/* Estatísticas */
+.hero-text h1 {
+  margin: 0 0 1rem;
 
-.enclave-stats{
+  font-family: "Cinzel", serif;
 
-    display:grid;
+  font-size: 3rem;
+  line-height: 1.15;
 
-    grid-template-columns:repeat(2,1fr);
+  color: white;
 
-    gap:1rem;
+  overflow-wrap: break-word;
 }
 
-.enclave-stats div{
+.hero-text p {
+  margin: 0;
 
-    padding:.9rem;
+  color: #CBD5E1;
 
-    border-radius:14px;
+  line-height: 1.8;
+  font-size: 1.05rem;
 
-    background:#081325;
+  overflow-wrap: break-word;
 }
 
-.enclave-stats small{
 
-    display:block;
+/* Badges */
 
-    color:#94A3B8;
+.hero-badges {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 
-    margin-bottom:.35rem;
+  gap: 1rem;
 
-    font-size:.7rem;
-
-    letter-spacing:.08em;
+  margin-bottom: 1rem;
 }
 
-.enclave-stats strong{
+.badge-enclave {
+  padding: .45rem .8rem;
 
-    color:white;
+  border-radius: 999px;
 
-    font-size:1.1rem;
+  background: #F59E0B;
+  color: #111827;
+
+  font-size: .72rem;
+  font-weight: 700;
+
+  letter-spacing: .08em;
 }
 
-/* Último tópico */
+.online-status {
+  display: flex;
+  align-items: center;
 
-.enclave-last{
+  gap: .45rem;
 
-    display:flex;
+  color: #C8B189;
 
-    flex-direction:column;
-
-    gap:.35rem;
-
-    padding-top:.4rem;
-
-    border-top:1px solid rgba(255,255,255,.06);
+  font-weight: 600;
+  font-size: .9rem;
 }
 
-.enclave-last small{
+.online-dot {
+  width: 10px;
+  height: 10px;
 
-    color:#C8B189;
+  flex-shrink: 0;
+
+  border-radius: 999px;
+
+  background: #22C55E;
+
+  box-shadow: 0 0 10px #22C55E;
+
+  animation: pulseOnline 1.8s infinite;
 }
 
-.enclave-last span{
+@keyframes pulseOnline {
 
-    color:#F3F4F6;
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 
-    font-size:.9rem;
-
-    line-height:1.5;
+  50% {
+    opacity: .5;
+    transform: scale(.75);
+  }
 }
 
-/* Botão */
 
-.btn-enclave{
+/* Botão Novo Tópico */
 
-    margin-top:auto;
+.btn-new-topic {
+  flex-shrink: 0;
 
-    display:flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    align-items:center;
+  gap: .7rem;
 
-    justify-content:center;
+  padding: 1rem 1.4rem;
 
-    gap:.5rem;
+  border: none;
+  border-radius: 18px;
 
-    padding:.9rem;
+  background: linear-gradient(
+    90deg,
+    #FBBF24,
+    #F59E0B
+  );
 
-    border:none;
+  color: #111827;
 
-    border-radius:14px;
+  font-weight: 700;
 
-    cursor:pointer;
+  cursor: pointer;
 
-    background:color-mix(in srgb,var(--enclave-color) 15%,#081325);
+  white-space: nowrap;
 
-    color:var(--enclave-color);
+  transition: .25s ease;
 
-    font-weight:700;
-
-    transition:.25s;
+  box-shadow: 0 10px 25px rgba(251, 191, 36, .25);
 }
 
-.btn-enclave:hover{
+.btn-new-topic:hover {
+  transform: translateY(-2px);
 
-    background:var(--enclave-color);
-
-    color:#081325;
+  box-shadow:
+    0 15px 35px rgba(251, 191, 36, .35);
 }
 
-/* ===================================== */
-/* CRÔNICAS EM ALTA */
-/* ===================================== */
 
-.chronicles-section{
-  max-width:1280px;
-  margin:4rem auto;
+/* =========================================================
+   BUSCA
+   ========================================================= */
+
+.forum-search {
+  min-width: 0;
+
+  margin-bottom: 2rem;
+
+  padding: 1rem;
+
+  background: #081325;
+
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, .05);
 }
 
-.chronicles-list{
-  display:flex;
-  flex-direction:column;
-  gap:1.25rem;
+
+/* Caixa */
+
+.search-box {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 1rem;
+
+  padding: 1rem 1.2rem;
+
+  border-radius: 16px;
+
+  background: #040D1F;
+
+  border: 1px solid rgba(251, 191, 36, .08);
 }
 
-.chronicle-card{
 
-  background:linear-gradient(
+/* Ícone */
+
+.search-box > span {
+  flex-shrink: 0;
+
+  color: #94A3B8;
+}
+
+
+/* Input */
+
+.search-box input {
+  flex: 1 1 auto;
+
+  width: 100%;
+  min-width: 0;
+
+  background: none;
+
+  border: none;
+  outline: none;
+
+  color: white;
+
+  font-size: .95rem;
+}
+
+.search-box input::placeholder {
+  color: #64748B;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* ESC */
+
+.search-box small {
+  flex-shrink: 0;
+
+  color: #64748B;
+
+  white-space: nowrap;
+}
+
+
+/* Limpar busca */
+
+.clear-search {
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  background: none;
+
+  border: none;
+
+  color: #94A3B8;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+.clear-search:hover {
+  color: #FBBF24;
+
+  transform: scale(1.1);
+}
+
+
+/* =========================================================
+   FILTROS DESKTOP
+   ========================================================= */
+
+.forum-categories-desktop {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: .8rem;
+
+  margin-top: 1rem;
+}
+
+
+/* Chip */
+
+.category-chip {
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: .6rem;
+
+  padding: .75rem 1rem;
+
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, .08);
+
+  background: #101C34;
+
+  color: #CBD5E1;
+
+  cursor: pointer;
+
+  transition: .25s;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+.category-chip span {
+  padding: .2rem .45rem;
+
+  border-radius: 999px;
+
+  background: #172441;
+
+  color: #FBBF24;
+
+  font-size: .72rem;
+}
+
+.category-chip:hover {
+  color: #FCD34D;
+
+  border-color: #FBBF24;
+
+  transform: translateY(-2px);
+}
+
+.category-chip-active {
+  background: linear-gradient(
+    90deg,
+    #FBBF24,
+    #F59E0B
+  );
+
+  color: #111827;
+
+  border-color: #FBBF24;
+}
+
+.category-chip-active span {
+  background: rgba(0, 0, 0, .15);
+
+  color: #111827;
+}
+
+
+/* =========================================================
+   FILTROS MOBILE / TABLET
+   ========================================================= */
+
+.forum-categories-mobile {
+  display: none;
+
+  width: 100%;
+  min-width: 0;
+
+  margin-top: 1rem;
+}
+
+.systems-carousel {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: .75rem;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding-bottom: .75rem;
+
+  scroll-behavior: smooth;
+
+  scrollbar-width: none;
+
+  cursor: grab;
+
+  user-select: none;
+}
+
+.systems-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* Chips mobile */
+
+.system-chip {
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: .55rem;
+
+  padding: .85rem 1rem;
+
+  border-radius: 14px;
+
+  background: #0B1732;
+
+  border: 1px solid rgba(255, 255, 255, .08);
+
+  color: #CBD5E1;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  transition: .25s ease;
+}
+
+.system-chip:hover {
+  transform: translateY(-2px);
+
+  border-color: #FBBF24;
+
+  color: #FCD34D;
+}
+
+.system-chip-active {
+  background: linear-gradient(
+    90deg,
+    #FBBF24,
+    #F59E0B
+  );
+
+  color: #130900;
+
+  border-color: #FBBF24;
+}
+
+.system-chip-count {
+  padding: .15rem .45rem;
+
+  border-radius: 999px;
+
+  background: rgba(0, 0, 0, .15);
+
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+
+/* Barra do carrossel */
+
+.carousel-scrollbar {
+  width: 100%;
+  height: 5px;
+
+  margin-top: .15rem;
+
+  border-radius: 999px;
+
+  background: #18243E;
+
+  overflow: hidden;
+}
+
+.carousel-thumb {
+  width: 35%;
+  height: 100%;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    #FBBF24,
+    #F59E0B
+  );
+
+  box-shadow: 0 0 8px rgba(251, 191, 36, .3);
+
+  transition: transform .25s ease;
+}
+
+
+/* =========================================================
+   ENCLAVES ARCANOS
+   ========================================================= */
+
+.enclaves-section {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+
+/* Cabeçalho das seções */
+
+.section-header {
+  margin-bottom: 2rem;
+}
+
+.section-subtitle {
+  margin: 0 0 .6rem;
+
+  color: #FBBF24;
+
+  font-size: .75rem;
+
+  letter-spacing: .15em;
+}
+
+.section-header h2 {
+  margin: 0 0 .7rem;
+
+  font-family: "Cinzel", serif;
+
+  font-size: 2.2rem;
+
+  color: white;
+
+  line-height: 1.25;
+}
+
+.section-header p {
+  max-width: 700px;
+
+  margin: 0;
+
+  color: #CBD5E1;
+
+  line-height: 1.7;
+}
+
+
+/* Grid */
+
+.enclaves-grid {
+  width: 100%;
+  min-width: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(100%, 330px), 1fr)
+    );
+
+  gap: 1.5rem;
+}
+
+
+/* =========================================================
+   CARD DOS ENCLAVES
+   ========================================================= */
+
+.enclave-card {
+  position: relative;
+
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+
+  padding: 1.5rem;
+
+  overflow: hidden;
+
+  background: linear-gradient(
     180deg,
     #0B1732,
     #071426
   );
 
-  border:1px solid rgba(255,255,255,.05);
+  border: 1px solid rgba(255, 255, 255, .05);
 
-  border-radius:22px;
+  border-top: 4px solid var(--enclave-color);
 
-  padding:1.5rem;
+  border-radius: 24px;
 
-  transition:.3s ease;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, .35);
 
-  box-shadow:0 10px 30px rgba(0,0,0,.25);
+  transition: .35s ease;
 }
 
-.chronicle-card:hover{
 
-  transform:translateY(-4px);
+/* Halo */
 
-  border-color:rgba(251,191,36,.25);
+.enclave-card::before {
+  content: "";
 
-  box-shadow:0 18px 35px rgba(0,0,0,.35);
+  position: absolute;
+
+  inset: -40%;
+
+  background:
+    radial-gradient(
+      circle,
+      color-mix(
+        in srgb,
+        var(--enclave-color) 35%,
+        transparent
+      ),
+      transparent 70%
+    );
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: .35s ease;
 }
+
+.enclave-card:hover {
+  transform: translateY(-6px);
+
+  border-color: var(--enclave-color);
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, .45),
+    0 0 25px
+    color-mix(
+      in srgb,
+      var(--enclave-color) 20%,
+      transparent
+    );
+}
+
+.enclave-card:hover::before {
+  opacity: 1;
+}
+
+
+/* Ícone */
+
+.enclave-icon {
+  width: 64px;
+  height: 64px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 18px;
+
+  background:
+    color-mix(
+      in srgb,
+      var(--enclave-color) 20%,
+      transparent
+    );
+
+  color: var(--enclave-color);
+}
+
+.enclave-icon span {
+  font-size: 2rem;
+}
+
+
+/* Informações */
+
+.enclave-info {
+  min-width: 0;
+}
+
+.enclave-info h3 {
+  margin: 0 0 .5rem;
+
+  color: white;
+
+  font-size: 1.35rem;
+}
+
+.enclave-info p {
+  margin: 0;
+
+  color: #CBD5E1;
+
+  line-height: 1.6;
+
+  font-size: .9rem;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   ESTATÍSTICAS
+   ========================================================= */
+
+.enclave-stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
+}
+
+.enclave-stats div {
+  min-width: 0;
+
+  padding: .9rem;
+
+  border-radius: 14px;
+
+  background: #081325;
+}
+
+.enclave-stats small {
+  display: block;
+
+  margin-bottom: .35rem;
+
+  color: #94A3B8;
+
+  font-size: .7rem;
+
+  letter-spacing: .08em;
+}
+
+.enclave-stats strong {
+  color: white;
+
+  font-size: 1.1rem;
+}
+
+
+/* =========================================================
+   ÚLTIMO TÓPICO
+   ========================================================= */
+
+.enclave-last {
+  display: flex;
+  flex-direction: column;
+
+  gap: .35rem;
+
+  padding-top: .4rem;
+
+  border-top: 1px solid rgba(255, 255, 255, .06);
+}
+
+.enclave-last small {
+  color: #C8B189;
+}
+
+.enclave-last span {
+  color: #F3F4F6;
+
+  font-size: .9rem;
+
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   BOTÃO ENTRAR NO ENCLAVE
+   ========================================================= */
+
+.btn-enclave {
+  width: 100%;
+
+  margin-top: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: .5rem;
+
+  padding: .9rem;
+
+  border: none;
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  background:
+    color-mix(
+      in srgb,
+      var(--enclave-color) 15%,
+      #081325
+    );
+
+  color: var(--enclave-color);
+
+  font-weight: 700;
+
+  transition: .25s;
+}
+
+.btn-enclave:hover {
+  background: var(--enclave-color);
+
+  color: #081325;
+}
+
+
+/* =========================================================
+   CRÔNICAS EM ALTA
+   ========================================================= */
+
+.chronicles-section {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.chronicles-list {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.25rem;
+}
+
+
+/* =========================================================
+   CARD DA CRÔNICA
+   ========================================================= */
+
+.chronicle-card {
+  width: 100%;
+  min-width: 0;
+
+  padding: 1.5rem;
+
+  background: linear-gradient(
+    180deg,
+    #0B1732,
+    #071426
+  );
+
+  border: 1px solid rgba(255, 255, 255, .05);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, .25);
+
+  transition: .3s ease;
+}
+
+.chronicle-card:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(251, 191, 36, .25);
+
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, .35);
+}
+
 
 /* Cabeçalho */
 
-.chronicle-top{
+.chronicle-top {
+  display: flex;
+  align-items: center;
 
-  display:flex;
+  flex-wrap: wrap;
 
-  align-items:center;
-
-  gap:1rem;
-
-  flex-wrap:wrap;
+  gap: 1rem;
 }
 
-.chronicle-avatar{
+.chronicle-avatar {
+  width: 52px;
+  height: 52px;
 
-  width:52px;
-  height:52px;
+  flex-shrink: 0;
 
-  border-radius:16px;
+  object-fit: cover;
 
-  object-fit:cover;
+  border-radius: 16px;
 
-  border:2px solid rgba(251,191,36,.25);
+  border: 2px solid rgba(251, 191, 36, .25);
 }
 
-.chronicle-user{
+.chronicle-user {
+  min-width: 0;
 
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
 }
 
-.chronicle-user strong{
+.chronicle-user strong {
+  color: white;
 
-  color:white;
+  overflow-wrap: anywhere;
 }
 
-.chronicle-user span{
+.chronicle-user span {
+  color: #C8B189;
 
-  color:#C8B189;
+  font-size: .8rem;
 
-  font-size:.8rem;
+  overflow-wrap: anywhere;
 }
 
-.chronicle-system{
 
-  margin-left:auto;
+/* Sistema */
 
-  padding:.35rem .7rem;
+.chronicle-system {
+  flex-shrink: 0;
 
-  border-radius:999px;
+  margin-left: auto;
 
-  color:white;
+  padding: .35rem .7rem;
 
-  font-size:.72rem;
+  border-radius: 999px;
 
-  font-weight:700;
+  color: white;
+
+  font-size: .72rem;
+  font-weight: 700;
 }
 
-.chronicle-time{
 
-  display:block;
+/* Tempo */
 
-  color:#64748B;
+.chronicle-time {
+  display: block;
 
-  margin:.8rem 0;
+  margin: .8rem 0;
+
+  color: #64748B;
 }
 
-.chronicle-card h3{
 
-  color:white;
+/* Título */
 
-  font-size:1.4rem;
+.chronicle-card h3 {
+  margin: 0 0 .8rem;
 
-  margin-bottom:.8rem;
+  color: white;
+
+  font-size: 1.4rem;
+
+  line-height: 1.35;
+
+  overflow-wrap: anywhere;
 }
 
-.chronicle-card p{
 
-  color:#CBD5E1;
+/* Resumo */
 
-  line-height:1.7;
+.chronicle-card p {
+  margin: 0;
+
+  color: #CBD5E1;
+
+  line-height: 1.7;
+
+  overflow-wrap: anywhere;
 }
 
-/* Rodapé */
 
-.chronicle-footer{
+/* =========================================================
+   RODAPÉ DA CRÔNICA
+   ========================================================= */
 
-  display:flex;
+.chronicle-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  justify-content:space-between;
+  flex-wrap: wrap;
 
-  align-items:center;
+  gap: 1rem;
 
-  flex-wrap:wrap;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
 
-  gap:1rem;
-
-  margin-top:1.5rem;
-
-  padding-top:1rem;
-
-  border-top:1px solid rgba(255,255,255,.05);
+  border-top: 1px solid rgba(255, 255, 255, .05);
 }
 
-.chronicle-metrics{
 
-  display:flex;
+/* Métricas */
 
-  gap:1rem;
+.chronicle-metrics {
+  display: flex;
+  flex-wrap: wrap;
 
-  color:#94A3B8;
+  gap: 1rem;
 
-  font-size:.85rem;
+  color: #94A3B8;
+
+  font-size: .85rem;
 }
 
-.btn-open-chronicle{
 
-  display:flex;
+/* Botão */
 
-  align-items:center;
+.btn-open-chronicle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  gap:.45rem;
+  gap: .45rem;
 
-  padding:.75rem 1rem;
+  padding: .75rem 1rem;
 
-  border-radius:14px;
+  border: none;
+  border-radius: 14px;
 
-  border:none;
+  cursor: pointer;
 
-  cursor:pointer;
+  background: #172441;
 
-  background:#172441;
+  color: #FBBF24;
 
-  color:#FBBF24;
+  font-weight: 700;
 
-  font-weight:700;
-
-  transition:.25s;
+  transition: .25s;
 }
 
-.btn-open-chronicle:hover{
+.btn-open-chronicle:hover {
+  background: #FBBF24;
 
-  background:#FBBF24;
-
-  color:#111827;
+  color: #111827;
 }
 
-.clear-search{
-  background:none;
-  border:none;
-  color:#94A3B8;
-  cursor:pointer;
-  display:grid;
-  place-items:center;
-  transition:.2s;
-}
 
-.clear-search:hover{
-  color:#FBBF24;
-  transform:scale(1.1);
-}
+/* =========================================================
+   TABLET
+   1010px
+   ========================================================= */
 
-/* Tablet e celular */
-@media (max-width:1010px){
+@media (max-width: 1010px) {
 
-  .forum-categories-desktop{
-    display:none;
+  /* Filtros */
+
+  .forum-categories-desktop {
+    display: none;
   }
 
-  .forum-categories-mobile{
-    display:block;
-    margin-top:1rem;
+  .forum-categories-mobile {
+    display: block;
   }
 
-  .systems-carousel{
 
-    display:flex;
-    align-items:center;
-    gap:.75rem;
+  /* Hero */
 
-    overflow-x:auto;
-    overflow-y:hidden;
+  .hero-content {
+    gap: 1.5rem;
 
-    scroll-behavior:smooth;
-    scrollbar-width:none;
-
-    cursor:grab;
-    user-select:none;
-
-    padding-bottom:.75rem;
+    padding: 1.5rem;
   }
 
-  .systems-carousel::-webkit-scrollbar{
-    display:none;
+  .hero-text h1 {
+    font-size: clamp(2rem, 5vw, 2.6rem);
   }
 
-  .system-chip{
-
-    flex:0 0 auto;
-    white-space:nowrap;
-
-    display:flex;
-    align-items:center;
-    gap:.55rem;
-
-    padding:.85rem 1rem;
-
-    border-radius:14px;
-
-    background:#0B1732;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    color:#CBD5E1;
-
-    font-weight:600;
-
-    transition:.25s ease;
+  .hero-text p {
+    font-size: .98rem;
   }
 
-  .system-chip:hover{
 
-    transform:translateY(-2px);
+  /* Busca */
 
-    border-color:#FBBF24;
-
-    color:#FCD34D;
+  .search-box {
+    gap: .75rem;
   }
 
-  .system-chip-active{
 
-    background:linear-gradient(
-      90deg,
-      #FBBF24,
-      #F59E0B
-    );
+  /* Enclaves */
 
-    color:#130900;
-
-    border-color:#FBBF24;
+  .enclaves-grid {
+    grid-template-columns:
+      repeat(
+        auto-fit,
+        minmax(min(100%, 300px), 1fr)
+      );
   }
-
-  .system-chip-count{
-
-    background:rgba(0,0,0,.15);
-
-    border-radius:999px;
-
-    padding:.15rem .45rem;
-
-    font-size:.72rem;
-
-    font-weight:700;
-  }
-
-  /* Barra inferior */
-
-  .carousel-scrollbar{
-
-    width:100%;
-    height:5px;
-
-    border-radius:999px;
-
-    background:#18243E;
-
-    overflow:hidden;
-  }
-
-  .carousel-thumb{
-
-    width:35%;
-    height:100%;
-
-    border-radius:999px;
-
-    background:linear-gradient(
-      90deg,
-      #FBBF24,
-      #F59E0B
-    );
-
-    box-shadow:0 0 8px rgba(251,191,36,.3);
-  }
-
 }
 
-@media(max-width:900px){
 
-    .hero-content{
+/* =========================================================
+   TABLET PEQUENO
+   900px
+   ========================================================= */
 
-        flex-direction:column;
+@media (max-width: 900px) {
 
-        align-items:flex-start;
+  /* Hero */
 
-        margin-top:-50px;
-    }
-
-    .btn-new-topic{
-
-        width:100%;
-
-        justify-content:center;
-    }
-
-    .hero-text h1{
-
-        font-size:2.2rem;
-    }
-
-}
-
-@media(max-width:768px){
-
-    .enclaves-grid{
-        grid-template-columns:1fr;
-    }
-
-    .section-header h2{
-        font-size:1.8rem;
-    }
-
-    .chronicle-system{
-    margin-left:0;
+  .hero-banner {
+    height: 220px;
   }
 
-  .chronicle-footer{
-    flex-direction:column;
-    align-items:flex-start;
+  .hero-content {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    margin-top: -45px;
+
+    padding: 1.5rem;
   }
 
-  .btn-open-chronicle{
-    width:100%;
-    justify-content:center;
+  .hero-text {
+    max-width: 100%;
   }
 
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .btn-new-topic {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+
+  /* Cabeçalhos */
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
 }
 
-@media(max-width:600px){
 
-    .forum-page{
-        padding-left:.8rem;
-        padding-right:.8rem;
-    }
+/* =========================================================
+   MOBILE / TABLET PEQUENO
+   768px
+   ========================================================= */
 
-    .forum-hero,
-    .forum-search{
-        border-radius:20px;
-    }
+@media (max-width: 768px) {
 
-    .hero-banner{
-        height:200px;
-    }
+  /* Página */
 
-    .hero-text h1{
-        font-size:1.7rem;
-    }
+  .forum-page {
+    padding-top: 76px;
+    padding-left: 0;
+    padding-right: 0;
+  }
 
-    .search-box{
-        padding:.85rem 1rem;
-    }
 
-    .search-box small{
-        display:none;
-    }
+  /* Containers */
 
+  .forum-hero,
+  .forum-search,
+  .enclaves-section,
+  .chronicles-section {
+    width: calc(100% - 1.5rem);
+  }
+
+
+  /* Hero */
+
+  .forum-hero {
+    margin-top: 1rem;
+
+    border-radius: 20px;
+  }
+
+  .hero-banner {
+    height: 190px;
+  }
+
+  .hero-content {
+    margin-top: -35px;
+
+    padding: 1.2rem;
+
+    gap: 1.25rem;
+  }
+
+  .hero-badges {
+    gap: .6rem;
+  }
+
+  .badge-enclave {
+    padding: .4rem .65rem;
+
+    font-size: .65rem;
+  }
+
+  .online-status {
+    font-size: .8rem;
+  }
+
+  .hero-text h1 {
+    font-size: clamp(1.55rem, 7vw, 2rem);
+
+    line-height: 1.2;
+  }
+
+  .hero-text p {
+    font-size: .9rem;
+
+    line-height: 1.65;
+  }
+
+
+  /* Busca */
+
+  .forum-search {
+    padding: .75rem;
+
+    border-radius: 18px;
+  }
+
+  .search-box {
+    padding: .8rem;
+
+    gap: .6rem;
+  }
+
+  .search-box input {
+    font-size: .85rem;
+  }
+
+  .search-box small {
+    display: none;
+  }
+
+
+  /* Filtros */
+
+  .system-chip {
+    padding: .7rem .85rem;
+
+    font-size: .85rem;
+  }
+
+
+  /* Enclaves */
+
+  .enclaves-section,
+  .chronicles-section {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.6rem;
+
+    line-height: 1.25;
+  }
+
+  .section-header p {
+    font-size: .9rem;
+  }
+
+  .enclaves-grid {
+    grid-template-columns: 1fr;
+
+    gap: 1rem;
+  }
+
+  .enclave-card {
+    padding: 1.2rem;
+
+    border-radius: 20px;
+  }
+
+  .enclave-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+
+  /* Crônicas */
+
+  .chronicle-card {
+    padding: 1.2rem;
+
+    border-radius: 18px;
+  }
+
+  .chronicle-top {
+    gap: .7rem;
+  }
+
+  .chronicle-avatar {
+    width: 44px;
+    height: 44px;
+  }
+
+  .chronicle-user strong {
+    font-size: .9rem;
+  }
+
+  .chronicle-user span {
+    font-size: .72rem;
+  }
+
+  .chronicle-system {
+    margin-left: 0;
+
+    font-size: .65rem;
+  }
+
+  .chronicle-card h3 {
+    font-size: 1.15rem;
+
+    line-height: 1.35;
+  }
+
+  .chronicle-card p {
+    font-size: .9rem;
+
+    line-height: 1.6;
+  }
+
+  .chronicle-footer {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .chronicle-metrics {
+    width: 100%;
+
+    gap: .7rem;
+
+    font-size: .75rem;
+  }
+
+  .btn-open-chronicle {
+    width: 100%;
+
+    justify-content: center;
+  }
 }
 
+
+/* =========================================================
+   CELULAR
+   600px
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .forum-page {
+    padding-left: .8rem;
+    padding-right: .8rem;
+  }
+
+
+  /* Containers */
+
+  .forum-hero,
+  .forum-search,
+  .enclaves-section,
+  .chronicles-section {
+    width: calc(100% - 1rem);
+  }
+
+
+  /* Hero */
+
+  .forum-hero {
+    border-radius: 20px;
+  }
+
+  .hero-banner {
+    height: 180px;
+  }
+
+  .hero-content {
+    padding: 1rem;
+
+    margin-top: -30px;
+  }
+
+  .hero-text h1 {
+    font-size: 1.7rem;
+  }
+
+
+  /* Busca */
+
+  .search-box {
+    padding: .85rem 1rem;
+  }
+
+  .search-box input {
+    font-size: .8rem;
+  }
+
+
+  /* Categorias */
+
+  .system-chip {
+    padding: .68rem .8rem;
+
+    font-size: .8rem;
+  }
+}
+
+
+/* =========================================================
+   CELULAR PEQUENO
+   480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  /* Hero */
+
+  .forum-hero {
+    border-radius: 16px;
+  }
+
+  .hero-banner {
+    height: 165px;
+  }
+
+  .hero-content {
+    margin-top: -25px;
+
+    padding: 1rem;
+  }
+
+  .hero-badges {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .hero-text h1 {
+    font-size: 1.45rem;
+  }
+
+  .hero-text p {
+    font-size: .85rem;
+  }
+
+  .btn-new-topic {
+    padding: .85rem 1rem;
+
+    font-size: .85rem;
+  }
+
+
+  /* Busca */
+
+  .forum-search {
+    padding: .6rem;
+  }
+
+  .search-box {
+    padding: .7rem;
+
+    border-radius: 13px;
+  }
+
+  .search-box input {
+    font-size: .78rem;
+  }
+
+  .search-box input::placeholder {
+    font-size: .75rem;
+  }
+
+
+  /* Categorias */
+
+  .system-chip {
+    padding: .65rem .75rem;
+
+    font-size: .78rem;
+  }
+
+
+  /* Cabeçalhos */
+
+  .section-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .section-subtitle {
+    font-size: .65rem;
+  }
+
+
+  /* Enclaves */
+
+  .enclave-card {
+    padding: 1rem;
+  }
+
+  .enclave-stats {
+    gap: .6rem;
+  }
+
+  .enclave-stats div {
+    padding: .7rem;
+  }
+
+
+  /* Crônicas */
+
+  .chronicle-card {
+    padding: 1rem;
+  }
+
+  .chronicle-metrics {
+    gap: .5rem;
+  }
+}
+
+
+/* =========================================================
+   CELULAR MUITO PEQUENO
+   360px
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .forum-hero,
+  .forum-search,
+  .enclaves-section,
+  .chronicles-section {
+    width: calc(100% - .5rem);
+  }
+
+
+  /* Hero */
+
+  .hero-content {
+    padding: .85rem;
+  }
+
+  .hero-text h1 {
+    font-size: 1.3rem;
+  }
+
+  .hero-text p {
+    font-size: .8rem;
+  }
+
+
+  /* Busca */
+
+  .search-box {
+    gap: .4rem;
+  }
+
+  .search-box input {
+    font-size: .72rem;
+  }
+
+
+  /* Enclaves */
+
+  .enclave-stats {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* Crônicas */
+
+  .chronicle-metrics {
+    flex-direction: column;
+
+    gap: .35rem;
+  }
+}

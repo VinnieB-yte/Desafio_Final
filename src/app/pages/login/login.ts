@@ -5,7 +5,7 @@ import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
@@ -55,6 +55,9 @@ export class Login {
 
     setTimeout(() => {
       this.carregando.set(false);
+
+      // Salva a informação de que o usuário está autenticado
+      localStorage.setItem('usuarioLogado', 'true');
 
       // Login realizado com sucesso
       this.router.navigate(['/home']);

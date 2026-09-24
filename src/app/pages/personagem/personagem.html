@@ -315,19 +315,16 @@
                           {{ sistema.rodape }}
                         </span>
 
-                        <button
-                          type="button"
-                          (click)="iniciarFicha(sistema.nome)"
-                          class="flex shrink-0 items-center gap-1 rounded-lg bg-amber-500 px-3 py-2 text-xs font-bold text-[#07101F] shadow-[0_0_12px_rgba(245,158,11,0.15)] transition-all hover:bg-amber-300"
-                        >
+                        <a
+                          class="btn-criar-ficha"
+                          [routerLink]="sistema.rota"
+                          >
+                            Criar Ficha
 
-                          Criar Ficha
-
-                          <span class="material-symbols-outlined text-sm">
-                            arrow_forward
+                          <span class="material-symbols-outlined">
+                          arrow_forward
                           </span>
-
-                        </button>
+                          </a>
 
                       </div>
 
