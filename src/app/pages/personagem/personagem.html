@@ -1,4 +1,4 @@
-<app-header mode="personagem"></app-header>
+<app-header mode="character"></app-header>
 
 <main class="min-h-screen bg-[#040B1B] pb-16 pt-20 text-zinc-100">
 
@@ -110,44 +110,50 @@
 
       <!-- Filtros -->
 
-      <div class="mt-4 flex items-center gap-2 overflow-x-auto pb-1">
+<!-- ======================================== -->
+<!-- CARROSSEL DE SISTEMAS -->
+<!-- ======================================== -->
 
-        <span class="mr-2 hidden shrink-0 text-xs uppercase tracking-wider text-zinc-600 md:block">
-          Filtrar:
+<div class="relative mt-4">
+
+  <!-- Sombra esquerda -->
+  <div class="scroll-shadow-left"></div>
+
+  <!-- Sombra direita -->
+  <div class="scroll-shadow-right"></div>
+
+  <!-- Barra -->
+  <div class="systems-carousel" #systemsCarousel>
+
+    @for (categoria of categorias; track categoria.id) {
+
+      <button
+        type="button"
+        (click)="selecionarCategoria(categoria.id)"
+        class="system-chip"
+        [class.system-chip-active]="categoriaSelecionada() === categoria.id">
+
+        <span class="material-symbols-outlined text-sm">
+          {{ categoria.icone }}
         </span>
 
-        @for (categoria of categorias; track categoria.id) {
-        <button
-            type="button"
-            (click)="selecionarCategoria(categoria.id)"
-            class="flex shrink-0 items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-semibold transition-all"
+        <span>{{ categoria.nome }}</span>
 
-            [class.bg-amber-500]="categoriaSelecionada() === categoria.id"
-            [class.text-[#07101F]]="categoriaSelecionada() === categoria.id"
-            [class.shadow-[0_0_14px_rgba(245,158,11,0.20)]]="categoriaSelecionada() === categoria.id"
+        <span class="system-chip-count">
+          {{
+            categoria.id === 'todos'
+              ? sistemas.length
+              : quantidadePorCategoria(categoria.id)
+          }}
+        </span>
 
-            [class.bg-[#0D1B34]]="categoriaSelecionada() !== categoria.id"
-            [class.text-zinc-400]="categoriaSelecionada() !== categoria.id"
-            [class.hover:text-amber-300]="categoriaSelecionada() !== categoria.id"
-            >
+      </button>
 
-                <span class="material-symbols-outlined text-sm">
-                {{ categoria.icone }}
-                </span>
+    }
 
-                <span>{{ categoria.nome }}</span>
+  </div>
 
-                <span class="rounded bg-black/10 px-1.5 py-0.5">
-                {{
-                categoria.id === 'todos'
-                ? sistemas.length
-                : quantidadePorCategoria(categoria.id)
-                }}
-                </span>
-                </button>
-                }
-
-      </div>
+</div>
 
     </div>
 

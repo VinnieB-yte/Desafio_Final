@@ -126,6 +126,22 @@
     margin-top:8px;
 }
 
+.btn-hero{
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centraliza o texto e o ícone */
+
+  gap: .6rem;
+
+  width: fit-content;
+  padding: 1rem 1.8rem;
+
+  border-radius: 16px;
+  background: linear-gradient(90deg,#FBBF24,#F59E0B);
+  color: #111827;
+  font-weight: 700;
+}
+
 .btn-primary{
     background:#ffc174;
     color:#050b1e;
@@ -247,13 +263,7 @@
     left:48px;
     bottom:48px;
     max-width:480px;
-}
-
-.featured-content span{
-    color:#ffc174;
-    text-transform:uppercase;
-    letter-spacing:.08em;
-    font-size:.8rem;
+    
 }
 
 .featured-content h3{
@@ -1006,6 +1016,17 @@
 
   .portal-card{
     padding-bottom:.5rem;
+  }
+
+   .featured-content{
+    align-items: center;
+    text-align: center;
+  }
+
+  .btn-hero{
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto;
   }
 
 }

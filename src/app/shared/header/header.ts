@@ -1,5 +1,5 @@
-import { Component, signal } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, inject, signal } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 export type HeaderMode = 'home' | 'profile' | 'character' | 'forum';
 
@@ -10,9 +10,14 @@ export type HeaderMode = 'home' | 'profile' | 'character' | 'forum';
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
+
 export class Header {
 
-   menuOpen = signal(false);
+  router = inject(Router);
+
+  menuOpen = signal(false);
+
+  profileMenuOpen = signal(false);
 
   menuItems = [
     { label: 'Início', route: '/home' },
@@ -27,6 +32,27 @@ export class Header {
 
   closeMenu() {
     this.menuOpen.set(false);
+  }
+
+   toggleProfileMenu(){
+    this.profileMenuOpen.update(open => !open);
+  }
+
+  closeProfileMenu(){
+    this.profileMenuOpen.set(false);
+  }
+
+  logout(){
+
+    console.log('Logout Executado')
+
+    this.closeProfileMenu();
+    this.closeMenu
+
+    localStorage.removeItem('grimorio-token');
+    localStorage.removeItem('grimorio-user');
+    // futuramente remove token/autenticação.
+    this.router.navigate(['/login']);
   }
 
 }

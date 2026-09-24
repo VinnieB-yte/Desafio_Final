@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { AfterViewInit, Component, computed, ElementRef, signal, ViewChild } from '@angular/core';
 import { Header } from '../../shared/header/header';
 import { Footer } from '../../shared/footer/footer';
 import { RouterLink } from '@angular/router';
@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './personagem.css',
 })
 
-export class Personagem {
+export class Personagem implements AfterViewInit {
 
   busca = signal('');
   categoriaSelecionada = signal('todos');
@@ -467,5 +467,68 @@ export class Personagem {
 
       return 'D&D 5e';
     });
+
+    @ViewChild('systemsCarousel')
+    systemsCarousel!: ElementRef<HTMLDivElement>;
+
+    ngAfterViewInit() {
+  const carousel = this.systemsCarousel.nativeElement;
+
+  let isDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
+  let moved = false;
+
+  carousel.addEventListener('mousedown', (e) => {
+    isDown = true;
+    moved = false;
+
+    startX = e.pageX;
+    scrollLeft = carousel.scrollLeft;
+
+    carousel.style.cursor = 'grabbing';
+  });
+
+  carousel.addEventListener('mouseleave', () => {
+    isDown = false;
+    carousel.style.cursor = 'grab';
+  });
+
+  carousel.addEventListener('mouseup', () => {
+    isDown = false;
+    carousel.style.cursor = 'grab';
+  });
+
+  carousel.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+
+    e.preventDefault();
+
+    moved = true;
+
+    const walk = (e.pageX - startX) * 1.2;
+    carousel.scrollLeft = scrollLeft - walk;
+  });
+
+  // Continua funcionando com a roda do mouse.
+  carousel.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    carousel.scrollLeft += e.deltaY;
+  });
+
+  // Evita clicar no botão quando o usuário estava arrastando.
+  carousel.querySelectorAll('button').forEach((button) => {
+    button.addEventListener(
+      'click',
+      (event) => {
+        if (moved) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      },
+      true
+    );
+  });
+}
 
 }

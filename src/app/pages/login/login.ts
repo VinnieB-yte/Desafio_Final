@@ -21,7 +21,7 @@ export class Login {
   carregando = signal(false);
 
   // Credenciais de teste
-  private readonly usuarioCorreto = 'MerlinVale';
+  private readonly usuarioCorreto = 'MerlinRavens';
   private readonly emailCorreto = 'merlin@example.com';
   private readonly senhaCorreta = 'Grimorio123';
 

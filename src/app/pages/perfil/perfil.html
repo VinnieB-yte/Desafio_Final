@@ -1,0 +1,634 @@
+<app-header mode="profile"></app-header>
+
+<main class="perfil-page min-h-screen bg-[#040B1B] pb-16 pt-20 text-zinc-100" 
+  [style.--theme-primary]="temaAtual().primary"
+  [style.--theme-secondary]="temaAtual().secondary"
+  [style.--theme-accent]="temaAtual().accent">
+
+  <!-- HERO DO PERFIL -->
+<section
+  class="perfil-hero"
+  [style.--banner]="
+    'linear-gradient(rgba(4,11,27,.55), rgba(4,11,27,.82)), url(' +
+    temaAtual().banner +
+    ')'
+  "
+>
+
+  <!-- Banner -->
+  <div class="hero-banner"></div>
+
+  <div class="hero-content">
+
+    <!-- Avatar -->
+    <div class="hero-avatar-wrapper">
+
+      <img
+        [src]="usuario().avatar"
+        alt="Avatar"
+        class="hero-avatar"
+      >
+
+      <button class="avatar-edit">
+        <span class="material-symbols-outlined">photo_camera</span>
+      </button>
+
+    </div>
+
+    <!-- Informações -->
+    <div class="hero-info">
+
+      <div class="hero-name-row">
+
+        <h1>{{ usuario().nome }}</h1>
+
+        <span class="username">
+          {{ usuario().username }}
+        </span>
+
+        <span class="pronoun">
+          {{ usuario().pronome }}
+        </span>
+
+      </div>
+
+      <p class="hero-bio">
+        {{ usuario().bio }}
+      </p>
+
+      <div class="favorite-systems">
+
+        <span class="system-tag tormenta">TORMENTA20</span>
+
+        <span class="system-tag cthulhu">CALL OF CTHULHU</span>
+
+        <span class="system-tag vampiro">VAMPIRO: A MÁSCARA</span>
+
+      </div>
+
+    </div>
+
+    <!-- Plano -->
+    <div class="hero-side">
+
+      <div class="plan-card">
+
+        <span class="plan-label">
+          STATUS DA CONTA
+        </span>
+
+        <strong>
+          {{ usuario().plano }}
+        </strong>
+
+      </div>
+
+      <button class="btn-edit">
+
+        <span class="material-symbols-outlined">
+          edit
+        </span>
+
+        Editar Perfil
+
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ====================================== -->
+<!-- OFICINA ARCANA -->
+<!-- ====================================== -->
+
+<section class="arcane-workshop">
+
+  <div class="workshop-header">
+
+    <div>
+
+      <p class="workshop-subtitle">
+        OFICINA ARCANA
+      </p>
+
+      <h2>Personalize sua Identidade</h2>
+
+      <p>
+        Escolha um universo visual para representar seu perfil dentro do Grimório Nexus.
+      </p>
+
+    </div>
+
+    <button class="btn-theme" (click)="togglePainelTema()">
+
+      <span class="material-symbols-outlined">palette</span>
+
+      Abrir Oficina
+
+    </button>
+
+  </div>
+
+</section>
+
+@if(painelTemaAberto()){
+
+<div class="theme-overlay" (click)="fecharPainelTema()"></div>
+
+<aside class="theme-panel">
+
+  <div class="panel-header">
+
+    <h3>Oficina Arcana</h3>
+
+    <button (click)="fecharPainelTema()">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+
+  </div>
+
+  <!-- TEMAS -->
+
+  <div class="panel-section">
+
+    <p class="panel-title">Temas Arcanos</p>
+
+    <div class="theme-grid">
+
+      @for (tema of temas; track tema.id){
+
+        <button
+          class="theme-card"
+          [class.theme-card-active]="temaAtual().id === tema.id"
+          (click)="temaAtual.set(tema)">
+
+          <div
+            class="theme-preview"
+            [style.background]="
+              'linear-gradient(135deg,' +
+              tema.secondary +
+              ',' +
+              tema.primary +
+              ')'
+            ">
+          </div>
+
+          <span>{{ tema.nome }}</span>
+
+        </button>
+
+      }
+
+    </div>
+
+  </div>
+
+  <!-- PREVIEW DOS BANNERS -->
+
+  <div class="panel-section">
+
+    <p class="panel-title">Prévia do Banner</p>
+
+    <div class="banner-preview">
+
+      <img
+        [src]="temaAtual().banner"
+        alt="Banner do tema">
+
+      <div class="banner-info">
+
+        <strong>{{ temaAtual().nome }}</strong>
+
+        <span>Banner oficial do Grimório Nexus</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="panel-footer">
+
+    <button class="btn-save" (click)="fecharPainelTema()">
+      Salvar Personalização
+    </button>
+
+  </div>
+
+</aside>
+
+}
+
+  <!-- ====================================== -->
+<!-- MINHAS PERSONAS -->
+<!-- ====================================== -->
+
+<section class="characters-section">
+
+  <div class="characters-header">
+
+    <div>
+
+      <p class="characters-subtitle">
+        GERENCIE SUAS FICHAS
+      </p>
+
+      <h2>Minhas Personas & Fichas Ativas</h2>
+
+      <p>
+        Gerencie suas fichas prontas para sessão, acompanhe atributos vitais e suba de nível.
+      </p>
+
+    </div>
+
+    <div class="limit-card">
+
+      <span class="limit-title">
+        LIMITE DE FICHAS
+      </span>
+
+      <strong>
+        {{personagens().length}} de {{limitePersonagens()}} personagens
+      </strong>
+
+      <div class="limit-bar">
+        <div
+          class="limit-progress"
+          [style.width.%]="(personagens().length / limitePersonagens()) * 100">
+        </div>
+      </div>
+
+      <small>
+        {{ limitePersonagens() - personagens().length }} slot restante gratuito
+      </small>
+
+    </div>
+
+  </div>
+
+  <!-- GRID DOS PERSONAGENS -->
+
+  <div class="characters-grid">
+
+    @for(personagem of personagens(); track personagem.id){
+
+      <article
+        class="character-card"
+        [style.border-top-color]="personagem.cor">
+
+        <div class="character-top">
+
+          <img
+            [src]="personagem.imagem"
+            [alt]="personagem.nome">
+
+          <div class="character-info">
+
+            <span
+              class="system-badge"
+              [style.background]="personagem.cor">
+
+              {{ personagem.sistema }}
+
+            </span>
+
+            <h3>{{ personagem.nome }}</h3>
+
+            <p>{{ personagem.classe }}</p>
+
+            <small>{{ personagem.subtitulo }}</small>
+
+          </div>
+
+        </div>
+
+        <!-- ATRIBUTOS -->
+
+        <div class="character-stats">
+
+          <div>
+
+            <span>PONTOS VITAIS</span>
+
+            <strong>{{ personagem.vida }}</strong>
+
+          </div>
+
+          <div>
+
+            <span>{{ personagem.atributo1Nome }}</span>
+
+            <strong>{{ personagem.atributo1 }}</strong>
+
+          </div>
+
+        </div>
+
+        <!-- RODAPÉ -->
+
+        <div class="character-footer">
+
+          <small>{{ personagem.ultimaAtualizacao }}</small>
+
+          <small>{{ personagem.detalhe }}</small>
+
+        </div>
+
+        <!-- BOTÕES -->
+
+        <div class="character-actions">
+
+          <button class="btn-view">
+
+            <span class="material-symbols-outlined">visibility</span>
+
+            Visualizar
+
+          </button>
+
+          <button class="btn-edit-card">
+
+            <span class="material-symbols-outlined">edit</span>
+
+            Editar
+
+          </button>
+
+        </div>
+
+      </article>
+
+    }
+
+    <!-- SLOT LIVRE -->
+
+    <article class="character-slot">
+
+      <div class="slot-icon">
+
+        <span class="material-symbols-outlined">
+          add
+        </span>
+
+      </div>
+
+      <span class="slot-label">
+        ÚLTIMO SLOT GRATUITO
+      </span>
+
+      <h3>Criar 3º Personagem</h3>
+
+      <p>
+        Complete seu trio de aventureiros com qualquer sistema suportado da biblioteca oficial.
+      </p>
+
+      <button class="slot-button">
+
+        Iniciar Criação
+
+      </button>
+
+    </article>
+
+  </div>
+
+</section>
+
+  <!-- ===================================================== -->
+<!-- MESTRE DO GRIMÓRIO (VERSÃO PREMIUM) -->
+<!-- ===================================================== -->
+
+<section class="planos mt-24 relative overflow-hidden rounded-[40px]">
+
+  <!-- Fundo -->
+  <div class="absolute inset-0 bg-[#040B1B]"></div>
+
+  <!-- Luz dourada -->
+  <div class="absolute -top-24 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-amber-400/10 blur-[120px]"></div>
+
+  <div class="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-orange-500/5 blur-[100px]"></div>
+
+  <!-- Runas -->
+  <div class="runa-overlay absolute inset-0"></div>
+
+  <div class="relative px-8 py-16 lg:px-16">
+
+    <!-- Cabeçalho -->
+    <div class="text-center max-w-3xl mx-auto mb-14">
+
+      <p class="uppercase tracking-[0.4rem] text-amber-400 text-sm font-bold mb-4">
+        Transparência para a Comunidade
+      </p>
+
+      <h2 class="text-5xl lg:text-6xl font-bold text-amber-50 mb-5 font-logo">
+        Evolua sua Mesa de Jogo
+      </h2>
+
+      <p class="text-zinc-300 text-lg leading-relaxed">
+        O Grimório Nexus sempre será gratuito para aventureiros.
+        O plano Mestre existe para manter o projeto vivo e oferecer ferramentas
+        avançadas para narradores criarem mundos inteiros.
+      </p>
+
+    </div>
+
+    <!-- Cards -->
+    <div class="grid gap-10 lg:grid-cols-2">
+
+      <!-- CARD GRATUITO -->
+
+      <article class="grimorio-card p-8">
+
+        <p class="uppercase text-xs tracking-[0.3rem] text-blue-300 mb-4">
+          Entrada
+        </p>
+
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-start mb-8">
+
+  <h3 class="text-3xl lg:text-4xl font-bold text-amber-50 leading-tight max-w-[12rem]">
+    Plano Aventureiro
+  </h3>
+
+  <div class="sm:text-right">
+
+    <div class="flex items-end gap-2 sm:justify-end">
+
+      <span class="text-4xl lg:text-5xl font-bold text-amber-300 whitespace-nowrap">
+        R$ 0
+      </span>
+
+    </div>
+
+  </div>
+
+</div>
+
+        <p class="text-zinc-400 mb-8">
+          Perfeito para jogadores que desejam organizar personagens e participar
+          da comunidade gratuitamente.
+        </p>
+
+        <ul class="space-y-5 text-zinc-200">
+
+          <li class="flex gap-3 items-start">
+
+            <span class="material-symbols-outlined text-blue-300">
+              group
+            </span>
+
+            Até 3 personagens em sistemas oficiais.
+
+          </li>
+
+          <li class="flex gap-3 items-start">
+
+            <span class="material-symbols-outlined text-blue-300">
+              menu_book
+            </span>
+
+            Biblioteca Arcana completa e Wikis indexadas.
+
+          </li>
+
+          <li class="flex gap-3 items-start">
+
+            <span class="material-symbols-outlined text-blue-300">
+              forum
+            </span>
+
+            Participação em fóruns e busca de mesas.
+
+          </li>
+
+          <li class="flex gap-3 items-start opacity-40">
+
+            <span class="material-symbols-outlined text-zinc-500">
+              lock
+            </span>
+
+            Homebrews e sistemas personalizados.
+
+          </li>
+
+        </ul>
+
+        <button class="btn-free mt-10">
+          Seu Plano Atual (Ativo)
+        </button>
+
+      </article>
+
+      <!-- CARD PREMIUM -->
+
+      <article class="grimorio-card-premium relative">
+
+        <!-- Badge -->
+
+        <div class="absolute top-4 left-1/2 -translate-x-1/2 z-10">
+  <span class="hidden lg:inline rounded-full bg-gradient-to-r from-amber-300 to-orange-400 px-6 py-2 text-xs font-bold uppercase tracking-wider text-black whitespace-nowrap">
+    Recomendado para Mestres
+  </span>
+
+  <span class="lg:hidden rounded-full bg-gradient-to-r from-amber-300 to-orange-400 px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-black whitespace-nowrap">
+    Premium
+  </span>
+</div>
+
+        <!-- Cabeçalho -->
+
+        <p class="uppercase text-xs tracking-[0.3rem] text-amber-300 mb-4 mt-5">
+          Completo
+        </p>
+
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-start mb-8">
+
+  <h3 class="text-3xl lg:text-4xl font-bold text-amber-50 leading-tight max-w-[12rem]">
+    Mestre do Grimório
+  </h3>
+
+  <div class="sm:text-right">
+
+    <div class="flex items-end gap-2 sm:justify-end">
+
+      <span class="text-4xl lg:text-5xl font-bold text-amber-300 whitespace-nowrap">
+        R$ 9,90
+      </span>
+
+    </div>
+
+    <span class="text-zinc-400 text-sm">
+      por mês
+    </span>
+
+  </div>
+
+</div>
+
+        <p class="text-zinc-300 mb-8">
+          Ferramentas completas para mestres criarem universos, sistemas,
+          campanhas e personagens ilimitados.
+        </p>
+
+        <ul class="space-y-5 text-zinc-100">
+
+          <li class="flex gap-3 items-start">
+
+            <span class="material-symbols-outlined text-amber-300">
+              inventory_2
+            </span>
+
+            Armazenamento ilimitado de personagens.
+
+          </li>
+
+          <li class="flex gap-3 items-start">
+
+            <span class="material-symbols-outlined text-amber-300">
+              auto_fix_high
+            </span>
+
+            Criador de Sistemas Próprios (Homebrews).
+
+          </li>
+
+          <li class="flex gap-3 items-start">
+
+            <span class="material-symbols-outlined text-amber-300">
+              cloud_upload
+            </span>
+
+            Backup em nuvem com histórico de versões.
+
+          </li>
+
+          <li class="flex gap-3 items-start">
+
+            <span class="material-symbols-outlined text-amber-300">
+              workspace_premium
+            </span>
+
+            Selo exclusivo de apoiador da comunidade.
+
+          </li>
+
+        </ul>
+
+        <button class="btn-premium mt-10">
+          Tornar-se Mestre do Grimório
+        </button>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+<app-footer class="block"></app-footer>

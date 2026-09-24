@@ -1,0 +1,163 @@
+/* ===================================================== */
+/* CARROSSEL DE SISTEMAS                                 */
+/* ===================================================== */
+
+.systems-carousel {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding: 0 .25rem .75rem;
+
+  scroll-behavior: smooth;
+  cursor: grab;
+  user-select: none;
+
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
+
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #FBBF24 #07142B;
+}
+
+.systems-carousel:active {
+  cursor: grabbing;
+}
+
+.systems-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.systems-carousel::-webkit-scrollbar-track {
+  background: #07142B;
+  border-radius: 999px;
+}
+
+.systems-carousel::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    90deg,
+    #FBBF24,
+    #F59E0B
+  );
+  border-radius: 999px;
+}
+
+.systems-carousel::-webkit-scrollbar-thumb:hover {
+  background: #FCD34D;
+}
+
+/* Botões */
+
+.system-chip{
+
+  flex:0 0 auto;
+  white-space: nowrap;
+
+  display:flex;
+  align-items:center;
+  gap:.55rem;
+
+  white-space:nowrap;
+
+  padding:.85rem 1rem;
+
+  border-radius:14px;
+
+  background:#0B1732;
+
+  border:1px solid rgba(255,255,255,.08);
+
+  color:#B8C1D1;
+
+  transition:.25s ease;
+
+  user-select: none;
+
+}
+
+.system-chip:hover{
+
+  transform:translateY(-2px);
+
+  border-color:rgba(251,191,36,.35);
+
+  background:#112043;
+
+  color:#FCD34D;
+}
+
+/* Selecionado */
+
+.system-chip-active{
+
+  background:linear-gradient(
+    90deg,
+    #FBBF24,
+    #F59E0B
+  );
+
+  color:#130900;
+
+  font-weight:700;
+
+  border-color:#FBBF24;
+
+  box-shadow:0 0 20px rgba(251,191,36,.2);
+}
+
+/* Contador */
+
+.system-chip-count{
+
+  background:rgba(0,0,0,.15);
+
+  border-radius:999px;
+
+  padding:.15rem .45rem;
+
+  font-size:.72rem;
+
+  font-weight:700;
+}
+
+/* Sombras laterais */
+
+.scroll-shadow-left,
+.scroll-shadow-right{
+
+  position:absolute;
+  top:0;
+  bottom:.4rem;
+
+  width:36px;
+
+  pointer-events:none;
+
+  z-index:2;
+}
+
+.scroll-shadow-left{
+
+  left:0;
+
+  background:linear-gradient(
+    to right,
+    #07142B,
+    transparent
+  );
+}
+
+.scroll-shadow-right{
+
+  right:0;
+
+  background:linear-gradient(
+    to left,
+    #07142B,
+    transparent
+  );
+}

@@ -1,0 +1,337 @@
+<app-header mode="forum"></app-header>
+
+<main class="forum-page min-h-screen bg-[#040B1B] pb-16 pt-20 text-zinc-100">
+
+    <section class="forum-hero">
+
+  <div class="hero-banner"></div>
+
+  <div class="hero-content">
+
+    <div class="hero-text">
+
+      <div class="hero-badges">
+
+        <span class="badge-enclave">
+          ENCLAVE DOS CRONISTAS
+        </span>
+
+        <span class="online-status">
+
+          <span class="online-dot"></span>
+
+          {{ mestresOnline() }} Mestres Online
+
+        </span>
+
+      </div>
+
+      <h1>
+        Taverna da Comunidade:
+        Fóruns de Discussão por Sistema de RPG
+      </h1>
+
+      <p>
+        Reúna-se ao redor da lareira mística. Debata combos arcanos,
+        elabore enredos épicos, troque fichas lendárias e refine seus
+        sistemas caseiros junto aos maiores conjuradores do Brasil.
+      </p>
+
+    </div>
+
+    <button class="btn-new-topic">
+
+      <span class="material-symbols-outlined">
+        add_circle
+      </span>
+
+      Novo Tópico de Discussão
+
+    </button>
+
+  </div>
+
+</section>
+
+<!-- BUSCA -->
+
+<section class="forum-search">
+
+  <div class="search-box">
+     <span class="material-symbols-outlined">
+        search
+    </span>
+
+   <input
+    type="text"
+    placeholder="Buscar por título, feitiço, monstro, clã ou mestre..."
+    [value]="pesquisa()"
+    (input)="pesquisa.set($any($event.target).value)"
+    >
+
+  @if (pesquisa() !== '') {
+
+  <button
+    class="clear-search"
+    (click)="pesquisa.set('')">
+
+    <span class="material-symbols-outlined">
+      close
+    </span>
+
+  </button>
+
+} @else {
+
+  <small>ESC para limpar</small>
+
+}
+  </div>
+
+  <!-- FILTROS DESKTOP -->
+  <div class="forum-categories-desktop">
+
+    @for(categoria of categorias; track categoria.nome){
+
+      <button
+        class="category-chip"
+        [class.category-chip-active]="categoriaSelecionada() === categoria.nome"
+        (click)="selecionarCategoria(categoria.nome)">
+
+        {{ categoria.nome }}
+        <span>{{ categoria.total }}</span>
+
+      </button>
+
+    }
+
+  </div>
+
+  <!-- CARROSSEL MOBILE / TABLET -->
+  <div class="forum-categories-mobile">
+
+    <div class="systems-carousel" #carousel>
+
+      @for(categoria of categorias; track categoria.nome){
+
+        <button
+          class="system-chip"
+          [class.system-chip-active]="categoriaSelecionada() === categoria.nome"
+          (click)="selecionarCategoria(categoria.nome)">
+
+          {{ categoria.nome }}
+
+          <span class="system-chip-count">
+            {{ categoria.total }}
+          </span>
+
+        </button>
+
+      }
+
+    </div>
+
+    <div class="carousel-scrollbar">
+      <div class="carousel-thumb"></div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- ENCLAVES ARCANOS -->
+<!-- ===================================== -->
+
+<section class="enclaves-section">
+
+  <div class="section-header">
+
+    <div>
+
+      <p class="section-subtitle">
+        ENCLAVES ARCANOS
+      </p>
+
+      <h2>Explore os Grandes Salões da Comunidade</h2>
+
+      <p>
+        Cada sistema possui seu próprio espaço para campanhas, dúvidas, builds, histórias e conteúdos da comunidade.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="enclaves-grid">
+
+    @for(enclave of enclavesFiltrados(); track enclave.nome){
+
+      <article
+        class="enclave-card"
+        [style.--enclave-color]="enclave.cor">
+
+        <div class="enclave-icon">
+
+          <span class="material-symbols-outlined">
+            {{ enclave.icone }}
+          </span>
+
+        </div>
+
+        <div class="enclave-info">
+
+          <h3>{{ enclave.nome }}</h3>
+
+          <p>{{ enclave.descricao }}</p>
+
+        </div>
+
+        <div class="enclave-stats">
+
+          <div>
+
+            <small>MEMBROS</small>
+
+            <strong>{{ enclave.membros }}</strong>
+
+          </div>
+
+          <div>
+
+            <small>POSTS</small>
+
+            <strong>{{ enclave.posts }}</strong>
+
+          </div>
+
+        </div>
+
+        <div class="enclave-last">
+
+          <small>Última Crônica</small>
+
+          <span>{{ enclave.ultimo }}</span>
+
+        </div>
+
+        <button class="btn-enclave">
+
+          Entrar no Enclave
+
+          <span class="material-symbols-outlined">
+            arrow_forward
+          </span>
+
+        </button>
+
+      </article>
+
+    }
+
+  </div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- CRÔNICAS EM ALTA -->
+<!-- ===================================== -->
+
+<section class="chronicles-section">
+
+  <div class="section-header">
+
+    <div>
+      <p class="section-subtitle">
+        CRÔNICAS EM ALTA
+      </p>
+
+      <h2>Discussões que estão movimentando a Taverna</h2>
+
+      <p>
+        Os pergaminhos mais comentados pelos mestres e aventureiros da comunidade.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="chronicles-list">
+
+    @for(cronica of cronicasFiltradas(); track cronica.id){
+
+      <article class="chronicle-card">
+
+        <div class="chronicle-top">
+
+          <img
+            [src]="cronica.avatar"
+            alt="Avatar"
+            class="chronicle-avatar">
+
+          <div class="chronicle-user">
+
+            <strong>{{ cronica.autor }}</strong>
+
+            <span>{{ cronica.cargo }}</span>
+
+          </div>
+
+          <span
+            class="chronicle-system"
+            [style.background]="cronica.cor">
+
+            {{ cronica.sistema }}
+
+          </span>
+
+        </div>
+
+        <small class="chronicle-time">
+          {{ cronica.tempo }}
+        </small>
+
+        <h3>{{ cronica.titulo }}</h3>
+
+        <p>{{ cronica.resumo }}</p>
+
+        <div class="chronicle-footer">
+
+          <div class="chronicle-metrics">
+
+            <span>
+              💬 {{ cronica.comentarios }}
+            </span>
+
+            <span>
+              ❤️ {{ cronica.curtidas }}
+            </span>
+
+            <span>
+              👁 {{ cronica.visualizacoes }}
+            </span>
+
+          </div>
+
+          <button class="btn-open-chronicle">
+
+            Entrar na Crônica
+
+            <span class="material-symbols-outlined">
+              arrow_forward
+            </span>
+
+          </button>
+
+        </div>
+
+      </article>
+
+    }
+
+  </div>
+
+</section>
+
+</main>
+
+<app-footer class="block"></app-footer>

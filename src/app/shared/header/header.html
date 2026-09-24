@@ -40,7 +40,109 @@
       </div>
 
       <!-- Avatar -->
-      <img src="assets/images/avatar-default.png" alt="Perfil" class="w-10 h-10 rounded-full border border-primary">
+     <!-- Avatar + Dropdown -->
+<div class="profile-wrapper">
+
+  <button
+    class="profile-button"
+    (click)="toggleProfileMenu()">
+
+    <img
+      src="assets/images/avatar-merlin.png"
+      alt="Perfil"
+      class="profile-avatar">
+
+  </button>
+
+  @if(profileMenuOpen()){
+
+    <div
+      class="profile-menu">
+
+      <!-- Cabeçalho -->
+      <div class="profile-header">
+
+        <img
+          src="assets/images/avatar-merlin.png"
+          alt="Avatar"
+          class="profile-avatar-large">
+
+        <div>
+
+          <strong>Merlin Ravens</strong>
+
+          <span>@merlinrpg</span>
+
+          <small>Mestre Patrono</small>
+
+        </div>
+
+      </div>
+
+      <div class="profile-divider"></div>
+
+      <a
+        routerLink="/perfil"
+        (click)="closeProfileMenu()"
+        class="profile-item">
+
+        <span class="material-symbols-outlined">account_circle</span>
+
+        Meu Perfil
+
+      </a>
+
+      <a
+        routerLink="/perfil"
+        fragment="oficina"
+        (click)="closeProfileMenu()"
+        class="profile-item">
+
+        <span class="material-symbols-outlined">palette</span>
+
+        Oficina Arcana
+
+      </a>
+
+      <a
+        routerLink="/biblioteca"
+        (click)="closeProfileMenu()"
+        class="profile-item">
+
+        <span class="material-symbols-outlined">menu_book</span>
+
+        Minha Biblioteca
+
+      </a>
+
+      <a
+        routerLink="/configuracoes"
+        (click)="closeProfileMenu()"
+        class="profile-item">
+
+        <span class="material-symbols-outlined">settings</span>
+
+        Configurações
+
+      </a>
+
+      <div class="profile-divider"></div>
+
+      <button
+        class="profile-item logout"
+        (click)="logout()">
+
+        <span class="material-symbols-outlined">logout</span>
+
+        Sair da Conta
+
+      </button>
+
+    </div>
+
+  }
+
+</div>
 
       <!-- Botão Mobile -->
       <button
@@ -56,6 +158,15 @@
     </div>
   </div>
 </header>
+
+@if(profileMenuOpen()){
+
+<div
+  class="profile-overlay"
+  (click)="closeProfileMenu()">
+</div>
+
+}
 
 @if(menuOpen()){
 

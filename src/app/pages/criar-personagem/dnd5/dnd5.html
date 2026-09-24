@@ -1,0 +1,212 @@
+<app-header mode="character"></app-header>
+
+<main class="dnd-page">
+
+  <!-- Breadcrumb -->
+
+  <section class="breadcrumb">
+
+    <span>Início</span>
+
+    <span>›</span>
+
+    <span>Biblioteca</span>
+
+    <span>›</span>
+
+    <span>D&D 5ª Edição</span>
+
+    <span>›</span>
+
+    <strong>Criar Personagem</strong>
+
+  </section>
+
+  <!-- HERO -->
+
+  <section
+    class="system-hero"
+    [style.--banner]="'linear-gradient(rgba(3,8,20,.45), rgba(3,8,20,.85)), url(' + sistema().banner + ')'">
+
+    <div class="hero-background"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-banner"></div>
+
+    <div class="hero-info-wrapper">
+
+      <div class="hero-left">
+
+        <div class="hero-tags">
+
+          <span class="tag fantasy">
+            {{ sistema().categoria }}
+          </span>
+
+          <span class="tag official">
+            {{ sistema().selo }}
+          </span>
+
+        </div>
+
+        <h1 class="system-title">{{ sistema().nome }}</h1>
+
+        <p>{{ sistema().descricao }}</p>
+
+        <div class="hero-stats">
+
+          <div class="stat-box">
+
+            <small>DADO PADRÃO</small>
+
+            <strong>d20</strong>
+
+          </div>
+
+          <div class="stat-box">
+
+            <small>ATRIBUTOS</small>
+
+            <strong>6 Principais</strong>
+
+          </div>
+
+          <div class="stat-box">
+
+            <small>PERSONAGENS ATIVOS</small>
+
+            <strong>14.8k Membros</strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Lateral -->
+
+      <div class="hero-right">
+
+        <small>AUTORIA & LICENÇA</small>
+
+        <strong>{{ sistema().autor }}</strong>
+
+        <span>{{ sistema().licenca }}</span>
+
+        <div class="difficulty">
+
+          Complexidade:
+          <b>{{ sistema().dificuldade }}</b>
+
+        </div>
+
+        <button class="btn-wiki">
+
+          Acessar Wiki Fandom D&D
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+ <section class="identity-section">
+
+  <div class="section-title-row">
+
+    <div class="step-number">1</div>
+
+    <div>
+      <h2>Identidade do Aventureiro</h2>
+      <p>Dados básicos do personagem</p>
+    </div>
+
+    <span class="required-tag">OBRIGATÓRIO</span>
+
+  </div>
+
+  <div class="identity-grid">
+
+    <div class="field field-full">
+      <label>Nome do Personagem</label>
+      <input type="text"
+             [(ngModel)]="nomePersonagem">
+    </div>
+
+    <div class="field">
+      <label>Pronomes</label>
+      <input type="text"
+             [(ngModel)]="pronomes">
+    </div>
+
+    <div class="field">
+      <label>Raça Principal</label>
+
+      <select [(ngModel)]="raca">
+        <option *ngFor="let r of racas">{{r}}</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Subraça</label>
+
+      <select [(ngModel)]="subraca">
+        <option *ngFor="let s of subracas">{{s}}</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Classe Primária</label>
+
+      <select [(ngModel)]="classe">
+        <option *ngFor="let c of classes">{{c}}</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Subclasse</label>
+
+      <select [(ngModel)]="subclasse">
+        <option *ngFor="let s of subclasses">{{s}}</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Nível do Herói</label>
+
+      <select [(ngModel)]="nivel">
+        <option *ngFor="let n of niveis">{{n}}</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Bônus de Proficiência</label>
+      <input [value]="bonusProficiencia()"
+             disabled>
+    </div>
+
+    <div class="field field-full">
+      <label>Antecedente (Histórico)</label>
+
+      <select [(ngModel)]="antecedente">
+        <option *ngFor="let a of antecedentes">{{a}}</option>
+      </select>
+    </div>
+
+    <div class="field field-full">
+      <label>Tendência Moral</label>
+
+      <select [(ngModel)]="tendencia">
+        <option *ngFor="let t of tendencias">{{t}}</option>
+      </select>
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<app-footer></app-footer>
