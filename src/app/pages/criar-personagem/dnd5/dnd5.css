@@ -269,25 +269,24 @@
   color:#FBBF24;
 }
 
-.btn-wiki{
-  margin-top:1rem;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:.6rem;
-  padding:1rem;
-  border:none;
-  border-radius:16px;
-  cursor:pointer;
-  background:linear-gradient(90deg,#FBBF24,#F59E0B);
-  color:#111827;
-  font-weight:700;
-  transition:.25s;
+.btn-primary{
+    background:#ffc174;
+    color:#050b1e;
+
+    padding:14px 28px;
+
+    border:none;
+    border-radius:12px;
+
+    font-weight:700;
+    cursor:pointer;
+
+    transition:.25s;
 }
 
-.btn-wiki:hover{
-  transform:translateY(-2px);
-  box-shadow:0 10px 24px rgba(251,191,36,.3);
+.btn-primary:hover{
+    transform:translateY(-2px);
+    background:#ffb656;
 }
 
 .hero-banner{
@@ -315,157 +314,1268 @@
   background-repeat: no-repeat;
 }
 
-/* ========================================= */
-/* IDENTIDADE DO AVENTUREIRO */
-/* ========================================= */
+/* =========================================================
+   LAYOUT
+   ========================================================= */
 
-.identity-section{
-  margin-top:2rem;
+.ficha-container {
+  width: min(1280px, 100%);
 
-  padding:2rem;
+  margin: 24px auto 0;
 
-  background:#081325;
+  display: grid;
 
-  border:1px solid rgba(255,255,255,.05);
+  grid-template-columns:
+    minmax(0, 2.1fr)
+    minmax(300px, .85fr);
 
-  border-radius:28px;
+  gap: 24px;
+
+  align-items: start;
 }
 
-/* Cabeçalho */
 
-.section-title-row{
-
-  display:flex;
-  align-items:center;
-  gap:1rem;
-
-  margin-bottom:2rem;
+.ficha-main {
+  min-width: 0;
 }
 
-.step-number{
 
-  width:46px;
-  height:46px;
+.ficha-sidebar {
+  display: flex;
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  flex-direction: column;
 
-  background:linear-gradient(180deg,#FBBF24,#F59E0B);
+  gap: 22px;
 
-  border-radius:16px;
+  position: sticky;
 
-  color:#111827;
-  font-weight:800;
-  font-size:1.2rem;
+  top: 105px;
 }
 
-.section-title-row h2{
 
-  margin:0;
+/* =========================================================
+   CARDS
+   ========================================================= */
 
-  font-family:"Cinzel", serif;
-  font-size:2rem;
+.ficha-card,
+.sidebar-card,
+.ficha-actions {
+  background: #111A2E;
 
-  color:white;
+  border: 1px solid
+    rgba(255,255,255,.045);
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 12px 35px
+    rgba(0,0,0,.18);
 }
 
-.section-title-row p{
 
-  margin-top:.2rem;
+.ficha-card {
+  padding: 28px;
 
-  color:#94A3B8;
-  font-size:.9rem;
+  margin-bottom: 24px;
 }
 
-.required-tag{
 
-  margin-left:auto;
-
-  padding:.45rem .8rem;
-
-  border-radius:999px;
-
-  background:#7F1D1D;
-  border:1px solid rgba(248,113,113,.35);
-
-  color:#FCA5A5;
-
-  font-size:.72rem;
-  font-weight:700;
+.sidebar-card {
+  padding: 22px;
 }
 
-/* Grid */
 
-.identity-grid{
+/* =========================================================
+   CABEÇALHOS
+   ========================================================= */
 
-  display:grid;
+.ficha-section-header {
+  display: flex;
 
-  grid-template-columns:repeat(2,1fr);
+  align-items: center;
 
-  gap:1rem 1.3rem;
+  gap: 12px;
+
+  margin-bottom: 24px;
 }
 
-.field{
 
-  display:flex;
-  flex-direction:column;
+.ficha-section-header h2 {
+  margin: 0;
+
+  font-size: 23px;
+
+  color: #F8FAFC;
 }
 
-.field-full{
-  grid-column:1 / -1;
+
+.section-number {
+  width: 32px;
+
+  height: 32px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  background: #F59E0B;
+
+  color: #111827;
+
+  font-weight: 800;
 }
 
-.field label{
 
-  margin-bottom:.55rem;
+.required-badge {
+  margin-left: auto;
 
-  color:#C8B189;
+  padding: 5px 9px;
 
-  font-size:.75rem;
-  font-weight:700;
-  letter-spacing:.08em;
+  border-radius: 4px;
 
-  text-transform:uppercase;
+  background: #DC2626;
+
+  color: white;
+
+  font-size: 10px;
+
+  font-weight: 800;
 }
+
+
+/* =========================================================
+   IDENTIDADE
+   ========================================================= */
+
+.identity-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(6, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+
+.field {
+  grid-column: span 2;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.field-large {
+  grid-column: span 3;
+}
+
+
+.field label,
+.subsection-title {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #C8B189;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: .07em;
+
+  text-transform: uppercase;
+}
+
 
 .field input,
-.field select{
+.field select,
+.field textarea {
+  width: 100%;
 
-  width:100%;
+  border: 1px solid
+    rgba(255,255,255,.035);
 
-  padding:1rem;
+  border-radius: 4px;
 
-  border-radius:14px;
+  background: #050D20;
 
-  background:#040D1F;
+  color: #F8FAFC;
 
-  border:1px solid rgba(255,255,255,.08);
+  outline: none;
 
-  color:white;
+  padding: 11px 13px;
 
-  font-size:.95rem;
+  font-size: 14px;
 
-  transition:.25s;
+  transition: .2s;
 }
+
 
 .field input:focus,
-.field select:focus{
+.field select:focus,
+.field textarea:focus {
+  border-color:
+    rgba(251,191,36,.5);
 
-  outline:none;
-
-  border-color:#FBBF24;
-
-  box-shadow:0 0 0 2px rgba(251,191,36,.15);
+  box-shadow:
+    0 0 0 2px
+    rgba(251,191,36,.06);
 }
 
-/* Campo desabilitado */
 
-.field input:disabled{
+.field select {
+  cursor: pointer;
+}
 
-  color:#FBBF24;
 
-  background:#09121F;
+.field textarea {
+  min-height: 120px;
+
+  resize: vertical;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   ATRIBUTOS DERIVADOS
+   ========================================================= */
+
+.derived-box {
+  margin-top: 22px;
+
+  padding: 16px;
+
+  border-radius: 8px;
+
+  background: #050D20;
+}
+
+
+.derived-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 16px;
+
+  color: #FBBF24;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+
+.derived-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  gap: 8px;
+}
+
+
+.derived-stat {
+  min-width: 0;
+
+  padding: 12px;
+
+  border-radius: 6px;
+
+  background: #151F35;
+
+  border: 1px solid
+    rgba(255,255,255,.025);
+}
+
+
+.stat-label {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #94A3B8;
+
+  font-size: 10px;
+}
+
+
+.derived-stat strong {
+  display: inline-block;
+
+  font-size: 22px;
+
+  color: #F8FAFC;
+}
+
+
+.derived-stat small {
+  color: #64748B;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   ARMADURA / ESCUDO
+   ========================================================= */
+
+.equipment-row {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 12px;
+
+  margin-top: 14px;
+}
+
+
+.equipment-row > div > label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #C8B189;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+
+.equipment-row select {
+  width: 100%;
+
+  padding: 12px;
+
+  border: none;
+
+  border-radius: 4px;
+
+  background: #151F35;
+
+  color: white;
+
+  outline: none;
+
+  cursor: pointer;
+}
+
+
+.shield-check {
+  align-self: end;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  min-height: 43px;
+
+  padding: 10px 14px;
+
+  background: #151F35;
+
+  border-radius: 4px;
+
+  color: #CBD5E1;
+
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+
+.shield-check input {
+  accent-color: #F59E0B;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   HISTÓRIA
+   ========================================================= */
+
+.history-field {
+  margin-top: 22px;
+
+  grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   ATRIBUTOS
+   ========================================================= */
+
+.points-badge {
+  display: inline-block;
+
+  margin-bottom: 18px;
+
+  padding: 5px 8px;
+
+  background:
+    rgba(245,158,11,.12);
+
+  color: #FBBF24;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+
+.attribute-info {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 22px;
+
+  padding: 16px;
+
+  border-radius: 6px;
+
+  background: #050D20;
+
+  color: #CBD5E1;
+
+  font-size: 14px;
+}
+
+
+.attribute-info span {
+  color: #FBBF24;
+}
+
+
+.attributes-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(6, minmax(0, 1fr));
+
+  gap: 8px;
+}
+
+
+.attribute-card {
+  padding: 14px 10px;
+
+  text-align: center;
+
+  border-radius: 7px;
+
+  background: #151F35;
+
+  border: 1px solid
+    rgba(255,255,255,.025);
+}
+
+
+.attribute-top strong {
+  display: block;
+
+  color: #FBBF24;
+
+  font-size: 12px;
+}
+
+
+.attribute-top span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #94A3B8;
+
+  font-size: 10px;
+}
+
+
+.attribute-modifier {
+  margin: 12px 0;
+
+  color: #FDBA74;
+
+  font-size: 25px;
+
+  font-weight: 800;
+}
+
+
+.attribute-value {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 5px;
+
+  padding: 4px;
+
+  border-radius: 999px;
+
+  background: #050D20;
+}
+
+
+.attribute-value button {
+  width: 24px;
+
+  height: 24px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: #CBD5E1;
+
+  cursor: pointer;
+
+  font-size: 15px;
+
+  transition: .2s;
+}
+
+
+.attribute-value button:hover:not(:disabled) {
+  background: #F59E0B;
+
+  color: #111827;
+}
+
+
+.attribute-value button:disabled {
+  opacity: .3;
+
+  cursor: not-allowed;
+}
+
+
+.attribute-value strong {
+  min-width: 28px;
+
+  color: white;
+}
+
+
+.attribute-card > small {
+  display: block;
+
+  margin-top: 10px;
+
+  color: #64748B;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   PERÍCIAS
+   ========================================================= */
+
+.skills-grid {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin-bottom: 24px;
+}
+
+
+.skill-chip {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  padding: 8px 10px;
+
+  border: none;
+
+  border-radius: 4px;
+
+  background: #151F35;
+
+  color: #94A3B8;
+
+  cursor: pointer;
+
+  font-size: 13px;
+
+  transition: .2s;
+}
+
+
+.skill-chip:hover {
+  background: #1C2943;
+}
+
+
+.skill-chip span {
+  font-size: 15px;
+}
+
+
+.skill-chip strong {
+  color: #FBBF24;
+}
+
+
+.skill-active {
+  color: #F8FAFC;
+
+  background: #17243D;
+}
+
+
+.skill-active span {
+  color: #FBBF24;
+}
+
+
+/* =========================================================
+   IDIOMAS / FERRAMENTAS
+   ========================================================= */
+
+.split-panels {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 14px;
+
+  margin-bottom: 24px;
+}
+
+
+.inventory-panel {
+  padding: 14px;
+
+  border-radius: 5px;
+
+  background: #151F35;
+}
+
+
+.tag-item {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 6px 8px;
+
+  margin-bottom: 5px;
+
+  background: #1C2943;
+
+  color: #CBD5E1;
+
+  font-size: 12px;
+}
+
+
+.tag-item button {
+  border: none;
+
+  background: none;
+
+  color: #F87171;
+
+  cursor: pointer;
+}
+
+
+.add-button {
+  border: none;
+
+  background: none;
+
+  color: #FBBF24;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   EQUIPAMENTOS
+   ========================================================= */
+
+.inventory-title {
+  margin-bottom: 10px;
+}
+
+
+.equipment-grid {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 8px;
+}
+
+
+.equipment-item {
+  display: grid;
+
+  grid-template-columns:
+    auto 1fr auto;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 12px;
+
+  border: none;
+
+  border-radius: 4px;
+
+  background: #151F35;
+
+  color: #CBD5E1;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+
+.equipment-item:hover {
+  background: #1C2943;
+}
+
+
+.equipment-item > span {
+  color: #FBBF24;
+}
+
+
+.equipment-item strong {
+  display: block;
+
+  color: #F8FAFC;
+
+  font-size: 12px;
+}
+
+
+.equipment-item small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #64748B;
+
+  font-size: 10px;
+}
+
+
+.equipment-item b {
+  color: #FBBF24;
+
+  font-size: 10px;
+}
+
+
+.equipment-active {
+  border: 1px solid
+    rgba(251,191,36,.18);
+}
+
+
+/* =========================================================
+   MAGIA
+   ========================================================= */
+
+.spell-placeholder {
+  display: flex;
+
+  gap: 15px;
+
+  padding: 20px;
+
+  border-radius: 6px;
+
+  background: #050D20;
+}
+
+
+.spell-placeholder > span {
+  color: #A855F7;
+}
+
+
+.spell-placeholder strong {
+  color: #F8FAFC;
+}
+
+
+.spell-placeholder p {
+  margin: 5px 0 0;
+
+  color: #94A3B8;
+}
+
+
+.disabled-card {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  color: #CBD5E1;
+
+  font-size: 14px;
+}
+
+
+.disabled-card span {
+  color: #FBBF24;
+
+  flex-shrink: 0;
+}
+
+
+.disabled-card p {
+  margin: 0;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar-card h2 {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin: 0 0 18px;
+
+  color: #F8FAFC;
+
+  font-size: 20px;
+}
+
+
+.sidebar-card h2 span {
+  color: #FBBF24;
+
+  font-size: 19px;
+}
+
+
+.rule-box {
+  margin-bottom: 12px;
+
+  padding: 15px;
+
+  border-radius: 5px;
+
+  background: #151F35;
+}
+
+
+.rule-box:last-child {
+  margin-bottom: 0;
+}
+
+
+.rule-box > strong {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #FBBF24;
+
+  font-size: 10px;
+}
+
+
+.rule-box p {
+  margin: 7px 0;
+
+  color: #CBD5E1;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+
+.rule-box ul {
+  margin: 10px 0 0;
+
+  padding-left: 18px;
+
+  color: #94A3B8;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+.death-counter {
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #FBBF24;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   COMPÊNDIO
+   ========================================================= */
+
+.compendium-search {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 10px;
+
+  margin-bottom: 10px;
+
+  background: #050D20;
+
+  border-radius: 5px;
+}
+
+
+.compendium-search span {
+  color: #64748B;
+}
+
+
+.compendium-search input {
+  width: 100%;
+
+  border: none;
+
+  outline: none;
+
+  background: none;
+
+  color: white;
+}
+
+
+.sidebar-card > button {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 11px;
+
+  margin-bottom: 5px;
+
+  border: none;
+
+  background: #151F35;
+
+  color: #CBD5E1;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+
+.sidebar-card > button:hover {
+  background: #1C2943;
+
+  color: #FBBF24;
+}
+
+
+/* =========================================================
+   TAVERNA
+   ========================================================= */
+
+.tavern-card h3 {
+  margin: 0 0 8px;
+
+  color: #F8FAFC;
+
+  font-size: 16px;
+}
+
+
+.tavern-card p {
+  color: #94A3B8;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+
+.tavern-card button {
+  margin-top: 8px;
+}
+
+
+/* =========================================================
+   AÇÕES
+   ========================================================= */
+
+.ficha-actions {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr 1.4fr;
+
+  gap: 12px;
+
+  padding: 18px;
+
+  margin-bottom: 30px;
+}
+
+
+.ficha-actions button {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 12px;
+
+  border: none;
+
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  font-weight: 700;
+
+  transition: .2s;
+}
+
+
+.secondary-button {
+  background: #151F35;
+
+  color: #CBD5E1;
+}
+
+
+.primary-button {
+  background: #F59E0B;
+
+  color: #111827;
+}
+
+
+.ficha-actions button:hover {
+  filter: brightness(1.08);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+  .hero-info-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+
+  .hero-right {
+    width: 100%;
+
+    padding: 0;
+  }
+
+
+  .ficha-container {
+    grid-template-columns: 1fr;
+  }
+
+
+  .ficha-sidebar {
+    position: static;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 900px) {
+
+  .identity-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .field,
+  .field-large {
+    grid-column: span 1;
+  }
+
+
+  .attributes-grid {
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+
+  .hero-banner {
+    height: 260px;
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .derived-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+
+  .equipment-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .ficha-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .dnd-page {
+    padding: 90px 12px 40px;
+  }
+
+
+  .ficha-card {
+    padding: 18px;
+  }
+
+
+  .system-title {
+    font-size: 2.1rem;
+  }
+
+
+  .hero-banner {
+    height: 220px;
+  }
+
+
+  .identity-grid,
+  .split-panels,
+  .equipment-row {
+    grid-template-columns: 1fr;
+  }
+
+
+  .derived-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+
+  .attributes-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+
+  .ficha-actions {
+    grid-template-columns: 1fr;
+  }
+
+
+  .ficha-section-header {
+    flex-wrap: wrap;
+  }
+
+
+  .required-badge {
+    margin-left: 0;
+  }
+
 }
 
 /* Responsivo */

@@ -1191,6 +1191,151 @@ body {
   }
 }
 
+/* ===================================== */
+/* CÓDIGO DE HONRA */
+/* ===================================== */
+
+.honor-section {
+  width: 100%;
+  max-width: 1180px;
+  margin: 32px auto 48px;
+  padding: 0 24px;
+}
+
+.honor-card {
+  position: relative;
+  padding: 28px 30px;
+  border: 1px solid rgba(251, 191, 36, 0.15);
+  border-radius: 12px;
+  background: #111a2e;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+/* Pequeno brilho decorativo no canto */
+
+.honor-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #fbbf24;
+}
+
+
+/* Cabeçalho */
+
+.honor-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.honor-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: 10px;
+
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+
+  color: #fbbf24;
+}
+
+.honor-icon .material-symbols-outlined {
+  font-size: 25px;
+}
+
+.honor-header .section-subtitle {
+  margin: 0 0 3px;
+}
+
+.honor-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+
+/* Introdução */
+
+.honor-intro {
+  max-width: 850px;
+  margin: 0 0 24px;
+  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* Regras */
+
+.honor-rules {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 28px;
+}
+
+.honor-rule {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.honor-rule > .material-symbols-outlined {
+  flex-shrink: 0;
+  margin-top: 2px;
+
+  font-size: 19px;
+  color: #fbbf24;
+}
+
+.honor-rule p {
+  margin: 0;
+
+  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.honor-rule strong {
+  color: #f8fafc;
+  font-weight: 700;
+}
+
+
+/* Rodapé */
+
+.honor-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 24px;
+  padding-top: 18px;
+
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
+
+  color: #94a3b8;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.honor-footer .material-symbols-outlined {
+  color: #fbbf24;
+  font-size: 18px;
+}
+
+
 
 /* =========================================================
    TABLET PEQUENO
@@ -1445,6 +1590,25 @@ body {
 
     justify-content: center;
   }
+
+  .honor-section {
+    padding: 0 16px;
+    margin-top: 24px;
+  }
+
+  .honor-card {
+    padding: 22px 20px;
+  }
+
+  .honor-rules {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .honor-header h2 {
+    font-size: 19px;
+  }
+
 }
 
 

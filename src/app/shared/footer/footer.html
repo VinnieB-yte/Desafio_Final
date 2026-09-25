@@ -27,11 +27,13 @@
           Fandom Wikis
         </a>
 
-        <a routerLink="/termos">
+        <a href="#"
+        (click)="abrirDocumento('termos'); $event.preventDefault()">
           Termos de Uso
         </a>
 
-        <a routerLink="/diretrizes">
+        <a href="#"
+        (click)="abrirDocumento('diretrizes'); $event.preventDefault()">
           Diretrizes da Comunidade
         </a>
 
@@ -53,5 +55,649 @@
     </div>
 
   </div>
+
+  @if (documentoAberto()) {
+  <div
+    class="documento-overlay"
+    (click)="fecharDocumento()">
+
+    <section
+      class="documento-card"
+      role="dialog"
+      aria-modal="true"
+      (click)="$event.stopPropagation()">
+
+      <button
+        type="button"
+        class="documento-fechar"
+        (click)="fecharDocumento()"
+        aria-label="Fechar">
+
+        <span class="material-symbols-outlined">
+          close
+        </span>
+
+      </button>
+
+      @if (documentoAberto() === 'termos') {
+
+        <div class="documento-icon">
+          <span class="material-symbols-outlined">
+            gavel
+          </span>
+        </div>
+
+        <span class="documento-eyebrow">
+          Grimório Nexus
+        </span>
+
+        <h2>Termos de Uso</h2>
+
+        <div class="documento-conteudo">
+
+          <p>
+            Ao utilizar o Grimório Nexus, você concorda com
+            estes Termos de Uso.
+          </p>
+
+          <h3>1. Aceitação dos Termos</h3>
+
+<p>
+  Ao criar uma conta ou utilizar o Grimório Nexus, você declara que leu
+  e concorda com estes Termos de Uso, com a Política de Privacidade e
+  com as Diretrizes da Comunidade.
+</p>
+
+<p>
+  Caso não concorde com alguma dessas condições, não deverá utilizar os
+  recursos da plataforma.
+</p>
+
+
+<h3>2. Sobre o Grimório Nexus</h3>
+
+<p>
+  O Grimório Nexus é uma plataforma destinada à criação, organização e
+  compartilhamento de personagens, histórias e outros conteúdos
+  relacionados ao universo da comunidade.
+</p>
+
+<p>
+  A plataforma poderá disponibilizar recursos como criação de
+  personagens, publicação de conteúdo, interação entre usuários e outras
+  funcionalidades que possam ser adicionadas futuramente.
+</p>
+
+<p>
+  Os recursos oferecidos podem ser modificados, atualizados, suspensos
+  ou descontinuados para manutenção ou evolução da plataforma.
+</p>
+
+
+<h3>3. Criação e responsabilidade pela conta</h3>
+
+<p>
+  Para utilizar determinados recursos, o usuário poderá precisar criar
+  uma conta.
+</p>
+
+<p>
+  Ao criar uma conta, o usuário se compromete a fornecer informações
+  verdadeiras e atualizadas, manter seus dados de acesso seguros, não
+  compartilhar sua senha com terceiros, não utilizar a conta de outra
+  pessoa sem autorização e comunicar qualquer uso não autorizado de sua
+  conta.
+</p>
+
+<p>
+  O usuário é responsável pelas atividades realizadas por meio de sua
+  conta.
+</p>
+
+
+<h3>4. Conteúdo criado pelos usuários</h3>
+
+<p>
+  O usuário poderá criar, publicar ou compartilhar conteúdos dentro da
+  plataforma, incluindo personagens, textos, imagens, histórias e
+  outras informações permitidas pelo Grimório Nexus.
+</p>
+
+<p>
+  O usuário permanece responsável pelo conteúdo que publicar.
+</p>
+
+<p>
+  Ao publicar conteúdo, o usuário declara que possui os direitos
+  necessários para fazê-lo e que sua publicação não viola direitos de
+  terceiros ou as regras da plataforma.
+</p>
+
+<p>
+  O Grimório Nexus não reivindica automaticamente a propriedade
+  intelectual sobre personagens e conteúdos originais criados pelos
+  usuários.
+</p>
+
+
+<h3>5. Licença para utilização do conteúdo</h3>
+
+<p>
+  Para que a plataforma possa funcionar, o usuário concede ao Grimório
+  Nexus uma licença limitada, não exclusiva e necessária para armazenar,
+  reproduzir, processar e exibir o conteúdo publicado dentro dos
+  recursos da plataforma.
+</p>
+
+<p>
+  Essa licença existe apenas na medida necessária para disponibilizar e
+  operar os serviços oferecidos pelo Grimório Nexus.
+</p>
+
+
+<h3>6. Conteúdos proibidos</h3>
+
+<p>
+  É proibido utilizar a plataforma para publicar ou compartilhar
+  conteúdos que sejam ilegais, violem direitos autorais, marcas ou
+  outros direitos de terceiros, contenham ameaças ou assédio, promovam
+  discriminação ou violência contra pessoas ou grupos, envolvam
+  exploração sexual, contenham malware ou outros códigos maliciosos,
+  tentem obter informações pessoais de outros usuários de maneira
+  indevida ou tenham como objetivo prejudicar deliberadamente a
+  plataforma ou seus usuários.
+</p>
+
+<p>
+  As regras específicas de convivência e moderação estão descritas nas
+  Diretrizes da Comunidade.
+</p>
+
+
+<h3>7. Interação entre usuários</h3>
+
+<p>
+  O Grimório Nexus pode oferecer ferramentas de interação entre seus
+  usuários.
+</p>
+
+<p>
+  Cada usuário é responsável por suas próprias interações e pelo
+  conteúdo que publica.
+</p>
+
+<p>
+  O usuário não deve utilizar essas ferramentas para perseguir,
+  ameaçar, intimidar, assediar ou prejudicar outros membros da
+  comunidade.
+</p>
+
+
+<h3>8. Moderação</h3>
+
+<p>
+  Para preservar a segurança e o funcionamento da comunidade, o
+  Grimório Nexus poderá analisar e moderar conteúdos que violem estes
+  Termos de Uso ou as Diretrizes da Comunidade.
+</p>
+
+<p>
+  Dependendo da gravidade da situação, as medidas poderão incluir
+  remoção de conteúdo, restrição temporária de determinadas
+  funcionalidades, suspensão da conta ou encerramento da conta em
+  casos graves ou recorrentes.
+</p>
+
+<p>
+  Sempre que possível, as medidas de moderação deverão considerar a
+  natureza e a gravidade da violação.
+</p>
+
+
+<h3>9. Propriedade intelectual do Grimório Nexus</h3>
+
+<p>
+  A identidade visual, o nome, a marca, o código, o layout, os elementos
+  gráficos e outros componentes próprios do Grimório Nexus pertencem aos
+  respectivos titulares de direitos.
+</p>
+
+<p>
+  O uso da plataforma não concede ao usuário qualquer direito de
+  propriedade sobre esses elementos.
+</p>
+
+
+<h3>10. Segurança</h3>
+
+<p>
+  O Grimório Nexus busca adotar medidas razoáveis para proteger as
+  informações armazenadas e manter a segurança da plataforma.
+</p>
+
+<p>
+  No entanto, nenhum serviço conectado à internet pode garantir
+  segurança absoluta.
+</p>
+
+<p>
+  O usuário também deve adotar medidas adequadas para proteger sua conta
+  e seus dispositivos.
+</p>
+
+
+<h3>11. Disponibilidade da plataforma</h3>
+
+<p>
+  O Grimório Nexus poderá ficar temporariamente indisponível em razão de
+  manutenção, atualizações, falhas técnicas, problemas de infraestrutura
+  ou circunstâncias externas que estejam fora do controle da plataforma.
+</p>
+
+<p>
+  A plataforma poderá também modificar suas funcionalidades ao longo do
+  tempo.
+</p>
+
+
+<h3>12. Encerramento da conta</h3>
+
+<p>
+  O usuário poderá solicitar o encerramento de sua conta de acordo com
+  os mecanismos disponibilizados pela plataforma.
+</p>
+
+<p>
+  O Grimório Nexus também poderá suspender ou encerrar contas que
+  violem estes Termos de Uso ou as Diretrizes da Comunidade.
+</p>
+
+<p>
+  O encerramento de uma conta poderá resultar na perda de acesso aos
+  conteúdos associados a ela, conforme as regras de armazenamento e
+  exclusão estabelecidas pela plataforma.
+</p>
+
+
+<h3>13. Privacidade</h3>
+
+<p>
+  O tratamento dos dados pessoais dos usuários é realizado de acordo com
+  a Política de Privacidade do Grimório Nexus.
+</p>
+
+<p>
+  A Política de Privacidade explica quais informações podem ser
+  coletadas, para quais finalidades podem ser utilizadas e quais
+  direitos os usuários possuem em relação aos seus dados.
+</p>
+
+
+<h3>14. Alterações destes Termos</h3>
+
+<p>
+  Estes Termos de Uso poderão ser atualizados para refletir mudanças na
+  plataforma, na legislação ou em seus procedimentos.
+</p>
+
+<p>
+  Quando houver alterações relevantes, o Grimório Nexus poderá comunicar
+  os usuários por meios apropriados.
+</p>
+
+<p>
+  A utilização continuada da plataforma após a entrada em vigor de uma
+  nova versão dos Termos poderá estar sujeita às condições atualizadas.
+</p>
+
+
+<h3>15. Legislação aplicável</h3>
+
+<p>
+  Estes Termos de Uso serão interpretados de acordo com a legislação
+  aplicável à operação do Grimório Nexus.
+</p>
+
+<p>
+  Quando aplicável, eventuais conflitos deverão ser solucionados perante
+  as autoridades e os tribunais competentes.
+</p>
+
+
+<h3>16. Contato</h3>
+
+<p>
+  Caso tenha dúvidas sobre estes Termos de Uso, o usuário poderá entrar
+  em contato com o Grimório Nexus por meio dos canais oficiais
+  disponibilizados na plataforma.
+</p>
+
+        </div>
+
+      } @else {
+
+        <div class="documento-icon">
+          <span class="material-symbols-outlined">
+            groups
+          </span>
+        </div>
+
+        <span class="documento-eyebrow">
+          Grimório Nexus
+        </span>
+
+        <h2>Diretrizes da Comunidade</h2>
+
+        <div class="documento-conteudo">
+
+          <p>
+            As Diretrizes da Comunidade estabelecem as regras
+            básicas de convivência dentro do Grimório Nexus.
+          </p>
+
+          <h3>1. Respeito entre os usuários</h3>
+
+<p>
+  O Grimório Nexus deve ser um espaço em que todos os usuários possam
+  participar, criar e interagir com segurança e respeito.
+</p>
+
+<p>
+  Trate os demais membros da comunidade com educação, mesmo quando
+  houver diferenças de opinião, interesses ou estilos de criação.
+</p>
+
+<p>
+  Não serão tolerados comportamentos destinados a humilhar, intimidar,
+  ameaçar, perseguir ou constranger outros usuários.
+</p>
+
+
+<h3>2. Assédio e comportamento abusivo</h3>
+
+<p>
+  Não é permitido utilizar a plataforma para assediar, perseguir,
+  intimidar ou ameaçar outros usuários.
+</p>
+
+<p>
+  Isso inclui comportamentos repetitivos ou direcionados que tenham como
+  objetivo causar desconforto, medo, constrangimento ou prejuízo a outra
+  pessoa.
+</p>
+
+<p>
+  Discordâncias e discussões podem ocorrer dentro da comunidade, mas
+  devem permanecer dentro dos limites do respeito e da convivência.
+</p>
+
+
+<h3>3. Discriminação e discurso de ódio</h3>
+
+<p>
+  O Grimório Nexus não permite conteúdos que promovam ódio,
+  discriminação ou hostilidade contra pessoas ou grupos.
+</p>
+
+<p>
+  Não serão tolerados ataques direcionados a características pessoais,
+  incluindo origem, nacionalidade, raça, etnia, religião, deficiência,
+  gênero ou outras características protegidas pela legislação aplicável.
+</p>
+
+
+<h3>4. Conteúdo inadequado</h3>
+
+<p>
+  Os usuários não devem publicar conteúdos ilegais ou que possam
+  representar risco significativo para outros membros da comunidade.
+</p>
+
+<p>
+  Também não é permitido utilizar a plataforma para compartilhar
+  conteúdos que promovam violência, exploração, abuso ou atividades
+  ilegais.
+</p>
+
+<p>
+  Conteúdos que possam violar direitos de terceiros também poderão ser
+  removidos.
+</p>
+
+
+<h3>5. Conteúdo sexual</h3>
+
+<p>
+  Não é permitido utilizar o Grimório Nexus para publicar ou
+  compartilhar conteúdo sexual envolvendo menores de idade.
+</p>
+
+<p>
+  Também não é permitido utilizar personagens ou recursos da plataforma
+  para promover exploração ou abuso sexual.
+</p>
+
+<p>
+  Conteúdos que violem a legislação aplicável ou as regras da plataforma
+  poderão ser removidos e, quando necessário, encaminhados às
+  autoridades competentes.
+</p>
+
+
+<h3>6. Violência e ameaças</h3>
+
+<p>
+  Ameaças contra outros usuários ou pessoas reais não são permitidas,
+  independentemente de serem realizadas publicamente ou por meio de
+  mensagens privadas.
+</p>
+
+<p>
+  Conteúdos fictícios relacionados a histórias e personagens devem ser
+  utilizados dentro dos limites estabelecidos pelas demais regras da
+  plataforma e não podem ser utilizados como forma de ameaça ou
+  intimidação contra pessoas reais.
+</p>
+
+
+<h3>7. Privacidade e informações pessoais</h3>
+
+<p>
+  Não publique informações pessoais de outras pessoas sem autorização.
+</p>
+
+<p>
+  Isso inclui informações como endereço residencial, número de telefone,
+  documentos, senhas, dados de acesso ou outras informações que possam
+  colocar alguém em risco.
+</p>
+
+<p>
+  Também não é permitido utilizar a plataforma para tentar descobrir,
+  coletar ou divulgar informações pessoais de outros usuários de maneira
+  indevida.
+</p>
+
+
+<h3>8. Fraudes e manipulação</h3>
+
+<p>
+  Não utilize o Grimório Nexus para enganar, manipular ou prejudicar
+  deliberadamente outros usuários.
+</p>
+
+<p>
+  É proibido utilizar contas falsas ou outros mecanismos para se passar
+  por outra pessoa, obter vantagens indevidas ou contornar medidas de
+  segurança e moderação da plataforma.
+</p>
+
+
+<h3>9. Spam e uso abusivo da plataforma</h3>
+
+<p>
+  Evite publicar repetidamente o mesmo conteúdo ou enviar mensagens em
+  quantidade excessiva de maneira que prejudique a experiência dos
+  demais usuários.
+</p>
+
+<p>
+  Não utilize a plataforma para distribuir publicidade não autorizada,
+  mensagens automáticas abusivas, links maliciosos ou outros conteúdos
+  destinados a gerar spam.
+</p>
+
+
+<h3>10. Segurança da plataforma</h3>
+
+<p>
+  Não tente acessar contas, sistemas ou áreas restritas sem autorização.
+</p>
+
+<p>
+  Também não é permitido distribuir códigos maliciosos, explorar
+  vulnerabilidades de segurança ou realizar ações destinadas a
+  interromper, danificar ou comprometer o funcionamento do Grimório
+  Nexus.
+</p>
+
+
+<h3>11. Direitos autorais e propriedade intelectual</h3>
+
+<p>
+  Publique somente conteúdos que você tenha autorização para utilizar ou
+  compartilhar.
+</p>
+
+<p>
+  Não utilize a plataforma para distribuir obras, imagens, personagens,
+  textos ou outros materiais protegidos por direitos autorais de terceiros
+  sem a devida autorização, quando ela for necessária.
+</p>
+
+<p>
+  Caso um conteúdo viole direitos de propriedade intelectual, ele poderá
+  ser removido de acordo com os procedimentos aplicáveis.
+</p>
+
+
+<h3>12. Criação de personagens e histórias</h3>
+
+<p>
+  O Grimório Nexus foi desenvolvido para incentivar a criatividade e a
+  criação de personagens e histórias.
+</p>
+
+<p>
+  Os usuários são livres para desenvolver seus próprios universos e
+  personagens, desde que o conteúdo publicado respeite estas Diretrizes
+  da Comunidade, os Termos de Uso e a legislação aplicável.
+</p>
+
+<p>
+  A existência de elementos fictícios, conflitos ou situações presentes
+  em uma história não significa, por si só, que o usuário esteja
+  autorizado a utilizar a plataforma para ameaçar ou prejudicar pessoas
+  reais.
+</p>
+
+
+<h3>13. Denúncias</h3>
+
+<p>
+  Caso você encontre um conteúdo ou comportamento que considere
+  contrário às Diretrizes da Comunidade, poderá utilizar os mecanismos
+  de denúncia disponibilizados pelo Grimório Nexus.
+</p>
+
+<p>
+  Ao realizar uma denúncia, forneça informações suficientes para que a
+  situação possa ser analisada adequadamente.
+</p>
+
+<p>
+  Denúncias devem ser realizadas de boa-fé e não devem ser utilizadas
+  deliberadamente para prejudicar outros usuários.
+</p>
+
+
+<h3>14. Medidas de moderação</h3>
+
+<p>
+  O Grimório Nexus poderá analisar conteúdos e comportamentos que
+  possam violar estas Diretrizes da Comunidade.
+</p>
+
+<p>
+  Dependendo da situação, poderão ser aplicadas medidas como remoção de
+  conteúdo, advertências, restrição de funcionalidades, suspensão
+  temporária ou encerramento da conta.
+</p>
+
+<p>
+  A medida aplicada poderá considerar a gravidade da situação, seu
+  contexto, o histórico de violações e outros fatores relevantes.
+</p>
+
+
+<h3>15. Reincidência</h3>
+
+<p>
+  Violações repetidas das Diretrizes da Comunidade poderão resultar em
+  medidas de moderação mais severas.
+</p>
+
+<p>
+  A tentativa de contornar uma suspensão ou outra medida de moderação
+  também poderá ser considerada uma violação destas Diretrizes.
+</p>
+
+
+<h3>16. Alterações nas Diretrizes</h3>
+
+<p>
+  Estas Diretrizes da Comunidade poderão ser atualizadas conforme o
+  Grimório Nexus evoluir, novos recursos forem adicionados ou mudanças
+  relevantes ocorrerem na legislação e nas práticas de segurança da
+  plataforma.
+</p>
+
+<p>
+  Quando houver alterações relevantes, a plataforma poderá comunicar os
+  usuários por meios apropriados.
+</p>
+
+
+<h3>17. Compromisso com a comunidade</h3>
+
+<p>
+  O Grimório Nexus busca construir uma comunidade criativa, segura e
+  acolhedora, na qual os usuários possam compartilhar suas ideias e
+  desenvolver seus personagens e histórias.
+</p>
+
+<p>
+  Ao participar da comunidade, cada usuário contribui para o ambiente
+  compartilhado. Respeitar estas Diretrizes ajuda a preservar esse
+  espaço para todos.
+</p>
+
+        </div>
+
+      }
+
+      <button
+        type="button"
+        class="documento-button"
+        (click)="fecharDocumento()">
+
+        Fechar
+
+      </button>
+
+    </section>
+
+  </div>
+}
 
 </footer>

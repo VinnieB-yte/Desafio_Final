@@ -23,6 +23,7 @@ export class Cadastro {
   mensagemErro = signal('');
   carregando = signal(false);
 
+
   constructor(private router: Router) {}
 
   togglePassword(): void {
@@ -80,4 +81,19 @@ export class Cadastro {
       this.router.navigate(['/home']);
     }, 800);
   }
+
+  documentoAberto = signal<
+    'termos' | 'privacidade' | 'diretrizes' | null
+  >(null);
+
+  abrirDocumento(
+    documento: 'termos' | 'privacidade' | 'diretrizes'
+  ): void {
+    this.documentoAberto.set(documento);
+  }
+
+  fecharDocumento(): void {
+    this.documentoAberto.set(null);
+  }
+
 }

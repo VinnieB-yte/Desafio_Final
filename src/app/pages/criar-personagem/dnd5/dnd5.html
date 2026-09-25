@@ -100,11 +100,15 @@
 
         </div>
 
-        <button class="btn-wiki">
+        <a
+        class="btn-primary"
+        [href]="systems[currentSystem()].fandom"
+        target="_blank"
+        rel="noopener noreferrer">
 
-          Acessar Wiki Fandom D&D
+        Wiki Fandom
 
-        </button>
+        </a>
 
       </div>
 
@@ -112,3 +116,1178 @@
 
   </section>
 
+
+  <!-- ================================================= -->
+  <!-- CONTAINER DA FICHA -->
+  <!-- ================================================= -->
+
+  <div class="ficha-container">
+
+
+    <!-- ================================================= -->
+    <!-- COLUNA PRINCIPAL -->
+    <!-- ================================================= -->
+
+    <section class="ficha-main">
+
+
+      <!-- ================================================= -->
+      <!-- 1. IDENTIDADE -->
+      <!-- ================================================= -->
+
+      <section class="ficha-card">
+
+
+        <div class="ficha-section-header">
+
+          <div class="section-number">
+            1
+          </div>
+
+          <h2>
+            Identidade do Aventureiro
+          </h2>
+
+          <span class="required-badge">
+            OBRIGATÓRIO
+          </span>
+
+        </div>
+
+
+        <div class="identity-grid">
+
+
+          <!-- NOME -->
+
+          <div class="field field-large">
+
+            <label>
+              NOME DO PERSONAGEM
+            </label>
+
+            <input
+              type="text"
+              [value]="nomePersonagem()"
+              (input)="
+                nomePersonagem.set(
+                  $any($event.target).value
+                )
+              "
+            >
+
+          </div>
+
+
+          <!-- PRONOMES -->
+
+          <div class="field">
+
+            <label>
+              PRONOMES DA PERSONA
+            </label>
+
+            <input
+              type="text"
+              [value]="pronomes()"
+              (input)="
+                pronomes.set(
+                  $any($event.target).value
+                )
+              "
+            >
+
+          </div>
+
+
+          <!-- RAÇA -->
+
+          <div class="field">
+
+            <label>
+              RAÇA PRINCIPAL
+            </label>
+
+            <select
+              [ngModel]="raca()"
+              (ngModelChange)="raca.set($event)"
+              name="raca"
+            >
+
+              <option>Humano</option>
+              <option>Elfo</option>
+              <option>Anão</option>
+              <option>Halfling</option>
+              <option>Draconato</option>
+              <option>Gnomo</option>
+              <option>Meio-Elfo</option>
+              <option>Meio-Orc</option>
+
+            </select>
+
+          </div>
+
+
+          <!-- SUBRAÇA -->
+
+          <div class="field field-large">
+
+            <label>
+              SUBRAÇA & TRAÇOS RACIAIS CONCEDIDOS
+            </label>
+
+            <select
+              [ngModel]="subraca()"
+              (ngModelChange)="subraca.set($event)"
+              name="subraca"
+            >
+
+              <option>
+                Humano Variante (+1 Talento, +1 Perícia)
+              </option>
+
+              <option>Alto Elfo</option>
+
+              <option>Elfo da Floresta</option>
+
+              <option>Anão da Montanha</option>
+
+              <option>Anão da Colina</option>
+
+            </select>
+
+          </div>
+
+
+          <!-- CLASSE -->
+
+          <div class="field">
+
+            <label>
+              CLASSE PRIMÁRIA
+            </label>
+
+            <select
+              [ngModel]="classe()"
+              (ngModelChange)="classe.set($event)"
+              name="classe"
+            >
+
+              <option>Guerreiro</option>
+              <option>Mago</option>
+              <option>Clérigo</option>
+              <option>Paladino</option>
+              <option>Ranger</option>
+              <option>Ladino</option>
+              <option>Bardo</option>
+              <option>Druida</option>
+
+            </select>
+
+          </div>
+
+
+          <!-- SUBCLASSE -->
+
+          <div class="field">
+
+            <label>
+              SUBCLASSE / ARQUÉTIPO
+            </label>
+
+            <select
+              [ngModel]="subclasse()"
+              (ngModelChange)="subclasse.set($event)"
+              name="subclasse"
+            >
+
+              <option>Mestre de Batalha</option>
+              <option>Campeão</option>
+              <option>Cavaleiro Arcano</option>
+              <option>Samurai</option>
+
+            </select>
+
+          </div>
+
+
+          <!-- NÍVEL -->
+
+          <div class="field">
+
+            <label>
+              NÍVEL DO HERÓI
+            </label>
+
+            <select
+              [ngModel]="nivel()"
+              (ngModelChange)="nivel.set(+$event)"
+              name="nivel"
+            >
+
+              @for (
+                nivelOpcao of [1,2,3,4,5,6,7,8,9,10];
+                track nivelOpcao
+              ) {
+
+                <option [value]="nivelOpcao">
+                  Nível {{ nivelOpcao }}
+                </option>
+
+              }
+
+            </select>
+
+          </div>
+
+
+          <!-- TENDÊNCIA -->
+
+          <div class="field">
+
+            <label>
+              TENDÊNCIA MORAL
+            </label>
+
+            <select
+              [ngModel]="tendencia()"
+              (ngModelChange)="tendencia.set($event)"
+              name="tendencia"
+            >
+
+              <option>Leal e Bom</option>
+              <option>Neutro e Bom</option>
+              <option>Caótico e Bom</option>
+              <option>Leal e Neutro</option>
+              <option>Neutro</option>
+              <option>Caótico e Neutro</option>
+              <option>Leal e Mau</option>
+              <option>Neutro e Mau</option>
+              <option>Caótico e Mau</option>
+
+            </select>
+
+          </div>
+
+
+          <!-- ANTECEDENTE -->
+
+          <div class="field field-large">
+
+            <label>
+              ANTECEDENTE
+            </label>
+
+            <select
+              [ngModel]="antecedente()"
+              (ngModelChange)="antecedente.set($event)"
+              name="antecedente"
+            >
+
+              <option>Soldado</option>
+              <option>Acólito</option>
+              <option>Criminoso</option>
+              <option>Herói do Povo</option>
+              <option>Artesão de Guilda</option>
+              <option>Sábio</option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- ATRIBUTOS DERIVADOS -->
+        <!-- ================================================= -->
+
+        <div class="derived-box">
+
+
+          <div class="derived-header">
+
+            <span class="material-symbols-outlined">
+              monitoring
+            </span>
+
+            ATRIBUTOS VITAIS E ESTATÍSTICAS DERIVADAS
+
+          </div>
+
+
+          <div class="derived-grid">
+
+
+            <div class="derived-stat">
+
+              <span class="stat-label">
+                Pontos de Vida
+              </span>
+
+              <strong>
+                {{ pontosVida() }}
+              </strong>
+
+              <small>
+                / {{ pontosVida() + 3 }} Máx.
+              </small>
+
+            </div>
+
+
+            <div class="derived-stat">
+
+              <span class="stat-label">
+                Classe de Armadura
+              </span>
+
+              <strong>
+                {{ classeArmadura() }}
+              </strong>
+
+            </div>
+
+
+            <div class="derived-stat">
+
+              <span class="stat-label">
+                Iniciativa
+              </span>
+
+              <strong>
+                {{ modificadorFormatado(
+                  atributos().destreza
+                ) }}
+              </strong>
+
+            </div>
+
+
+            <div class="derived-stat">
+
+              <span class="stat-label">
+                Dados de Vida
+              </span>
+
+              <strong>
+                {{ nivel() }}d10
+              </strong>
+
+            </div>
+
+
+            <div class="derived-stat">
+
+              <span class="stat-label">
+                Deslocamento
+              </span>
+
+              <strong>
+                {{ deslocamento() }}m
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <!-- ================================================= -->
+          <!-- ARMADURA -->
+          <!-- ================================================= -->
+
+          <div class="equipment-row">
+
+
+            <div>
+
+              <label>
+                ARMADURA EQUIPADA
+              </label>
+
+              <select
+                [ngModel]="armaduraEquipada()"
+                (ngModelChange)="
+                  armaduraEquipada.set($event)
+                "
+                name="armadura"
+              >
+
+                @for (
+                  armadura of armaduras;
+                  track armadura.nome
+                ) {
+
+                  <option [value]="armadura.nome">
+
+                    {{ armadura.nome }}
+                    ({{ armadura.descricao }})
+
+                  </option>
+
+                }
+
+              </select>
+
+            </div>
+
+
+            <!-- ESCUDO -->
+
+            <label class="shield-check">
+
+              <input
+                type="checkbox"
+                [checked]="escudoEquipado()"
+                (change)="
+                  escudoEquipado.set(
+                    $any($event.target).checked
+                  )
+                "
+              >
+
+              Empunhando Escudo (+2 CA)
+
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- HISTÓRIA -->
+        <!-- ================================================= -->
+
+        <div class="field history-field">
+
+          <label>
+            BREVE HISTÓRIA, TRAÇOS DE PERSONALIDADE & VÍNCULOS
+          </label>
+
+          <textarea
+            [value]="historia()"
+            (input)="
+              historia.set(
+                $any($event.target).value
+              )
+            "
+          ></textarea>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================================================= -->
+      <!-- 2. ATRIBUTOS -->
+      <!-- ================================================= -->
+
+      <section class="ficha-card">
+
+
+        <div class="ficha-section-header">
+
+          <div class="section-number">
+            2
+          </div>
+
+          <h2>
+            Distribuição de Atributos Fundamentais
+          </h2>
+
+        </div>
+
+
+        <div class="points-badge">
+
+          COMPRA DE PONTOS ·
+          {{ pontosDisponiveis() }}
+          PONTOS RESTANTES
+
+        </div>
+
+
+        <div class="attribute-info">
+
+          <span class="material-symbols-outlined">
+            tune
+          </span>
+
+          Clique + / - para ajustar cada atributo.
+          O modificador é atualizado automaticamente.
+
+        </div>
+
+
+        <div class="attributes-grid">
+
+
+          @for (
+            atributo of atributosLista;
+            track atributo.chave
+          ) {
+
+            <div class="attribute-card">
+
+
+              <div class="attribute-top">
+
+                <strong>
+                  {{ atributo.sigla }}
+                </strong>
+
+                <span>
+                  {{ atributo.nome }}
+                </span>
+
+              </div>
+
+
+              <div class="attribute-modifier">
+
+                {{
+                  modificadorFormatado(
+                    valorAtributo(atributo.chave)
+                  )
+                }}
+
+              </div>
+
+
+              <div class="attribute-value">
+
+
+                <button
+                  type="button"
+                  [disabled]="
+                    valorAtributo(atributo.chave) <= 8
+                  "
+                  (click)="
+                    alterarAtributo(
+                      atributo.chave,
+                      -1
+                    )
+                  "
+                >
+                  −
+                </button>
+
+
+                <strong>
+
+                  {{
+                    valorAtributo(atributo.chave)
+                  }}
+
+                </strong>
+
+
+                <button
+                  type="button"
+                  [disabled]="
+                    valorAtributo(atributo.chave) >= 15
+                    || pontosDisponiveis() <= 0
+                  "
+                  (click)="
+                    alterarAtributo(
+                      atributo.chave,
+                      1
+                    )
+                  "
+                >
+                  +
+                </button>
+
+              </div>
+
+
+              <small>
+
+                Modificador:
+
+                {{
+                  modificadorFormatado(
+                    valorAtributo(atributo.chave)
+                  )
+                }}
+
+              </small>
+
+            </div>
+
+          }
+
+        </div>
+
+      </section>
+
+
+      <!-- ================================================= -->
+      <!-- 3. PERÍCIAS E EQUIPAMENTO -->
+      <!-- ================================================= -->
+
+      <section class="ficha-card">
+
+
+        <div class="ficha-section-header">
+
+          <div class="section-number">
+            3
+          </div>
+
+          <h2>
+            Perícias & Equipamento Inicial
+          </h2>
+
+        </div>
+
+
+        <div class="subsection-title">
+
+          PERÍCIAS · CLIQUE PARA MARCAR/DESMARCAR PROFICIÊNCIA
+
+        </div>
+
+
+        <div class="skills-grid">
+
+
+          @for (
+            pericia of pericias();
+            track pericia.nome;
+            let i = $index
+          ) {
+
+            <button
+              type="button"
+              class="skill-chip"
+              [class.skill-active]="
+                pericia.selecionada
+              "
+              (click)="alternarPericia(i)"
+            >
+
+
+              <span class="material-symbols-outlined">
+
+                {{
+                  pericia.selecionada
+                    ? 'check_circle'
+                    : 'radio_button_unchecked'
+                }}
+
+              </span>
+
+
+              {{ pericia.nome }}
+
+
+              <strong>
+
+                {{
+                  modificadorFormatado(
+                    bonusPericia(pericia)
+                  )
+                }}
+
+              </strong>
+
+            </button>
+
+          }
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- IDIOMAS / FERRAMENTAS -->
+        <!-- ================================================= -->
+
+        <div class="split-panels">
+
+
+          <div class="inventory-panel">
+
+            <div class="subsection-title">
+              IDIOMAS CONHECIDOS
+            </div>
+
+
+            @for (
+              idioma of idiomas();
+              track idioma
+            ) {
+
+              <div class="tag-item">
+
+                <span>
+                  {{ idioma }}
+                </span>
+
+                <button
+                  type="button"
+                >
+                  ×
+                </button>
+
+              </div>
+
+            }
+
+
+            <button
+              class="add-button"
+              type="button"
+            >
+              + Adicionar idioma
+            </button>
+
+          </div>
+
+
+          <!-- FERRAMENTAS -->
+
+          <div class="inventory-panel">
+
+            <div class="subsection-title">
+
+              FERRAMENTAS & INSTRUMENTOS
+
+            </div>
+
+
+            <div class="tag-item">
+
+              Conjunto de Dados de Osso
+
+              <button
+                type="button"
+              >
+                ×
+              </button>
+
+            </div>
+
+
+            <div class="tag-item">
+
+              Veículos Terrestres
+
+              <button
+                type="button"
+              >
+                ×
+              </button>
+
+            </div>
+
+
+            <button
+              class="add-button"
+              type="button"
+            >
+              + Adicionar ferramenta
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- EQUIPAMENTOS -->
+        <!-- ================================================= -->
+
+        <div class="subsection-title inventory-title">
+
+          INVENTÁRIO & ARMAS EQUIPADAS
+
+        </div>
+
+
+        <div class="equipment-grid">
+
+
+          @for (
+            item of equipamentos();
+            track item.nome;
+            let i = $index
+          ) {
+
+            <button
+              type="button"
+              class="equipment-item"
+              [class.equipment-active]="
+                item.equipado
+              "
+              (click)="
+                alternarEquipamento(i)
+              "
+            >
+
+
+              <span class="material-symbols-outlined">
+                inventory_2
+              </span>
+
+
+              <div>
+
+                <strong>
+                  {{ item.nome }}
+                </strong>
+
+                <small>
+                  {{ item.descricao }}
+                </small>
+
+              </div>
+
+
+              <b>
+                {{ item.bonus }}
+              </b>
+
+            </button>
+
+          }
+
+        </div>
+
+      </section>
+
+
+      <!-- ================================================= -->
+      <!-- MAGIA -->
+      <!-- ================================================= -->
+
+      @if (classeConjuradora()) {
+
+
+        <section class="ficha-card spell-section">
+
+
+          <div class="ficha-section-header">
+
+            <div class="section-number">
+              ✦
+            </div>
+
+            <h2>
+              Grimório de Magias
+            </h2>
+
+          </div>
+
+
+          <div class="spell-placeholder">
+
+            <span class="material-symbols-outlined">
+              auto_fix_high
+            </span>
+
+
+            <div>
+
+              <strong>
+                Conjuração desbloqueada
+              </strong>
+
+              <p>
+                Este espaço poderá receber círculos de magia,
+                espaços de magia e magias conhecidas.
+              </p>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+      } @else {
+
+
+        <section class="ficha-card disabled-card">
+
+          <span class="material-symbols-outlined">
+            block
+          </span>
+
+          <p>
+            Esta combinação de classe/subclasse não possui
+            conjuração de magias. Escolha uma subclasse
+            arcana ou uma classe conjuradora para desbloquear
+            este bloco.
+          </p>
+
+        </section>
+
+      }
+
+
+      <!-- ================================================= -->
+      <!-- BOTÕES -->
+      <!-- ================================================= -->
+
+      <section class="ficha-actions">
+
+
+        <button
+          type="button"
+          class="secondary-button"
+          (click)="redefinirFicha()"
+        >
+
+          <span class="material-symbols-outlined">
+            restart_alt
+          </span>
+
+          Redefinir Ficha
+
+        </button>
+
+
+        <button
+          type="button"
+          class="secondary-button"
+        >
+
+          <span class="material-symbols-outlined">
+            download
+          </span>
+
+          Exportar Ficha
+
+        </button>
+
+
+        <button
+          type="button"
+          class="primary-button"
+        >
+
+          <span class="material-symbols-outlined">
+            bookmark
+          </span>
+
+          Salvar no Meu Perfil
+
+        </button>
+
+      </section>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- SIDEBAR -->
+    <!-- ================================================= -->
+
+    <aside class="ficha-sidebar">
+
+
+      <!-- REGRAS -->
+
+      <section class="sidebar-card">
+
+
+        <h2>
+
+          <span class="material-symbols-outlined">
+            menu_book
+          </span>
+
+          Grimório de Regras
+
+        </h2>
+
+
+        <div class="rule-box">
+
+          <strong>
+            MESTRE DE BATALHA · LVL 3
+          </strong>
+
+          <p>
+            Você possui
+            <b>4 Dados de Superioridade (d8)</b>
+            para gastar em manobras.
+          </p>
+
+          <ul>
+
+            <li>
+              <b>Ataque com Finta:</b>
+              vantagem no ataque e +d8 no dano.
+            </li>
+
+            <li>
+              <b>Golpe Desarmante:</b>
+              força o alvo a largar item.
+            </li>
+
+            <li>
+              <b>Aparar:</b>
+              reduz dano recebido.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="rule-box">
+
+          <strong>
+            TESTES DE MORTE
+          </strong>
+
+          <p>
+            Ao cair a 0 PV, role d20 no início de cada turno.
+          </p>
+
+
+          <div class="death-counter">
+
+            <span>
+              3 Sucessos
+            </span>
+
+            <span>
+              3 Falhas
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="rule-box">
+
+          <strong>
+            DESCANSO CURTO VS LONGO
+          </strong>
+
+          <p>
+            <b>Curto (1 hora):</b>
+            permite recuperar recursos durante a aventura.
+          </p>
+
+          <p>
+            <b>Longo (8 horas):</b>
+            recupera recursos e pontos de vida.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- COMPÊNDIO -->
+
+      <section class="sidebar-card">
+
+
+        <h2>
+
+          <span class="material-symbols-outlined">
+            search
+          </span>
+
+          Compêndio D&D 5e
+
+        </h2>
+
+
+        <div class="compendium-search">
+
+          <span class="material-symbols-outlined">
+            search
+          </span>
+
+          <input
+            placeholder="Buscar magias, monstros, itens..."
+          >
+
+        </div>
+
+
+        <button type="button">
+
+          Tabela de Classes e Progressão
+
+          <span>→</span>
+
+        </button>
+
+
+        <button type="button">
+
+          Lista de Magias por Círculo
+
+          <span>→</span>
+
+        </button>
+
+
+        <button type="button">
+
+          Condições de Combate
+
+          <span>→</span>
+
+        </button>
+
+      </section>
+
+
+      <!-- TAVERNA -->
+
+      <section class="sidebar-card tavern-card">
+
+
+        <h2>
+
+          <span class="material-symbols-outlined">
+            forum
+          </span>
+
+          Mesa na Taverna
+
+        </h2>
+
+
+        <h3>
+          Dúvidas sobre sua build de D&D 5e?
+        </h3>
+
+
+        <p>
+          Compartilhe ideias com
+          <strong>1.4k mestres</strong>
+          e jogadores ativos.
+        </p>
+
+
+        <button type="button">
+
+          Abrir Fórum de D&D 5e
+
+          <span class="material-symbols-outlined">
+            arrow_forward
+          </span>
+
+        </button>
+
+      </section>
+
+    </aside>
+
+  </div>
+
+</main>
+
+
+<app-footer></app-footer>

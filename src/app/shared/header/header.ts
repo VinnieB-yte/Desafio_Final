@@ -21,7 +21,7 @@ export class Header {
 
   menuItems = [
     { label: 'Início', route: '/home' },
-    { label: 'Criar Personagem', route: '/personagem' },
+    { label: 'Biblioteca', route: '/personagem' },
     { label: 'Meus Personagens', route: '/perfil' },
     { label: 'Comunidade', route: '/forum' }
   ];
@@ -47,7 +47,7 @@ export class Header {
     console.log('Logout Executado')
 
     this.closeProfileMenu();
-    this.closeMenu
+    this.closeMenu();
 
     localStorage.removeItem('usuarioLogado');
     this.router.navigate(['/login']);
